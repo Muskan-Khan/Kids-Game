@@ -5,28 +5,35 @@ class DisplayCard extends StatelessWidget {
   final Color _color;
   DisplayCard(this._cardText, this._color);
   Widget build(BuildContext context) {
+    final screen_width = MediaQuery.of(context).size.width;
+    // final screen_width = screen_size;
+    final screen_height = MediaQuery.of(context).size.height;
+
     return Card(
       elevation: 50,
       shape: RoundedRectangleBorder(
         side: BorderSide(
           color: Colors.black,
-          width: 5,
+          width: screen_width / 150,
         ),
         borderRadius: BorderRadius.circular(50),
       ),
       child: SizedBox(
-          width: 270,
-          height: 200,
+          width: screen_width / 2.2,
+          height: screen_height / 4.2,
           child: Center(
+              child: Container(
+            padding: EdgeInsets.all(10.0),
             child: Text(
               _cardText,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: 'OtomanopeeOne-Regular',
-                fontSize: 40,
+                fontSize: screen_width / 15,
                 color: Colors.white,
               ),
             ),
-          )),
+          ))),
       color: _color,
     );
   }

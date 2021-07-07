@@ -20,7 +20,8 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           Container(
-            height: 20,
+            padding: EdgeInsets.all(10.0),
+            height: 40,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -30,7 +31,8 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           Container(
-            height: 20,
+            padding: EdgeInsets.all(10.0),
+            height: 40,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
