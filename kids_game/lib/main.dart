@@ -14,6 +14,8 @@ class _CountingScreenState extends State<CountingScreen> {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         InstanceOfGame(
           numberOfCards: 3,
@@ -33,13 +35,12 @@ class InstanceOfGame extends StatelessWidget {
     Image.asset('assets/images/owls.png')
   ];
 
-  // imgs.add();
   final int numberOfCards;
   InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         for (var i = 0; i < numberOfCards; i++)
           Alpha(
