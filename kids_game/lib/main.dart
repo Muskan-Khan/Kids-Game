@@ -84,32 +84,35 @@ class Options extends StatelessWidget {
                 )),
             child: Center(
               child: Container(
-                height: 80,
-                width: 80,
-                color: Colors.blue,
-                padding: EdgeInsets.all(2.0),
-                child: Text(
-                  (rightAnswer * 2).toString(),
-                  textDirection: TextDirection.ltr,
-                  textAlign: TextAlign.center,
-                ),
-              ),
+                  height: 80,
+                  width: 80,
+                  color: Colors.blue,
+                  padding: EdgeInsets.all(2.0),
+                  child: Center(
+                    child: Text(
+                      (rightAnswer * 2).toString(),
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 50),
+                    ),
+                  )),
             ),
           ),
           Card(
             child: Center(
-              child: Container(
-                height: 80,
-                width: 80,
-                color: Colors.blue,
-                padding: EdgeInsets.all(2.0),
-                child: Text(
-                  (rightAnswer + 2).toString(),
-                  textDirection: TextDirection.ltr,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
+                child: Container(
+                    height: 80,
+                    width: 80,
+                    color: Colors.blue,
+                    padding: EdgeInsets.all(2.0),
+                    child: Center(
+                      child: Text(
+                        (rightAnswer + 2).toString(),
+                        textDirection: TextDirection.ltr,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 50),
+                      ),
+                    ))),
           ),
           Card(
             shape: RoundedRectangleBorder(
@@ -119,31 +122,35 @@ class Options extends StatelessWidget {
                 )),
             child: Center(
               child: Container(
-                height: 80,
-                width: 80,
-                color: Colors.blue,
-                padding: EdgeInsets.all(2.0),
-                child: Text(
-                  (rightAnswer * 1.5).toString(),
-                  textDirection: TextDirection.ltr,
-                  textAlign: TextAlign.center,
-                ),
-              ),
+                  height: 80,
+                  width: 80,
+                  color: Colors.blue,
+                  padding: EdgeInsets.all(2.0),
+                  child: Center(
+                    child: Text(
+                      (rightAnswer * 1.5).toString(),
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 50),
+                    ),
+                  )),
             ),
           ),
           Card(
             child: Center(
               child: Container(
-                height: 80,
-                width: 80,
-                color: Colors.blue,
-                padding: EdgeInsets.all(2.0),
-                child: Text(
-                  (rightAnswer + 3).toString(),
-                  textDirection: TextDirection.ltr,
-                  textAlign: TextAlign.center,
-                ),
-              ),
+                  height: 80,
+                  width: 80,
+                  color: Colors.blue,
+                  padding: EdgeInsets.all(2.0),
+                  child: Center(
+                    child: Text(
+                      (rightAnswer + 3).toString(),
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 50),
+                    ),
+                  )),
             ),
           ),
         ],
