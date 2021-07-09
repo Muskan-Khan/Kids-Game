@@ -19,10 +19,7 @@ class _CountingScreenState extends State<CountingScreen> {
       mainAxisSize: MainAxisSize.max,
       children: [
         InstanceOfGame(
-          numberOfCards: 3,
-        ),
-        InstanceOfGame(
-          numberOfCards: 2,
+          numberOfCards: 6,
         ),
       ],
     );
@@ -72,7 +69,7 @@ class Options extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         textDirection: TextDirection.ltr,
@@ -108,6 +105,41 @@ class Options extends StatelessWidget {
                 padding: EdgeInsets.all(2.0),
                 child: Text(
                   (rightAnswer + 2).toString(),
+                  textDirection: TextDirection.ltr,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(0),
+                side: BorderSide(
+                  color: Colors.black,
+                )),
+            child: Center(
+              child: Container(
+                height: 80,
+                width: 80,
+                color: Colors.blue,
+                padding: EdgeInsets.all(2.0),
+                child: Text(
+                  (rightAnswer * 1.5).toString(),
+                  textDirection: TextDirection.ltr,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+          ),
+          Card(
+            child: Center(
+              child: Container(
+                height: 80,
+                width: 80,
+                color: Colors.blue,
+                padding: EdgeInsets.all(2.0),
+                child: Text(
+                  (rightAnswer + 3).toString(),
                   textDirection: TextDirection.ltr,
                   textAlign: TextAlign.center,
                 ),
