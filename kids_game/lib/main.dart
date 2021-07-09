@@ -15,10 +15,16 @@ class _CountingScreenState extends State<CountingScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: InstanceOfGame(
-        numberOfCards: 3,
-      ),
-    );
+        child: Column(
+      children: [
+        InstanceOfGame(
+          numberOfCards: 3,
+        ),
+        InstanceOfGame(
+          numberOfCards: 2,
+        ),
+      ],
+    ));
   }
 }
 
@@ -35,6 +41,7 @@ class InstanceOfGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         for (var i = 0; i < numberOfCards; i++)
           Alpha(
