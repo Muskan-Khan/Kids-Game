@@ -10,7 +10,6 @@ void main() => runApp(CountingScreen());
 //   _CountingScreenState createState() => _CountingScreenState();
 // }
 
-<<<<<<< HEAD
 // class _CountingScreenState extends State<CountingScreen> {
 //   @override
 //   Widget build(BuildContext context) {
@@ -27,17 +26,6 @@ void main() => runApp(CountingScreen());
 //     );
 //   }
 // }
-=======
-class _CountingScreenState extends State<CountingScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: InstanceOfGame(
-      numberOfCards: 4,
-    ));
-  }
-}
->>>>>>> e8ccb278f73eaf2549654f2f279626f5d20b74b6
 
 // class InstanceOfGame extends StatelessWidget {
 //   final List<Image> imgs = [
@@ -46,7 +34,6 @@ class _CountingScreenState extends State<CountingScreen> {
 //     Image.asset('assets/images/owls.png')
 //   ];
 
-<<<<<<< HEAD
 //   final int numberOfCards;
 //   InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
 //   @override
@@ -66,33 +53,6 @@ class _CountingScreenState extends State<CountingScreen> {
 //     );
 //   }
 // }
-=======
-  final int numberOfCards;
-  InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      verticalDirection: VerticalDirection.down,
-      textDirection: TextDirection.ltr,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        for (var i = 0; i < numberOfCards; i++)
-          Flexible(
-            flex: 1,
-            child: Container(
-              padding: EdgeInsets.only(left: 100 * (i % 2).toDouble()),
-              child: Alpha(
-                img: imgs[1],
-              ),
-            ),
-          ),
-        Options(4)
-      ],
-    );
-  }
-}
->>>>>>> e8ccb278f73eaf2549654f2f279626f5d20b74b6
 
 // class Alpha extends StatelessWidget {
 //   final Image img;
@@ -103,7 +63,6 @@ class _CountingScreenState extends State<CountingScreen> {
 //   }
 // }
 
-<<<<<<< HEAD
 // class Options extends StatelessWidget {
 //   final int _rightAnswer;
 //   Options(this._rightAnswer);
@@ -193,104 +152,6 @@ class _CountingScreenState extends State<CountingScreen> {
 //     );
 //   }
 // }
-=======
-class Options extends StatelessWidget {
-  final int rightAnswer;
-  Options(this.rightAnswer);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        textDirection: TextDirection.ltr,
-        verticalDirection: VerticalDirection.down,
-        textBaseline: TextBaseline.alphabetic,
-        children: [
-          Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(0),
-                side: BorderSide(
-                  color: Colors.black,
-                )),
-            child: Center(
-              child: Container(
-                  height: 80,
-                  width: 80,
-                  color: Colors.blue,
-                  padding: EdgeInsets.all(2.0),
-                  child: Center(
-                    child: Text(
-                      (rightAnswer * 2).toString(),
-                      textDirection: TextDirection.ltr,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 50),
-                    ),
-                  )),
-            ),
-          ),
-          Card(
-            child: Center(
-                child: Container(
-                    height: 80,
-                    width: 80,
-                    color: Colors.blue,
-                    padding: EdgeInsets.all(2.0),
-                    child: Center(
-                      child: Text(
-                        (rightAnswer + 2).toString(),
-                        textDirection: TextDirection.ltr,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 50),
-                      ),
-                    ))),
-          ),
-          Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(0),
-                side: BorderSide(
-                  color: Colors.black,
-                )),
-            child: Center(
-              child: Container(
-                  height: 80,
-                  width: 80,
-                  color: Colors.blue,
-                  padding: EdgeInsets.all(2.0),
-                  child: Center(
-                    child: Text(
-                      (rightAnswer * 1.5).toString(),
-                      textDirection: TextDirection.ltr,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 50),
-                    ),
-                  )),
-            ),
-          ),
-          Card(
-            child: Center(
-              child: Container(
-                  height: 80,
-                  width: 80,
-                  color: Colors.blue,
-                  padding: EdgeInsets.all(2.0),
-                  child: Center(
-                    child: Text(
-                      (rightAnswer + 3).toString(),
-                      textDirection: TextDirection.ltr,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 50),
-                    ),
-                  )),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
->>>>>>> e8ccb278f73eaf2549654f2f279626f5d20b74b6
 
 
 
