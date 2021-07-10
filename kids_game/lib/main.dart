@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import 'dart:async';
+=======
+import 'package:flutter/material.dart';
+import 'Games/counting_screen.dart';
+>>>>>>> 2a8937bc3b61096a06aaf0899e637c97a93fd101
 
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+<<<<<<< HEAD
 void main() => runApp(VideoPlayerApp());
 
 class VideoPlayerApp extends StatelessWidget {
@@ -18,14 +24,76 @@ class VideoPlayerApp extends StatelessWidget {
 class VideoPlayerScreen extends StatefulWidget {
   VideoPlayerScreen({Key? key}) : super(key: key);
 
+=======
+// class CountingScreen extends StatefulWidget {
+//   const CountingScreen({Key? key}) : super(key: key);
+
+//   @override
+//   _CountingScreenState createState() => _CountingScreenState();
+// }
+
+<<<<<<< HEAD
+// class _CountingScreenState extends State<CountingScreen> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       textDirection: TextDirection.ltr,
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       mainAxisAlignment: MainAxisAlignment.center,
+//       mainAxisSize: MainAxisSize.max,
+//       children: [
+//         InstanceOfGame(
+//           numberOfCards: 6,
+//         ),
+//       ],
+//     );
+//   }
+// }
+=======
+class _CountingScreenState extends State<CountingScreen> {
+>>>>>>> 2a8937bc3b61096a06aaf0899e637c97a93fd101
   @override
   _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
 }
+>>>>>>> e8ccb278f73eaf2549654f2f279626f5d20b74b6
 
+<<<<<<< HEAD
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
 
+=======
+// class InstanceOfGame extends StatelessWidget {
+//   final List<Image> imgs = [
+//     Image.asset('assets/images/bird.png'),
+//     Image.asset('assets/images/monkey.png'),
+//     Image.asset('assets/images/owls.png')
+//   ];
+
+<<<<<<< HEAD
+//   final int numberOfCards;
+//   InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       mainAxisSize: MainAxisSize.max,
+//       verticalDirection: VerticalDirection.down,
+//       textDirection: TextDirection.ltr,
+//       mainAxisAlignment: MainAxisAlignment.start,
+//       children: <Widget>[
+//         for (var i = 0; i < numberOfCards; i++)
+//           Alpha(
+//             img: imgs[1],
+//           ),
+//         Options(numberOfCards),
+//       ],
+//     );
+//   }
+// }
+=======
+  final int numberOfCards;
+  InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
+>>>>>>> 2a8937bc3b61096a06aaf0899e637c97a93fd101
   @override
   void initState() {
     // Create and store the VideoPlayerController. The VideoPlayerController
@@ -43,6 +111,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
     super.initState();
   }
+<<<<<<< HEAD
 
   @override
   void dispose() {
@@ -52,6 +121,114 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     super.dispose();
   }
 
+=======
+}
+>>>>>>> e8ccb278f73eaf2549654f2f279626f5d20b74b6
+
+// class Alpha extends StatelessWidget {
+//   final Image img;
+//   Alpha({Key? key, required this.img}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return img;
+//   }
+// }
+
+<<<<<<< HEAD
+// class Options extends StatelessWidget {
+//   final int _rightAnswer;
+//   Options(this._rightAnswer);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         mainAxisSize: MainAxisSize.max,
+//         crossAxisAlignment: CrossAxisAlignment.center,
+//         textDirection: TextDirection.ltr,
+//         verticalDirection: VerticalDirection.down,
+//         textBaseline: TextBaseline.alphabetic,
+//         children: [
+//           Card(
+//             shape: RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.circular(0),
+//                 side: BorderSide(
+//                   color: Colors.black,
+//                 )),
+//             child: Center(
+//               child: Container(
+//                 height: 80,
+//                 width: 80,
+//                 color: Colors.blue,
+//                 padding: EdgeInsets.all(2.0),
+//                 child: Text(
+//                   (_rightAnswer * 2).toString(),
+//                   textDirection: TextDirection.ltr,
+//                   textAlign: TextAlign.center,
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Card(
+//             child: Center(
+//               child: Container(
+//                 height: 80,
+//                 width: 80,
+//                 color: Colors.blue,
+//                 padding: EdgeInsets.all(2.0),
+//                 child: Text(
+//                   (_rightAnswer + 2).toString(),
+//                   textDirection: TextDirection.ltr,
+//                   textAlign: TextAlign.center,
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Card(
+//             shape: RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.circular(0),
+//                 side: BorderSide(
+//                   color: Colors.black,
+//                 )),
+//             child: Center(
+//               child: Container(
+//                 height: 80,
+//                 width: 80,
+//                 color: Colors.blue,
+//                 padding: EdgeInsets.all(2.0),
+//                 child: Text(
+//                   (_rightAnswer * 1.5).toString(),
+//                   textDirection: TextDirection.ltr,
+//                   textAlign: TextAlign.center,
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Card(
+//             child: Center(
+//               child: Container(
+//                 height: 80,
+//                 width: 80,
+//                 color: Colors.blue,
+//                 padding: EdgeInsets.all(2.0),
+//                 child: Text(
+//                   (_rightAnswer + 3).toString(),
+//                   textDirection: TextDirection.ltr,
+//                   textAlign: TextAlign.center,
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+=======
+class Options extends StatelessWidget {
+  final int rightAnswer;
+  Options(this.rightAnswer);
+>>>>>>> 2a8937bc3b61096a06aaf0899e637c97a93fd101
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,6 +277,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     );
   }
 }
+>>>>>>> e8ccb278f73eaf2549654f2f279626f5d20b74b6
 
 
 
