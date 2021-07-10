@@ -12,17 +12,10 @@ class CountingScreen extends StatefulWidget {
 class _CountingScreenState extends State<CountingScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      textDirection: TextDirection.ltr,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        InstanceOfGame(
-          numberOfCards: 6,
-        ),
-      ],
-    );
+    return Center(
+        child: InstanceOfGame(
+      numberOfCards: 4,
+    ));
   }
 }
 
@@ -41,13 +34,19 @@ class InstanceOfGame extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       verticalDirection: VerticalDirection.down,
       textDirection: TextDirection.ltr,
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         for (var i = 0; i < numberOfCards; i++)
-          Alpha(
-            img: imgs[1],
+          Flexible(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.only(left: 100 * (i % 2).toDouble()),
+              child: Alpha(
+                img: imgs[1],
+              ),
+            ),
           ),
-        Options(numberOfCards),
+        Options(4)
       ],
     );
   }
