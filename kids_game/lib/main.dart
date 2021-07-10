@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'Games/counting_screen.dart';
 
-void main() => runApp(CountingScreen());
+void main() => runApp(MaterialApp(
+      home: CountingScreen(),
+    ));
+
 
 // class CountingScreen extends StatefulWidget {
 //   const CountingScreen({Key? key}) : super(key: key);
@@ -13,17 +16,10 @@ void main() => runApp(CountingScreen());
 // class _CountingScreenState extends State<CountingScreen> {
 //   @override
 //   Widget build(BuildContext context) {
-//     return Column(
-//       textDirection: TextDirection.ltr,
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       mainAxisAlignment: MainAxisAlignment.center,
-//       mainAxisSize: MainAxisSize.max,
-//       children: [
-//         InstanceOfGame(
-//           numberOfCards: 6,
-//         ),
-//       ],
-//     );
+//     return Center(
+//         child: InstanceOfGame(
+//       numberOfCards: 4,
+//     ));
 //   }
 // }
 
@@ -42,13 +38,19 @@ void main() => runApp(CountingScreen());
 //       mainAxisSize: MainAxisSize.max,
 //       verticalDirection: VerticalDirection.down,
 //       textDirection: TextDirection.ltr,
-//       mainAxisAlignment: MainAxisAlignment.start,
+//       mainAxisAlignment: MainAxisAlignment.center,
 //       children: <Widget>[
 //         for (var i = 0; i < numberOfCards; i++)
-//           Alpha(
-//             img: imgs[1],
+//           Flexible(
+//             flex: 1,
+//             child: Container(
+//               padding: EdgeInsets.only(left: 100 * (i % 2).toDouble()),
+//               child: Alpha(
+//                 img: imgs[1],
+//               ),
+//             ),
 //           ),
-//         Options(numberOfCards),
+//         Options(4)
 //       ],
 //     );
 //   }
@@ -64,8 +66,8 @@ void main() => runApp(CountingScreen());
 // }
 
 // class Options extends StatelessWidget {
-//   final int _rightAnswer;
-//   Options(this._rightAnswer);
+//   final int rightAnswer;
+//   Options(this.rightAnswer);
 //   @override
 //   Widget build(BuildContext context) {
 //     return Container(
@@ -85,32 +87,35 @@ void main() => runApp(CountingScreen());
 //                 )),
 //             child: Center(
 //               child: Container(
-//                 height: 80,
-//                 width: 80,
-//                 color: Colors.blue,
-//                 padding: EdgeInsets.all(2.0),
-//                 child: Text(
-//                   (_rightAnswer * 2).toString(),
-//                   textDirection: TextDirection.ltr,
-//                   textAlign: TextAlign.center,
-//                 ),
-//               ),
+//                   height: 80,
+//                   width: 80,
+//                   color: Colors.blue,
+//                   padding: EdgeInsets.all(2.0),
+//                   child: Center(
+//                     child: Text(
+//                       (rightAnswer * 2).toString(),
+//                       textDirection: TextDirection.ltr,
+//                       textAlign: TextAlign.center,
+//                       style: TextStyle(fontSize: 50),
+//                     ),
+//                   )),
 //             ),
 //           ),
 //           Card(
 //             child: Center(
-//               child: Container(
-//                 height: 80,
-//                 width: 80,
-//                 color: Colors.blue,
-//                 padding: EdgeInsets.all(2.0),
-//                 child: Text(
-//                   (_rightAnswer + 2).toString(),
-//                   textDirection: TextDirection.ltr,
-//                   textAlign: TextAlign.center,
-//                 ),
-//               ),
-//             ),
+//                 child: Container(
+//                     height: 80,
+//                     width: 80,
+//                     color: Colors.blue,
+//                     padding: EdgeInsets.all(2.0),
+//                     child: Center(
+//                       child: Text(
+//                         (rightAnswer + 2).toString(),
+//                         textDirection: TextDirection.ltr,
+//                         textAlign: TextAlign.center,
+//                         style: TextStyle(fontSize: 50),
+//                       ),
+//                     ))),
 //           ),
 //           Card(
 //             shape: RoundedRectangleBorder(
@@ -120,31 +125,35 @@ void main() => runApp(CountingScreen());
 //                 )),
 //             child: Center(
 //               child: Container(
-//                 height: 80,
-//                 width: 80,
-//                 color: Colors.blue,
-//                 padding: EdgeInsets.all(2.0),
-//                 child: Text(
-//                   (_rightAnswer * 1.5).toString(),
-//                   textDirection: TextDirection.ltr,
-//                   textAlign: TextAlign.center,
-//                 ),
-//               ),
+//                   height: 80,
+//                   width: 80,
+//                   color: Colors.blue,
+//                   padding: EdgeInsets.all(2.0),
+//                   child: Center(
+//                     child: Text(
+//                       (rightAnswer * 1.5).toString(),
+//                       textDirection: TextDirection.ltr,
+//                       textAlign: TextAlign.center,
+//                       style: TextStyle(fontSize: 50),
+//                     ),
+//                   )),
 //             ),
 //           ),
 //           Card(
 //             child: Center(
 //               child: Container(
-//                 height: 80,
-//                 width: 80,
-//                 color: Colors.blue,
-//                 padding: EdgeInsets.all(2.0),
-//                 child: Text(
-//                   (_rightAnswer + 3).toString(),
-//                   textDirection: TextDirection.ltr,
-//                   textAlign: TextAlign.center,
-//                 ),
-//               ),
+//                   height: 80,
+//                   width: 80,
+//                   color: Colors.blue,
+//                   padding: EdgeInsets.all(2.0),
+//                   child: Center(
+//                     child: Text(
+//                       (rightAnswer + 3).toString(),
+//                       textDirection: TextDirection.ltr,
+//                       textAlign: TextAlign.center,
+//                       style: TextStyle(fontSize: 50),
+//                     ),
+//                   )),
 //             ),
 //           ),
 //         ],
