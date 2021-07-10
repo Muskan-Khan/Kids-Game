@@ -10,16 +10,18 @@ class CountingScreen extends StatefulWidget {
 class _CountingScreenState extends State<CountingScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      textDirection: TextDirection.ltr,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        InstanceOfGame(
-          numberOfCards: 6,
-        ),
-      ],
+    return MaterialApp(
+      home: Column(
+        textDirection: TextDirection.ltr,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          InstanceOfGame(
+            numberOfCards: 6,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -160,28 +162,31 @@ class DisplayOptionCard extends StatelessWidget {
   final int _rightAnswer;
   DisplayOptionCard(this._optionValue, this._rightAnswer);
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Card(
-        child: Center(
-          child: Container(
-            height: 80,
-            width: 80,
-            color: Colors.blue,
-            padding: EdgeInsets.all(2.0),
-            child: Text(
-              (_optionValue).toString(),
-              textDirection: TextDirection.ltr,
-              textAlign: TextAlign.center,
+    return Material(
+      color: Colors.red[800],
+      child: InkWell(
+        child: Card(
+          child: Center(
+            child: Container(
+              height: 80,
+              width: 80,
+              color: Colors.blue,
+              padding: EdgeInsets.all(2.0),
+              child: Text(
+                (_optionValue).toString(),
+                textDirection: TextDirection.ltr,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
         ),
+        onTap: () {
+          if (_optionValue == _rightAnswer) {
+            print('Excellent!');
+          } else
+            print('Try again.');
+        },
       ),
-      onTap: () {
-        if (_optionValue == _rightAnswer) {
-          print('Excellent!');
-        } else
-          print('Try again.');
-      },
     );
   }
 }

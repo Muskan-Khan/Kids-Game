@@ -27,7 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  just_audio: ^0.7.4
+  # just_audio: ^0.7.4
 
   flutter:
     sdk: flutter
