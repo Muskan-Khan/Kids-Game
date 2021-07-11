@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-// import 'HomeScreen/background.dart';
 import 'HomeScreen/home_screen.dart';
-import 'HomeScreen/foreground.dart';
 
 // void main() {
 //   runApp(Background());
 // }
 void main() {
-  runApp(MaterialApp(home: HomeScreen()));
+  runApp(MaterialApp(
+    home: HomeScreen(),
+    debugShowCheckedModeBanner: false,
+  ));
 }
 
 // void main() {

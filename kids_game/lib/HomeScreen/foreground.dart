@@ -22,13 +22,13 @@ class Foreground extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.only(left: 100.0, bottom: 70.0),
+          padding: EdgeInsets.only(left: 100.0, bottom: 60.0),
           child: Image.asset(
             'assets/images/owls.png',
           ),
         ),
         Container(
-          padding: EdgeInsets.only(left: 200.0, bottom: 70.0),
+          padding: EdgeInsets.only(left: 200.0, bottom: 50.0),
           child: Image.asset(
             'assets/images/bird.png',
           ),

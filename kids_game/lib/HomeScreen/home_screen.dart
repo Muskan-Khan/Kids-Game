@@ -42,8 +42,8 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    DisplayCard('Puzzle', Color(0xffD1245C)),
-                    DisplayCard('Counting', Color(0xff06BFDC)),
+                    DisplayCard('Colors', Color(0xffD1245C)),
+                    DisplayCard('A4Apple', Color(0xff06BFDC)),
                   ],
                 ),
               ],
