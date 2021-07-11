@@ -1,6 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-import './counting_screen.dart';
+
 
 import 'package:kids_game/HomeScreen/background.dart';
 
@@ -26,7 +27,14 @@ class _CountingScreenState extends State<CountingScreen> {
         children: [
           Stack(children: [
             Background(),
-            Text('Game Name'),
+            Container(
+            padding: EdgeInsets.only(left:5), 
+            child:
+            Text('Game Name',
+            style: TextStyle(
+            fontWeight:FontWeight.bold,
+            fontSize: 15))
+            
           ]),
           InstanceOfGame(
             numberOfCards: (min + random.nextInt(max - min)),
