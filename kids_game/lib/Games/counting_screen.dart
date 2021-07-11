@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
+import './counting_screen.dart';
+
+import 'package:kids_game/HomeScreen/background.dart';
 
 class CountingScreen extends StatefulWidget {
   const CountingScreen({Key? key}) : super(key: key);
@@ -8,6 +12,9 @@ class CountingScreen extends StatefulWidget {
 }
 
 class _CountingScreenState extends State<CountingScreen> {
+  var random = new Random();
+  final min = 2;
+  final max = 20;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,9 +24,21 @@ class _CountingScreenState extends State<CountingScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
+          Stack(children: [
+            Background(),
+            Text('Game Name'),
+          ]),
           InstanceOfGame(
-            numberOfCards: 6,
+            numberOfCards: (min + random.nextInt(max - min)),
           ),
+          Container(
+            padding: EdgeInsets.only(
+              top: 80.0,
+            ),
+            child: Image.asset(
+              'assets/images/vippng.com-grass-background-png-92811.png',
+            ),
+          )
         ],
       ),
     );
@@ -163,6 +182,7 @@ class DisplayOptionCard extends StatelessWidget {
   DisplayOptionCard(this._optionValue, this._rightAnswer);
   Widget build(BuildContext context) {
     return Material(
+      type: MaterialType.transparency,
       color: Colors.red[800],
       child: InkWell(
         child: Card(
@@ -170,12 +190,21 @@ class DisplayOptionCard extends StatelessWidget {
             child: Container(
               height: 80,
               width: 80,
-              color: Colors.blue,
+              //color: Colors.white,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black, width: 1),
+                //borderRadius: BorderRadius.all(4),
+              ),
               padding: EdgeInsets.all(2.0),
               child: Text(
                 (_optionValue).toString(),
                 textDirection: TextDirection.ltr,
                 textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12.0,
+                  fontWeight:FontWeight.bold
+                
               ),
             ),
           ),

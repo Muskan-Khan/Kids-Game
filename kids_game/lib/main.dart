@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'HomeScreen/home_screen.dart';
+//import 'HomeScreen/home_screen.dart';
+import 'Games/counting_screen.dart';
 
 // void main() {
 //   runApp(Background());
 // }
 void main() {
   runApp(MaterialApp(
-    home: HomeScreen(),
+    home: CountingScreen(),
     debugShowCheckedModeBanner: false,
   ));
 }
