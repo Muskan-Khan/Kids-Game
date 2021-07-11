@@ -19,8 +19,8 @@ class DisplayCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(50),
       ),
       child: SizedBox(
-          width: screen_width / 2.2,
-          height: screen_height / 4.2,
+          width: screen_width / 2.8,
+          height: screen_height / 5.9,
           child: Center(
               child: Container(
             padding: EdgeInsets.all(10.0),

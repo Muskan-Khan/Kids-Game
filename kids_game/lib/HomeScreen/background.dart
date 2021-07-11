@@ -14,19 +14,16 @@ void main() {
 class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Background',
-      home: Scaffold(
-        appBar: AppBar(
-          // title: Text('Background'),
-          toolbarHeight: 1,
-        ),
-        body: ClipPath(
-          clipper: ShadeOfCloud(),
-          child: Container(
-            color: Color(0xff14C7DF),
-            // height: 118.0,
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        // title: Text('Background'),
+        toolbarHeight: 1,
+      ),
+      body: ClipPath(
+        clipper: ShadeOfCloud(),
+        child: Container(
+          color: Color(0xff14C7DF),
+          // height: 118.0,
         ),
       ),
     );
