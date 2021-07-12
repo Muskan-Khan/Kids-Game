@@ -20,19 +20,31 @@ class _CountingScreenState extends State<CountingScreen> {
     return Center(
       child: Stack(children: [
         GameBackground(),
-        const Material(
-          type: MaterialType.transparency,
-          child: Text(
-            "Game Name",
-            style: TextStyle(
-              fontFamily: 'OtomanopeeOne-Regular',
-              fontSize: 50,
+        Container(
+          margin: EdgeInsets.only(top: 30.0),
+          child: const Material(
+            type: MaterialType.transparency,
+            child: Text(
+              "Game Name",
+              style: TextStyle(
+                fontFamily: 'OtomanopeeOne-Regular',
+                fontSize: 50,
+              ),
             ),
           ),
         ),
-        // InstanceOfGame(
-        //   numberOfCards: (min + random.nextInt(max - min)),
-        // ),
+        Center(
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.56,
+            width: MediaQuery.of(context).size.width,
+            child: Expanded(
+              flex: 1,
+              child: InstanceOfGame(
+                numberOfCards: (min + random.nextInt(max - min)),
+              ),
+            ),
+          ),
+        )
       ]),
     );
   }
@@ -50,23 +62,29 @@ class InstanceOfGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: Column(
-      mainAxisSize: MainAxisSize.max,
-      verticalDirection: VerticalDirection.down,
-      textDirection: TextDirection.ltr,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
-        for (var i = 0; i < numberOfCards; i++)
-          Container(
-            height: MediaQuery.of(context).size.height / 2 * numberOfCards,
-            width: MediaQuery.of(context).size.height / 2 * numberOfCards,
-            child: Alpha(
-              img: imgs[1],
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        verticalDirection: VerticalDirection.down,
+        textDirection: TextDirection.ltr,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          for (var i = 0; i < numberOfCards; i++)
+            Container(
+              height: MediaQuery.of(context).size.height / (3 * numberOfCards),
+              width: MediaQuery.of(context).size.height / (3 * numberOfCards),
+              margin: EdgeInsets.only(
+                  left: numberOfCards *
+                      10 *
+                      ((i * numberOfCards) % 7).toDouble()),
+              child: Alpha(
+                img: imgs[1],
+              ),
             ),
-          ),
-        Options(numberOfCards),
-      ],
-    ));
+          Options(numberOfCards),
+        ],
+      ),
+    );
   }
 }
 

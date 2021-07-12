@@ -13,7 +13,8 @@ class GameBackground extends StatelessWidget {
           ),
           child: Image.asset(
             'assets/images/vippng.com-grass-background-png-92811.png',
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width * 1.5,
+            fit: BoxFit.fitWidth,
           ),
         )
       ],
