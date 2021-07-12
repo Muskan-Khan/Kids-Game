@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:kids_game/HomeScreen/background.dart';
+import 'package:kids_game/Games/games_background.dart';
 
 class CountingScreen extends StatefulWidget {
   const CountingScreen({Key? key}) : super(key: key);
@@ -11,36 +12,27 @@ class CountingScreen extends StatefulWidget {
 }
 
 class _CountingScreenState extends State<CountingScreen> {
-  var random = new Random();
+  var random = Random();
   final min = 2;
   final max = 20;
   @override
   Widget build(BuildContext context) {
     return Center(
-      child:
-          // Column(
-          //   textDirection: TextDirection.ltr,
-          //   crossAxisAlignment: CrossAxisAlignment.start,
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   mainAxisSize: MainAxisSize.max,
-          //   children: [
-          Stack(children: [
-        Background(),
-        Container(
-            padding: EdgeInsets.only(left: 5),
-            child: Text('Game Name',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))),
-        InstanceOfGame(
-          numberOfCards: (min + random.nextInt(max - min)),
+      child: Stack(children: [
+        GameBackground(),
+        const Material(
+          type: MaterialType.transparency,
+          child: Text(
+            "Game Name",
+            style: TextStyle(
+              fontFamily: 'OtomanopeeOne-Regular',
+              fontSize: 50,
+            ),
+          ),
         ),
-        Container(
-          padding: EdgeInsets.only(
-            top: 80.0,
-          ),
-          child: Image.asset(
-            'assets/images/vippng.com-grass-background-png-92811.png',
-          ),
-        )
+        // InstanceOfGame(
+        //   numberOfCards: (min + random.nextInt(max - min)),
+        // ),
       ]),
     );
   }
@@ -57,25 +49,30 @@ class InstanceOfGame extends StatelessWidget {
   InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Expanded(
+        child: Column(
       mainAxisSize: MainAxisSize.max,
       verticalDirection: VerticalDirection.down,
       textDirection: TextDirection.ltr,
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         for (var i = 0; i < numberOfCards; i++)
-          Alpha(
-            img: imgs[1],
+          Container(
+            height: MediaQuery.of(context).size.height / 2 * numberOfCards,
+            width: MediaQuery.of(context).size.height / 2 * numberOfCards,
+            child: Alpha(
+              img: imgs[1],
+            ),
           ),
         Options(numberOfCards),
       ],
-    );
+    ));
   }
 }
 
 class Alpha extends StatelessWidget {
   final Image img;
-  Alpha({Key? key, required this.img}) : super(key: key);
+  const Alpha({Key? key, required this.img}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return img;
@@ -100,77 +97,6 @@ class Options extends StatelessWidget {
           DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
           DisplayOptionCard(_rightAnswer, _rightAnswer),
           DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
-
-          // Card(
-          //   shape: RoundedRectangleBorder(
-          //       borderRadius: BorderRadius.circular(0),
-          //       side: BorderSide(
-          //         color: Colors.black,
-          //       )),
-          //   child: Center(
-          //     child: Container(
-          //       height: 80,
-          //       width: 80,
-          //       color: Colors.blue,
-          //       padding: EdgeInsets.all(2.0),
-          //       child: Text(
-          //         (_rightAnswer * 2).toString(),
-          //         textDirection: TextDirection.ltr,
-          //         textAlign: TextAlign.center,
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // Card(
-          //   child: Center(
-          //     child: Container(
-          //       height: 80,
-          //       width: 80,
-          //       color: Colors.blue,
-          //       padding: EdgeInsets.all(2.0),
-          //       child: Text(
-          //         (_rightAnswer + 2).toString(),
-          //         textDirection: TextDirection.ltr,
-          //         textAlign: TextAlign.center,
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // Card(
-          //   shape: RoundedRectangleBorder(
-          //       borderRadius: BorderRadius.circular(0),
-          //       side: BorderSide(
-          //         color: Colors.black,
-          //       )),
-          //   child: Center(
-          //     child: Container(
-          //       height: 80,
-          //       width: 80,
-          //       color: Colors.blue,
-          //       padding: EdgeInsets.all(2.0),
-          //       child: Text(
-          //         (_rightAnswer * 1.5).toString(),
-          //         textDirection: TextDirection.ltr,
-          //         textAlign: TextAlign.center,
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // Card(
-          //   child: Center(
-          //     child: Container(
-          //       height: 80,
-          //       width: 80,
-          //       color: Colors.blue,
-          //       padding: EdgeInsets.all(2.0),
-          //       child: Text(
-          //         (_rightAnswer + 3).toString(),
-          //         textDirection: TextDirection.ltr,
-          //         textAlign: TextAlign.center,
-          //       ),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );
