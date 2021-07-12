@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
+import 'package:kids_game/HomeScreen/background.dart';
 
 class CountingScreen extends StatefulWidget {
   const CountingScreen({Key? key}) : super(key: key);
@@ -8,20 +11,37 @@ class CountingScreen extends StatefulWidget {
 }
 
 class _CountingScreenState extends State<CountingScreen> {
+  var random = new Random();
+  final min = 2;
+  final max = 20;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Column(
-        textDirection: TextDirection.ltr,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          InstanceOfGame(
-            numberOfCards: 6,
+    return Center(
+      child:
+          // Column(
+          //   textDirection: TextDirection.ltr,
+          //   crossAxisAlignment: CrossAxisAlignment.start,
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   mainAxisSize: MainAxisSize.max,
+          //   children: [
+          Stack(children: [
+        Background(),
+        Container(
+            padding: EdgeInsets.only(left: 5),
+            child: Text('Game Name',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))),
+        InstanceOfGame(
+          numberOfCards: (min + random.nextInt(max - min)),
+        ),
+        Container(
+          padding: EdgeInsets.only(
+            top: 80.0,
           ),
-        ],
-      ),
+          child: Image.asset(
+            'assets/images/vippng.com-grass-background-png-92811.png',
+          ),
+        )
+      ]),
     );
   }
 }
@@ -163,30 +183,37 @@ class DisplayOptionCard extends StatelessWidget {
   DisplayOptionCard(this._optionValue, this._rightAnswer);
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.red[800],
-      child: InkWell(
-        child: Card(
-          child: Center(
-            child: Container(
-              height: 80,
-              width: 80,
-              color: Colors.blue,
-              padding: EdgeInsets.all(2.0),
-              child: Text(
-                (_optionValue).toString(),
-                textDirection: TextDirection.ltr,
-                textAlign: TextAlign.center,
+        type: MaterialType.transparency,
+        color: Colors.red[800],
+        child: InkWell(
+            child: Card(
+              child: Center(
+                child: Container(
+                  height: 80,
+                  width: 80,
+                  //color: Colors.white,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 1),
+                    //borderRadius: BorderRadius.all(4),
+                  ),
+                  padding: EdgeInsets.all(2.0),
+                  child: Text(
+                    (_optionValue).toString(),
+                    textDirection: TextDirection.ltr,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        onTap: () {
-          if (_optionValue == _rightAnswer) {
-            print('Excellent!');
-          } else
-            print('Try again.');
-        },
-      ),
-    );
+            onTap: () {
+              if (_optionValue == _rightAnswer) {
+                print('Excellent!');
+              } else
+                print('Try again.');
+            }));
   }
 }

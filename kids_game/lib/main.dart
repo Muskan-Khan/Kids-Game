@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'HomeScreen/home_screen.dart';
+// import 'HomeScreen/background.dart';
 import 'Games/counting_screen.dart';
 
 // void main() {
-//   runApp(Background());
+//   runApp(MaterialApp(home: Background()));
 // }
-// void main() {
-//   runApp(MaterialApp(
-//     home: HomeScreen(),
-//     debugShowCheckedModeBanner: false,
-//   ));
-// }
+void main() {
+  runApp(MaterialApp(
+    home: CountingScreen(),
+    debugShowCheckedModeBanner: false,
+  ));
+}
 
 // void main() {
 //   runApp(MaterialApp(home: Foreground()));
 // }
-void main() => runApp(MaterialApp(
-      home: CountingScreen(),
-    ));
+// void main() => runApp(MaterialApp(
+//       home: CountingScreen(),
+//     ));
 
 
 // // // // // // class CountingScreen extends StatefulWidget {

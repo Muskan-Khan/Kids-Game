@@ -8,6 +8,6 @@ void main() {
   var rand1 = Random(now.millisecondsSinceEpoch);
   for (int i = 1; i < 10; i++) {
     int r = min + rand.nextInt(max - min);
-    print("${nextInter(min, max)}");
+    //print("${nextInter(min, max)}");
   }
 }
