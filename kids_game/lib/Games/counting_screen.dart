@@ -69,16 +69,50 @@ class InstanceOfGame extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          for (var i = 0; i < numberOfCards; i++)
-            Container(
-              height: MediaQuery.of(context).size.height / (3 * numberOfCards),
-              width: MediaQuery.of(context).size.height / (3 * numberOfCards),
-              margin: EdgeInsets.only(
-                  left: numberOfCards *
-                      10 *
-                      ((i * numberOfCards) % 7).toDouble()),
-              child: Alpha(
-                img: imgs[1],
+          for (var i = 0; i < numberOfCards; i += 2)
+            Expanded(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    height:
+                        MediaQuery.of(context).size.height / (numberOfCards),
+                    width: MediaQuery.of(context).size.height / (numberOfCards),
+                    margin: EdgeInsets.only(
+                        left: (numberOfCards *
+                                10 *
+                                ((i * numberOfCards) % 7).toDouble()) %
+                            MediaQuery.of(context).size.width *
+                            0.8),
+                    child: ImagesToBeRendered(
+                      img: imgs[1],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          for (var i = 1; i < numberOfCards; i += 2)
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    height:
+                        MediaQuery.of(context).size.height / (numberOfCards),
+                    width: MediaQuery.of(context).size.height / (numberOfCards),
+                    margin: EdgeInsets.only(
+                        left: (numberOfCards *
+                                10 *
+                                ((i * numberOfCards) % 7).toDouble()) %
+                            MediaQuery.of(context).size.width *
+                            0.8),
+                    child: ImagesToBeRendered(
+                      img: imgs[1],
+                    ),
+                  ),
+                ],
               ),
             ),
           Options(numberOfCards),
@@ -88,9 +122,9 @@ class InstanceOfGame extends StatelessWidget {
   }
 }
 
-class Alpha extends StatelessWidget {
+class ImagesToBeRendered extends StatelessWidget {
   final Image img;
-  const Alpha({Key? key, required this.img}) : super(key: key);
+  const ImagesToBeRendered({Key? key, required this.img}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return img;
