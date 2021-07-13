@@ -199,6 +199,7 @@ class ImagesToBeRendered extends StatelessWidget {
 
 class Options extends StatelessWidget {
   final int _rightAnswer;
+  // final int _flag;
   Options(this._rightAnswer);
   @override
   Widget build(BuildContext context) {
@@ -211,10 +212,37 @@ class Options extends StatelessWidget {
       verticalDirection: VerticalDirection.down,
       textBaseline: TextBaseline.alphabetic,
       children: [
-        DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
-        DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
-        DisplayOptionCard(_rightAnswer, _rightAnswer),
-        DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+        if (_rightAnswer % 2 == 0) ...[
+          DisplayOptionCard(_rightAnswer, _rightAnswer),
+          DisplayOptionCard(_rightAnswer + 1, _rightAnswer),
+          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+        ] else if (_rightAnswer % 3 == 0) ...[
+          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer, _rightAnswer),
+          DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
+          DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+        ] else if (_rightAnswer % 5 == 0) ...[
+          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer + 5, _rightAnswer),
+          DisplayOptionCard(_rightAnswer, _rightAnswer),
+          DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+        ] else ...[
+          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer, _rightAnswer),
+        ]
+        // if (_rightAnswer % 2 == 0)
+        //   DisplayOptionCard(_rightAnswer, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+        // if (_rightAnswer % 3 == 0)
+        //   DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
       ],
     ));
   }
@@ -256,6 +284,7 @@ class DisplayOptionCard extends StatelessWidget {
             ),
             onTap: () {
               if (_optionValue == _rightAnswer) {
+                InstanceOfGame(numberOfCards: _rightAnswer);
                 print('Excellent!');
               } else
                 print('Try again.');
