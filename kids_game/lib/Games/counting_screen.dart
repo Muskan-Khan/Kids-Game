@@ -49,6 +49,19 @@ class _CountingScreenState extends State<CountingScreen> {
 
 class InstanceOfGame extends StatelessWidget {
   final List<Image> imgs = [
+    Image.asset('assets/images/apple.png'),
+    Image.asset('assets/images/boyOnly.png'),
+    Image.asset('assets/images/kinnows.png'),
+    Image.asset('assets/images/durian.png'),
+    Image.asset('assets/images/car.png'),
+    Image.asset('assets/images/bird.png'),
+    Image.asset('assets/images/monkey.png'),
+    Image.asset('assets/images/owls.png'),
+    Image.asset('assets/images/apple.png'),
+    Image.asset('assets/images/boyOnly.png'),
+    Image.asset('assets/images/kinnows.png'),
+    Image.asset('assets/images/durian.png'),
+    Image.asset('assets/images/car.png'),
     Image.asset('assets/images/bird.png'),
     Image.asset('assets/images/monkey.png'),
     Image.asset('assets/images/owls.png')
@@ -90,7 +103,7 @@ class InstanceOfGame extends StatelessWidget {
                                   (numberOfCards),
                               margin: EdgeInsets.only(bottom: i.toDouble()),
                               child: ImagesToBeRendered(
-                                img: imgs[1],
+                                img: imgs[numberOfCards],
                               ),
                             ),
                           )
@@ -124,7 +137,7 @@ class InstanceOfGame extends StatelessWidget {
                                 left: i.toDouble(),
                               ),
                               child: ImagesToBeRendered(
-                                img: imgs[1],
+                                img: imgs[numberOfCards],
                               ),
                             ),
                           )
@@ -157,7 +170,7 @@ class InstanceOfGame extends StatelessWidget {
                               margin: EdgeInsets.only(
                                   left: i.toDouble(), bottom: i.toDouble()),
                               child: ImagesToBeRendered(
-                                img: imgs[1],
+                                img: imgs[numberOfCards],
                               ),
                             ),
                           )

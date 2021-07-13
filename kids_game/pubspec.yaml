@@ -67,6 +67,11 @@ flutter:
     - assets/images/owls.png
     - assets/images/monkey.png
     - assets/images/carAndCart.png
+    - assets/images/apple.png
+    - assets/images/boyOnly.png
+    - assets/images/kinnows.png
+    - assets/images/durian.png
+    - assets/images/car.png
     - assets/audios/excellent.mp3
     - assets/audios/tryagain.mp3
     - assets/audios/great.mp3
