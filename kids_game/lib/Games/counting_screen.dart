@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'package:kids_game/HomeScreen/background.dart';
+// import 'package:kids_game/HomeScreen/background.dart';
 import 'package:kids_game/Games/games_background.dart';
 
 class CountingScreen extends StatefulWidget {
@@ -13,8 +13,8 @@ class CountingScreen extends StatefulWidget {
 
 class _CountingScreenState extends State<CountingScreen> {
   var random = Random();
-  final min = 2;
-  final max = 20;
+  final min = 1;
+  final max = 15;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -61,64 +61,113 @@ class InstanceOfGame extends StatelessWidget {
   InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        verticalDirection: VerticalDirection.down,
-        textDirection: TextDirection.ltr,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          for (var i = 0; i < numberOfCards; i += 2)
+    return Column(children: [
+      Expanded(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          verticalDirection: VerticalDirection.down,
+          textDirection: TextDirection.ltr,
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
             Expanded(
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                verticalDirection: VerticalDirection.down,
+                textDirection: TextDirection.ltr,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height:
-                        MediaQuery.of(context).size.height / (numberOfCards),
-                    width: MediaQuery.of(context).size.height / (numberOfCards),
-                    margin: EdgeInsets.only(
-                        left: (numberOfCards *
-                                10 *
-                                ((i * numberOfCards) % 7).toDouble()) %
-                            MediaQuery.of(context).size.width *
-                            0.8),
-                    child: ImagesToBeRendered(
-                      img: imgs[1],
+                  for (var i = 0; i < numberOfCards; i += 3)
+                    Expanded(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: MediaQuery.of(context).size.height /
+                                (numberOfCards),
+                            width: MediaQuery.of(context).size.height /
+                                (numberOfCards),
+                            margin: EdgeInsets.only(bottom: i.toDouble()),
+                            child: ImagesToBeRendered(
+                              img: imgs[1],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),
-          for (var i = 1; i < numberOfCards; i += 2)
             Expanded(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.max,
+                verticalDirection: VerticalDirection.down,
+                textDirection: TextDirection.ltr,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height:
-                        MediaQuery.of(context).size.height / (numberOfCards),
-                    width: MediaQuery.of(context).size.height / (numberOfCards),
-                    margin: EdgeInsets.only(
-                        left: (numberOfCards *
-                                10 *
-                                ((i * numberOfCards) % 7).toDouble()) %
-                            MediaQuery.of(context).size.width *
-                            0.8),
-                    child: ImagesToBeRendered(
-                      img: imgs[1],
+                  for (var i = 1; i < numberOfCards; i += 3)
+                    Expanded(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: MediaQuery.of(context).size.height /
+                                (numberOfCards),
+                            width: MediaQuery.of(context).size.height /
+                                (numberOfCards),
+                            margin: EdgeInsets.only(
+                              left: i.toDouble(),
+                            ),
+                            child: ImagesToBeRendered(
+                              img: imgs[1],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),
-          Options(numberOfCards),
-        ],
+            Expanded(
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                verticalDirection: VerticalDirection.down,
+                textDirection: TextDirection.ltr,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (var i = 2; i < numberOfCards; i += 3)
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Container(
+                            height: MediaQuery.of(context).size.height /
+                                (numberOfCards),
+                            width: MediaQuery.of(context).size.height /
+                                (numberOfCards),
+                            margin: EdgeInsets.only(
+                                left: i.toDouble(), bottom: i.toDouble()),
+                            child: ImagesToBeRendered(
+                              img: imgs[1],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-    );
+      Options(numberOfCards),
+    ]);
   }
 }
 
@@ -162,27 +211,29 @@ class DisplayOptionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
         type: MaterialType.transparency,
-        color: Colors.red[800],
         child: InkWell(
             child: Card(
               child: Center(
                 child: Container(
                   height: 80,
                   width: 80,
-                  //color: Colors.white,
+                  // color: Colors.white,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 1),
-                    //borderRadius: BorderRadius.all(4),
+                    border: Border.all(color: Colors.black, width: 2),
+                    // borderRadius: BorderRadius.all()
+                    // circular(50.0),
                   ),
                   padding: EdgeInsets.all(2.0),
-                  child: Text(
-                    (_optionValue).toString(),
-                    textDirection: TextDirection.ltr,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.bold),
+                  child: Center(
+                    child: Text(
+                      (_optionValue).toString(),
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: MediaQuery.of(context).size.height / 20,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),
