@@ -37,11 +37,8 @@ class _CountingScreenState extends State<CountingScreen> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.56,
             width: MediaQuery.of(context).size.width,
-            child: Expanded(
-              flex: 1,
-              child: InstanceOfGame(
-                numberOfCards: (min + random.nextInt(max - min)),
-              ),
+            child: InstanceOfGame(
+              numberOfCards: (min + random.nextInt(max - min)),
             ),
           ),
         )
@@ -63,6 +60,7 @@ class InstanceOfGame extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       Expanded(
+        flex: 1,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           verticalDirection: VerticalDirection.down,
@@ -84,16 +82,18 @@ class InstanceOfGame extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Container(
-                            height: MediaQuery.of(context).size.height /
-                                (numberOfCards),
-                            width: MediaQuery.of(context).size.height /
-                                (numberOfCards),
-                            margin: EdgeInsets.only(bottom: i.toDouble()),
-                            child: ImagesToBeRendered(
-                              img: imgs[1],
+                          Expanded(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height /
+                                  (numberOfCards),
+                              width: MediaQuery.of(context).size.height /
+                                  (numberOfCards),
+                              margin: EdgeInsets.only(bottom: i.toDouble()),
+                              child: ImagesToBeRendered(
+                                img: imgs[1],
+                              ),
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),
@@ -114,18 +114,20 @@ class InstanceOfGame extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Container(
-                            height: MediaQuery.of(context).size.height /
-                                (numberOfCards),
-                            width: MediaQuery.of(context).size.height /
-                                (numberOfCards),
-                            margin: EdgeInsets.only(
-                              left: i.toDouble(),
+                          Expanded(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height /
+                                  (numberOfCards),
+                              width: MediaQuery.of(context).size.height /
+                                  (numberOfCards),
+                              margin: EdgeInsets.only(
+                                left: i.toDouble(),
+                              ),
+                              child: ImagesToBeRendered(
+                                img: imgs[1],
+                              ),
                             ),
-                            child: ImagesToBeRendered(
-                              img: imgs[1],
-                            ),
-                          ),
+                          )
                         ],
                       ),
                     ),
@@ -146,17 +148,19 @@ class InstanceOfGame extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Container(
-                            height: MediaQuery.of(context).size.height /
-                                (numberOfCards),
-                            width: MediaQuery.of(context).size.height /
-                                (numberOfCards),
-                            margin: EdgeInsets.only(
-                                left: i.toDouble(), bottom: i.toDouble()),
-                            child: ImagesToBeRendered(
-                              img: imgs[1],
+                          Expanded(
+                            child: Container(
+                              height: MediaQuery.of(context).size.height /
+                                  (numberOfCards),
+                              width: MediaQuery.of(context).size.height /
+                                  (numberOfCards),
+                              margin: EdgeInsets.only(
+                                  left: i.toDouble(), bottom: i.toDouble()),
+                              child: ImagesToBeRendered(
+                                img: imgs[1],
+                              ),
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),
@@ -185,22 +189,21 @@ class Options extends StatelessWidget {
   Options(this._rightAnswer);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        textDirection: TextDirection.ltr,
-        verticalDirection: VerticalDirection.down,
-        textBaseline: TextBaseline.alphabetic,
-        children: [
-          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
-          DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
-          DisplayOptionCard(_rightAnswer, _rightAnswer),
-          DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
-        ],
-      ),
-    );
+    return Center(
+        child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      textDirection: TextDirection.ltr,
+      verticalDirection: VerticalDirection.down,
+      textBaseline: TextBaseline.alphabetic,
+      children: [
+        DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+        DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
+        DisplayOptionCard(_rightAnswer, _rightAnswer),
+        DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+      ],
+    ));
   }
 }
 
@@ -209,40 +212,20 @@ class DisplayOptionCard extends StatelessWidget {
   final int _rightAnswer;
   DisplayOptionCard(this._optionValue, this._rightAnswer);
   Widget build(BuildContext context) {
-    return Material(
-        type: MaterialType.transparency,
-        child: InkWell(
-            child: Card(
-              child: Center(
-                child: Container(
-                  height: 80,
-                  width: 80,
-                  // color: Colors.white,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 2),
-                    // borderRadius: BorderRadius.all()
-                    // circular(50.0),
-                  ),
-                  padding: EdgeInsets.all(2.0),
-                  child: Center(
-                    child: Text(
-                      (_optionValue).toString(),
-                      textDirection: TextDirection.ltr,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: MediaQuery.of(context).size.height / 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            onTap: () {
-              if (_optionValue == _rightAnswer) {
-                print('Excellent!');
-              } else
-                print('Try again.');
-            }));
+    return Center(
+        child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      textDirection: TextDirection.ltr,
+      verticalDirection: VerticalDirection.down,
+      textBaseline: TextBaseline.alphabetic,
+      children: [
+        DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+        DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
+        DisplayOptionCard(_rightAnswer, _rightAnswer),
+        DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+      ],
+    ));
   }
 }
