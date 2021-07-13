@@ -213,19 +213,7 @@ class DisplayOptionCard extends StatelessWidget {
   DisplayOptionCard(this._optionValue, this._rightAnswer);
   Widget build(BuildContext context) {
     return Center(
-        child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      textDirection: TextDirection.ltr,
-      verticalDirection: VerticalDirection.down,
-      textBaseline: TextBaseline.alphabetic,
-      children: [
-        DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
-        DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
-        DisplayOptionCard(_rightAnswer, _rightAnswer),
-        DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
-      ],
-    ));
+      child: DisplayOptionCard(_optionValue, _rightAnswer),
+    );
   }
 }
