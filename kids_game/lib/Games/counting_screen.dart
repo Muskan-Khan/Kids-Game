@@ -35,7 +35,9 @@ class _CountingScreenState extends State<CountingScreen> {
         ),
         Center(
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.56,
+            margin:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.26),
+            height: MediaQuery.of(context).size.height * 0.58,
             width: MediaQuery.of(context).size.width,
             child: InstanceOfGame(
               numberOfCards: (min + random.nextInt(max - min)),
@@ -72,6 +74,7 @@ class InstanceOfGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
+      // Row(),
       Expanded(
         flex: 1,
         child: Column(
@@ -98,10 +101,10 @@ class InstanceOfGame extends StatelessWidget {
                           Expanded(
                             child: Container(
                               height: MediaQuery.of(context).size.height /
-                                  (numberOfCards),
+                                  (numberOfCards * 1.8),
                               width: MediaQuery.of(context).size.height /
                                   (numberOfCards),
-                              margin: EdgeInsets.only(bottom: i.toDouble()),
+                              margin: EdgeInsets.only(top: i.toDouble()),
                               child: ImagesToBeRendered(
                                 img: imgs[numberOfCards],
                               ),
@@ -130,9 +133,9 @@ class InstanceOfGame extends StatelessWidget {
                           Expanded(
                             child: Container(
                               height: MediaQuery.of(context).size.height /
-                                  (numberOfCards),
+                                  (numberOfCards * 1.8),
                               width: MediaQuery.of(context).size.height /
-                                  (numberOfCards),
+                                  (numberOfCards * 1.8),
                               margin: EdgeInsets.only(
                                 left: i.toDouble(),
                               ),
@@ -164,7 +167,7 @@ class InstanceOfGame extends StatelessWidget {
                           Expanded(
                             child: Container(
                               height: MediaQuery.of(context).size.height /
-                                  (numberOfCards),
+                                  (numberOfCards * 1.9),
                               width: MediaQuery.of(context).size.height /
                                   (numberOfCards),
                               margin: EdgeInsets.only(
