@@ -212,8 +212,40 @@ class DisplayOptionCard extends StatelessWidget {
   final int _rightAnswer;
   DisplayOptionCard(this._optionValue, this._rightAnswer);
   Widget build(BuildContext context) {
-    return Center(
-      child: DisplayOptionCard(_optionValue, _rightAnswer),
-    );
+    return Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+            child: Card(
+              child: Center(
+                child: Container(
+                  height: 80,
+                  width: 80,
+                  // color: Colors.white,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 2),
+                    // borderRadius: BorderRadius.all()
+                    // circular(50.0),
+                  ),
+                  padding: EdgeInsets.all(2.0),
+                  child: Center(
+                    child: Text(
+                      (_optionValue).toString(),
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: MediaQuery.of(context).size.height / 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            onTap: () {
+              if (_optionValue == _rightAnswer) {
+                print('Excellent!');
+              } else
+                print('Try again.');
+            }));
   }
 }
