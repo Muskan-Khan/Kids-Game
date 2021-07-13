@@ -54,7 +54,7 @@ class InstanceOfGame extends StatelessWidget {
     Image.asset('assets/images/owls.png')
   ];
 
-  final int numberOfCards;
+  final int numberOfCards, flag;
   InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -201,15 +201,18 @@ class Options extends StatelessWidget {
         DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
         DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
         DisplayOptionCard(_rightAnswer, _rightAnswer),
-        DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+        DisplayOptionCard(_rightAnswer * 3, _rightAnswer),
       ],
     ));
   }
 }
 
 class DisplayOptionCard extends StatelessWidget {
+  var random = Random();
   final int _optionValue;
   final int _rightAnswer;
+
+  int flag = 0;
   DisplayOptionCard(this._optionValue, this._rightAnswer);
   Widget build(BuildContext context) {
     return Material(
@@ -244,6 +247,7 @@ class DisplayOptionCard extends StatelessWidget {
             onTap: () {
               if (_optionValue == _rightAnswer) {
                 print('Excellent!');
+                flag = 1;
               } else
                 print('Try again.');
             }));
