@@ -33,10 +33,10 @@ class Background extends StatelessWidget {
 class ShadeOfCloud extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    Path path = Path();
-    path.moveTo(0, size.height / 5);
+    Path path = new Path();
+    path.moveTo(0, size.height / 4);
     path.quadraticBezierTo(
-        size.width / 5.9, size.height / 3.8, size.width / 4, size.height / 5);
+        size.width / 5.5, size.height / 3.5, size.width / 4, size.height / 5);
     path.quadraticBezierTo(
         size.width / 3, size.height / 4.4, size.width / 2.6, size.height / 7);
     path.close();
@@ -51,10 +51,10 @@ class ShadeOfCloud extends CustomClipper<Path> {
     path.close();
     path.moveTo(size.width / 1.2, size.height / 9.4);
     path.quadraticBezierTo(
-        size.width / 1.2, size.height / 4.4, size.width, size.height / 5);
+        size.width / 1.2, size.height / 4.4, size.width, size.height / 4);
     path.lineTo(size.width, 0);
     path.lineTo(0, 0);
-    path.lineTo(0, size.height / 5);
+    path.lineTo(0, size.height / 4);
     path.lineTo(size.width / 2.6, size.height / 7);
     path.lineTo(size.width / 1.7, size.height / 9.5);
     path.lineTo(size.width / 1.2, size.height / 9.4);

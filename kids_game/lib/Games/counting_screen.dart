@@ -36,7 +36,7 @@ class _CountingScreenState extends State<CountingScreen> {
         Center(
           child: Container(
             margin:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.26),
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09),
             height: MediaQuery.of(context).size.height * 0.58,
             width: MediaQuery.of(context).size.width,
             child: InstanceOfGame(
@@ -101,7 +101,7 @@ class InstanceOfGame extends StatelessWidget {
                           Expanded(
                             child: Container(
                               height: MediaQuery.of(context).size.height /
-                                  (numberOfCards * 1.8),
+                                  (numberOfCards * 1.9),
                               width: MediaQuery.of(context).size.height /
                                   (numberOfCards),
                               margin: EdgeInsets.only(top: i.toDouble()),
@@ -133,9 +133,9 @@ class InstanceOfGame extends StatelessWidget {
                           Expanded(
                             child: Container(
                               height: MediaQuery.of(context).size.height /
-                                  (numberOfCards * 1.8),
+                                  (numberOfCards * 1.9),
                               width: MediaQuery.of(context).size.height /
-                                  (numberOfCards * 1.8),
+                                  (numberOfCards),
                               margin: EdgeInsets.only(
                                 left: i.toDouble(),
                               ),
