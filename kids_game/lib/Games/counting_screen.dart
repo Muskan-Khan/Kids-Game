@@ -49,7 +49,15 @@ class _CountingScreenState extends State<CountingScreen> {
   }
 }
 
-class InstanceOfGame extends StatelessWidget {
+class InstanceOfGame extends StatefulWidget {
+  final int numberOfCards;
+  const InstanceOfGame({Key? key, required this.numberOfCards})
+      : super(key: key);
+  @override
+  _InstanceOfGameState createState() => _InstanceOfGameState();
+}
+
+class _InstanceOfGameState extends State<InstanceOfGame> {
   final List<Image> imgs = [
     Image.asset('assets/images/apple.png'),
     Image.asset('assets/images/boyOnly.png'),
@@ -57,16 +65,6 @@ class InstanceOfGame extends StatelessWidget {
     Image.asset('assets/images/durian.png'),
     Image.asset('assets/images/car.png'),
     Image.asset('assets/images/bird.png'),
-    // Image.asset('assets/images/monkey.png'),
-    // Image.asset('assets/images/owls.png'),
-    // Image.asset('assets/images/apple.png'),
-    // Image.asset('assets/images/boyOnly.png'),
-    // Image.asset('assets/images/kinnows.png'),
-    // Image.asset('assets/images/durian.png'),
-    // Image.asset('assets/images/car.png'),
-    // Image.asset('assets/images/bird.png'),
-    // Image.asset('assets/images/monkey.png'),
-    // Image.asset('assets/images/owls.png'),
     Image.asset('assets/images/lion.png'),
     Image.asset('assets/images/lemon.png'),
     Image.asset('assets/images/hotAirBaloon.png'),
@@ -85,8 +83,7 @@ class InstanceOfGame extends StatelessWidget {
     Image.asset('assets/images/pear.png')
   ];
 
-  final int numberOfCards;
-  InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
+  // InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(children: [
