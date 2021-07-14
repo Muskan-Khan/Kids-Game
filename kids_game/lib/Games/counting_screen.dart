@@ -36,8 +36,8 @@ class _CountingScreenState extends State<CountingScreen> {
         Center(
           child: Container(
             margin:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09),
-            height: MediaQuery.of(context).size.height * 0.58,
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.13),
+            height: MediaQuery.of(context).size.height * 0.55,
             width: MediaQuery.of(context).size.width,
             child: InstanceOfGame(
               numberOfCards: (min + random.nextInt(max - min)),
