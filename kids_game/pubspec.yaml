@@ -72,6 +72,22 @@ flutter:
     - assets/images/kinnows.png
     - assets/images/durian.png
     - assets/images/car.png
+    - assets/images/helicopter.png
+    - assets/images/grapes.png
+    - assets/images/drone3.png
+    - assets/images/drone2.png
+    - assets/images/drone1.png
+    - assets/images/catonchair.png
+    - assets/images/cat.png
+    - assets/images/cane.png
+    - assets/images/blackGrapes.png
+    - assets/images/applewithleaves.png
+    - assets/images/hotAirBaloon.png
+    - assets/images/lemon.png
+    - assets/images/lion.png
+    - assets/images/rasberry.png
+    - assets/images/pomegranate.png
+    - assets/images/pear.png
     - assets/audios/excellent.mp3
     - assets/audios/tryagain.mp3
     - assets/audios/great.mp3
