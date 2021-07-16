@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:video_player/video_player.dart';
+
 // import 'package:kids_game/HomeScreen/background.dart';
 import 'package:kids_game/Games/games_background.dart';
 
@@ -15,6 +17,12 @@ class _CountingScreenState extends State<CountingScreen> {
   var random = Random();
   final min = 1;
   final max = 15;
+  void change() {
+    setState(() {
+      InstanceOfGame(numberOfCards: min + random.nextInt(max - min));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -49,12 +57,25 @@ class _CountingScreenState extends State<CountingScreen> {
 
 class InstanceOfGame extends StatelessWidget {
   final List<Image> imgs = [
+    Image.asset('assets/images/apple.png'),
+    Image.asset('assets/images/boyOnly.png'),
+    Image.asset('assets/images/kinnows.png'),
+    Image.asset('assets/images/durian.png'),
+    Image.asset('assets/images/car.png'),
+    Image.asset('assets/images/bird.png'),
+    Image.asset('assets/images/monkey.png'),
+    Image.asset('assets/images/owls.png'),
+    Image.asset('assets/images/apple.png'),
+    Image.asset('assets/images/boyOnly.png'),
+    Image.asset('assets/images/kinnows.png'),
+    Image.asset('assets/images/durian.png'),
+    Image.asset('assets/images/car.png'),
     Image.asset('assets/images/bird.png'),
     Image.asset('assets/images/monkey.png'),
     Image.asset('assets/images/owls.png')
   ];
 
-  final int numberOfCards, flag;
+  final int numberOfCards;
   InstanceOfGame({Key? key, required this.numberOfCards}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -90,7 +111,7 @@ class InstanceOfGame extends StatelessWidget {
                                   (numberOfCards),
                               margin: EdgeInsets.only(bottom: i.toDouble()),
                               child: ImagesToBeRendered(
-                                img: imgs[1],
+                                img: imgs[numberOfCards],
                               ),
                             ),
                           )
@@ -124,7 +145,7 @@ class InstanceOfGame extends StatelessWidget {
                                 left: i.toDouble(),
                               ),
                               child: ImagesToBeRendered(
-                                img: imgs[1],
+                                img: imgs[numberOfCards],
                               ),
                             ),
                           )
@@ -157,7 +178,7 @@ class InstanceOfGame extends StatelessWidget {
                               margin: EdgeInsets.only(
                                   left: i.toDouble(), bottom: i.toDouble()),
                               child: ImagesToBeRendered(
-                                img: imgs[1],
+                                img: imgs[numberOfCards],
                               ),
                             ),
                           )
@@ -186,6 +207,7 @@ class ImagesToBeRendered extends StatelessWidget {
 
 class Options extends StatelessWidget {
   final int _rightAnswer;
+  // final int _flag;
   Options(this._rightAnswer);
   @override
   Widget build(BuildContext context) {
@@ -198,10 +220,37 @@ class Options extends StatelessWidget {
       verticalDirection: VerticalDirection.down,
       textBaseline: TextBaseline.alphabetic,
       children: [
-        DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
-        DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
-        DisplayOptionCard(_rightAnswer, _rightAnswer),
-        DisplayOptionCard(_rightAnswer * 3, _rightAnswer),
+        if (_rightAnswer % 2 == 0) ...[
+          DisplayOptionCard(_rightAnswer, _rightAnswer),
+          DisplayOptionCard(_rightAnswer + 1, _rightAnswer),
+          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+        ] else if (_rightAnswer % 3 == 0) ...[
+          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer, _rightAnswer),
+          DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
+          DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+        ] else if (_rightAnswer % 5 == 0) ...[
+          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer + 5, _rightAnswer),
+          DisplayOptionCard(_rightAnswer, _rightAnswer),
+          DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+        ] else ...[
+          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+          DisplayOptionCard(_rightAnswer, _rightAnswer),
+        ]
+        // if (_rightAnswer % 2 == 0)
+        //   DisplayOptionCard(_rightAnswer, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
+        // if (_rightAnswer % 3 == 0)
+        //   DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
+        // DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
       ],
     ));
   }
@@ -211,9 +260,27 @@ class DisplayOptionCard extends StatelessWidget {
   var random = Random();
   final int _optionValue;
   final int _rightAnswer;
+  VideoPlayerController _controller =
+      VideoPlayerController.asset("assets/videos/Excellent.mp4");
+
+  @override
+  void initState() {
+    _controller = VideoPlayerController.asset("assets/videos/Excellent.mp4")
+      ..initialize().then((_) {
+        // Once the video has been loaded we play the video and set looping to true.
+        _controller.play();
+      });
+  }
+
+  // Ensure the first frame is shown after the video is initialized.
+
+  SetState() {
+    InstanceOfGame(numberOfCards: 1 + random.nextInt(15 - 1));
+  }
 
   int flag = 0;
   DisplayOptionCard(this._optionValue, this._rightAnswer);
+
   Widget build(BuildContext context) {
     return Material(
         type: MaterialType.transparency,
@@ -246,6 +313,10 @@ class DisplayOptionCard extends StatelessWidget {
             ),
             onTap: () {
               if (_optionValue == _rightAnswer) {
+                SetState();
+                //_CountingScreenState setState() => _CountingScreenState();
+                //InstanceOfGame(numberOfCards: _rightAnswer);
+                VideoPlayer(_controller);
                 print('Excellent!');
                 flag = 1;
               } else
@@ -253,3 +324,41 @@ class DisplayOptionCard extends StatelessWidget {
             }));
   }
 }
+
+/*class BackgroundVideo extends StatefulWidget {
+  @override
+  _BackgroundVideoState createState() => _BackgroundVideoState();
+}
+
+class _BackgroundVideoState extends State<BackgroundVideo> {
+  VideoPlayerController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.asset("assets/videos/Excellent.mp4");
+      ..initialize().then((_){
+          _controller.play();
+          setState((){});
+    });
+  }
+}
+class _BackgroundVideoState extends State<BackgroundVideo> {
+  // TODO 4: Create a VideoPlayerController object.
+  VideoPlayerController _controller =
+      VideoPlayerController.asset("assets/videos/Excellent.mp4");
+
+  // TODO 5: Override the initState() method and setup your VideoPlayerController
+  @override
+  void initState() {
+    super.initState();
+    // Pointing the video controller to our local asset.
+    _controller = VideoPlayerController.asset("assets/videos/Excellent.mp4")
+      ..initialize().then((_) {
+        // Once the video has been loaded we play the video and set looping to true.
+        _controller.play();
+
+        // Ensure the first frame is shown after the video is initialized.
+        setState(() {});
+      });
+  }
+}*/
