@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 // import 'package:kids_game/Games/counting_screen.dart';
 // import 'HomeScreen/background.dart';
-import 'Games/counting_screen.dart';
+//import 'Games/counting_screen.dart';
 // import 'Games/games_background.dart';
+import 'Games/odd_one_out.dart';
 
 // void main() {
 //   runApp(MaterialApp(home: Background()));
 // }
 void main() {
   runApp(MaterialApp(
-    home: CountingScreen(),
+    home: OddOneOut(),
     debugShowCheckedModeBanner: false,
   ));
 }
