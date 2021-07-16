@@ -43,7 +43,9 @@ class _CountingScreenState extends State<CountingScreen> {
         ),
         Center(
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.56,
+            margin:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.13),
+            height: MediaQuery.of(context).size.height * 0.55,
             width: MediaQuery.of(context).size.width,
             child: InstanceOfGame(
               numberOfCards: (min + random.nextInt(max - min)),
@@ -63,16 +65,32 @@ class InstanceOfGame extends StatelessWidget {
     Image.asset('assets/images/durian.png'),
     Image.asset('assets/images/car.png'),
     Image.asset('assets/images/bird.png'),
-    Image.asset('assets/images/monkey.png'),
-    Image.asset('assets/images/owls.png'),
-    Image.asset('assets/images/apple.png'),
-    Image.asset('assets/images/boyOnly.png'),
-    Image.asset('assets/images/kinnows.png'),
-    Image.asset('assets/images/durian.png'),
-    Image.asset('assets/images/car.png'),
-    Image.asset('assets/images/bird.png'),
-    Image.asset('assets/images/monkey.png'),
-    Image.asset('assets/images/owls.png')
+    // Image.asset('assets/images/monkey.png'),
+    // Image.asset('assets/images/owls.png'),
+    // Image.asset('assets/images/apple.png'),
+    // Image.asset('assets/images/boyOnly.png'),
+    // Image.asset('assets/images/kinnows.png'),
+    // Image.asset('assets/images/durian.png'),
+    // Image.asset('assets/images/car.png'),
+    // Image.asset('assets/images/bird.png'),
+    // Image.asset('assets/images/monkey.png'),
+    // Image.asset('assets/images/owls.png'),
+    Image.asset('assets/images/lion.png'),
+    Image.asset('assets/images/lemon.png'),
+    Image.asset('assets/images/hotAirBaloon.png'),
+    Image.asset('assets/images/applewithleaves.png'),
+    Image.asset('assets/images/blackGrapes.png'),
+    Image.asset('assets/images/cane.png'),
+    Image.asset('assets/images/cat.png'),
+    Image.asset('assets/images/catonchair.png'),
+    Image.asset('assets/images/drone1.png'),
+    Image.asset('assets/images/drone2.png'),
+    Image.asset('assets/images/drone3.png'),
+    Image.asset('assets/images/grapes.png'),
+    Image.asset('assets/images/helicopter.png'),
+    Image.asset('assets/images/rasberry.png'),
+    Image.asset('assets/images/pomegranate.png'),
+    Image.asset('assets/images/pear.png')
   ];
 
   final int numberOfCards;
@@ -80,6 +98,7 @@ class InstanceOfGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
+      // Row(),
       Expanded(
         flex: 1,
         child: Column(
@@ -106,10 +125,10 @@ class InstanceOfGame extends StatelessWidget {
                           Expanded(
                             child: Container(
                               height: MediaQuery.of(context).size.height /
-                                  (numberOfCards),
+                                  (numberOfCards * 1.9),
                               width: MediaQuery.of(context).size.height /
                                   (numberOfCards),
-                              margin: EdgeInsets.only(bottom: i.toDouble()),
+                              margin: EdgeInsets.only(top: i.toDouble()),
                               child: ImagesToBeRendered(
                                 img: imgs[numberOfCards],
                               ),
@@ -138,7 +157,7 @@ class InstanceOfGame extends StatelessWidget {
                           Expanded(
                             child: Container(
                               height: MediaQuery.of(context).size.height /
-                                  (numberOfCards),
+                                  (numberOfCards * 1.9),
                               width: MediaQuery.of(context).size.height /
                                   (numberOfCards),
                               margin: EdgeInsets.only(
@@ -172,7 +191,7 @@ class InstanceOfGame extends StatelessWidget {
                           Expanded(
                             child: Container(
                               height: MediaQuery.of(context).size.height /
-                                  (numberOfCards),
+                                  (numberOfCards * 1.9),
                               width: MediaQuery.of(context).size.height /
                                   (numberOfCards),
                               margin: EdgeInsets.only(
