@@ -50,43 +50,43 @@ class InstanceOfGame extends StatelessWidget {
   final List<List<Image>> imgs = [
     [
       Image.asset('assets/images/apple.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/pomegranate.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/pear.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/kinnows.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
     ],
     [
       Image.asset('assets/images/bird.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/lion.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
-      Image.asset('assets/images/lemon.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
+      Image.asset('assets/images/catonchair.png',
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/cat.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
     ],
     [
       Image.asset('assets/images/blackGrapes.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/grapes.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/rasberry.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/cane.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover)
+          width: 100.0, height: 120.0, fit: BoxFit.contain)
     ],
     [
       Image.asset('assets/images/drone1.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/drone2.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/drone3.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover),
+          width: 100.0, height: 120.0, fit: BoxFit.contain),
       Image.asset('assets/images/helicopter.png',
-          width: 100.0, height: 120.0, fit: BoxFit.cover)
+          width: 100.0, height: 120.0, fit: BoxFit.contain)
     ]
   ];
   final int numberOfCards = 4;
@@ -129,7 +129,10 @@ class InstanceOfGame extends StatelessWidget {
                 height: 120.0,
                 width: 20,
               ),
-              imgs[oddImageIndex][0],
+
+              imgs[oddImageIndex - 1 < 0
+                  ? oddImageIndex + 1
+                  : oddImageIndex - 1][oddImageIndex],
             ])
       ]),
     ));
