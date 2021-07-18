@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-// import 'package:video_player/video_player.dart';
-
-// import 'package:kids_game/HomeScreen/background.dart';
 import 'package:kids_game/Games/games_background.dart';
 
 class CountingScreen extends StatefulWidget {
@@ -17,9 +14,10 @@ class _CountingScreenState extends State<CountingScreen> {
   var random = Random();
   final min = 1;
   final max = 15;
-  void change() {
+  void refreshScreen() {
     setState(() {
-      InstanceOfGame(numberOfCards: min + random.nextInt(max - min));
+      // widget.changeInstance();
+      print('help me in re-creating screen');
     });
   }
 
@@ -48,15 +46,9 @@ class _CountingScreenState extends State<CountingScreen> {
               EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.13),
           height: MediaQuery.of(context).size.height * 0.55,
           width: MediaQuery.of(context).size.width,
-          child: GestureDetector(
-            onTap: () {
-              setState(() {
-                count++;
-              });
-            },
-            child: InstanceOfGame(
-              numberOfCards: (min + random.nextInt(max - min)),
-            ),
+          child: InstanceOfGame(
+            numberOfCards: (min + random.nextInt(max - min)),
+            changeScreen: refreshScreen,
           ),
         )),
       ]),
@@ -65,8 +57,10 @@ class _CountingScreenState extends State<CountingScreen> {
 }
 
 class InstanceOfGame extends StatefulWidget {
+  final Function() changeScreen;
   final int numberOfCards;
-  const InstanceOfGame({Key? key, required this.numberOfCards})
+  const InstanceOfGame(
+      {Key? key, required this.numberOfCards, required this.changeScreen})
       : super(key: key);
 
   @override
@@ -74,13 +68,6 @@ class InstanceOfGame extends StatefulWidget {
 }
 
 class _InstanceOfGameState extends State<InstanceOfGame> {
-  @override
-  // void setState(VoidCallback fn) {
-  //   // TODO: implement setState
-  //   _InstanceOfGameState();
-  //   super.setState(fn);
-  // }
-
   final List<Image> imgs = [
     Image.asset('assets/images/apple.png'),
     Image.asset('assets/images/boyOnly.png'),
@@ -105,8 +92,12 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
     Image.asset('assets/images/pomegranate.png'),
     Image.asset('assets/images/pear.png')
   ];
-  void onChange() {
-    setState(() {});
+
+  void refreshCountingScreen() {
+    setState(() {
+      widget.changeScreen();
+      print('help me in creating Instance');
+    });
   }
 
   @override
@@ -225,7 +216,10 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
             ],
           ),
         ),
-        Options(rightAnswer: widget.numberOfCards),
+        Options(
+          rightAnswer: widget.numberOfCards,
+          changeInstance: refreshCountingScreen,
+        ),
       ]),
     );
   }
@@ -241,15 +235,23 @@ class ImagesToBeRendered extends StatelessWidget {
 }
 
 class Options extends StatefulWidget {
+  final Function() changeInstance;
   final int rightAnswer;
-
-  const Options({Key? key, required this.rightAnswer}) : super(key: key);
-
+  const Options(
+      {Key? key, required this.rightAnswer, required this.changeInstance})
+      : super(key: key);
   @override
   _OptionsState createState() => _OptionsState();
 }
 
 class _OptionsState extends State<Options> {
+  void refreshOptions() {
+    setState(() {
+      widget.changeInstance();
+      print('help me in creating option');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -265,55 +267,71 @@ class _OptionsState extends State<Options> {
           if (widget.rightAnswer % 2 == 0) ...[
             DisplayOptionCard(
                 optionValue: widget.rightAnswer,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer + 1,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer + 2,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer * 2,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
           ] else if (widget.rightAnswer % 3 == 0) ...[
             DisplayOptionCard(
                 optionValue: widget.rightAnswer + 2,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer + 3,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer * 2,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
           ] else if (widget.rightAnswer % 5 == 0) ...[
             DisplayOptionCard(
                 optionValue: widget.rightAnswer + 2,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer + 5,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer * 2,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
           ] else ...[
             DisplayOptionCard(
                 optionValue: widget.rightAnswer + 2,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer + 2,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer * 2,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
             DisplayOptionCard(
                 optionValue: widget.rightAnswer,
-                rightAnswer: widget.rightAnswer),
+                rightAnswer: widget.rightAnswer,
+                changeOptions: refreshOptions),
           ]
         ],
       )),
@@ -323,10 +341,14 @@ class _OptionsState extends State<Options> {
 
 class DisplayOptionCard extends StatefulWidget {
   // var random = Random();
+  final Function() changeOptions;
   final int optionValue;
   final int rightAnswer;
   const DisplayOptionCard(
-      {Key? key, required this.optionValue, required this.rightAnswer})
+      {Key? key,
+      required this.optionValue,
+      required this.changeOptions,
+      required this.rightAnswer})
       : super(key: key);
 
   @override
@@ -334,173 +356,44 @@ class DisplayOptionCard extends StatefulWidget {
 }
 
 class _DisplayOptionCardState extends State<DisplayOptionCard> {
-  int? Value;
-  int? Answer;
-
   @override
   Widget build(BuildContext context) {
+    int x = 2;
     return Container(
       child: Material(
           type: MaterialType.transparency,
           child: InkWell(
-              child: Card(
-                child: Center(
-                  child: Container(
-                    height: 80,
-                    width: 80,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 2),
-                    ),
-                    padding: EdgeInsets.all(2.0),
-                    child: Center(
-                      child: Text(
-                        (widget.optionValue).toString(),
-                        textDirection: TextDirection.ltr,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: MediaQuery.of(context).size.height / 20,
-                            fontWeight: FontWeight.bold),
-                      ),
+            child: Card(
+              child: Center(
+                child: Container(
+                  height: 80,
+                  width: 80,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 2),
+                  ),
+                  padding: EdgeInsets.all(2.0),
+                  child: Center(
+                    child: Text(
+                      (widget.optionValue).toString(),
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: MediaQuery.of(context).size.height / 20,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
               ),
-              onTap: () {
-                setState(() {
-                  Value = 20;
-                });
-                if (widget.optionValue == widget.rightAnswer) {
-                  print('Excellent!');
-                } else
-                  print('Try again.');
-              })),
+            ),
+            onTap: () {
+              widget.changeOptions();
+              if (widget.optionValue == widget.rightAnswer) {
+                print('Excellent!');
+              } else
+                print('Try again.');
+            },
+          )),
     );
   }
 }
-
-
-// class Options extends StatelessWidget {
-//   final int _rightAnswer;
-//   Options(this._rightAnswer);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Center(
-//         child: Row(
-//       mainAxisAlignment: MainAxisAlignment.center,
-//       mainAxisSize: MainAxisSize.max,
-//       crossAxisAlignment: CrossAxisAlignment.center,
-//       textDirection: TextDirection.ltr,
-//       verticalDirection: VerticalDirection.down,
-//       textBaseline: TextBaseline.alphabetic,
-//       children: [
-//         if (_rightAnswer % 2 == 0) ...[
-//           DisplayOptionCard(_rightAnswer, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer + 1, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
-//         ] else if (_rightAnswer % 3 == 0) ...[
-//           DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer + 3, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
-//         ] else if (_rightAnswer % 5 == 0) ...[
-//           DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer + 5, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
-//         ] else ...[
-//           DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer + 2, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer * 2, _rightAnswer),
-//           DisplayOptionCard(_rightAnswer, _rightAnswer),
-//         ]
-//       ],
-//     ));
-//   }
-// }
-
-
-
-
-// class DisplayOptionCard extends StatelessWidget {
-//   var random = Random();
-//   final int _optionValue;
-//   final int _rightAnswer;
-//   DisplayOptionCard(this._optionValue, this._rightAnswer);
-//   @override
-//   Widget build(BuildContext context) {
-//     return Material(
-//         type: MaterialType.transparency,
-//         child: InkWell(
-//             child: Card(
-//               child: Center(
-//                 child: Container(
-//                   height: 80,
-//                   width: 80,
-//                   decoration: BoxDecoration(
-//                     border: Border.all(color: Colors.black, width: 2),
-//                   ),
-//                   padding: EdgeInsets.all(2.0),
-//                   child: Center(
-//                     child: Text(
-//                       (_optionValue).toString(),
-//                       textDirection: TextDirection.ltr,
-//                       textAlign: TextAlign.center,
-//                       style: TextStyle(
-//                           color: Colors.black,
-//                           fontSize: MediaQuery.of(context).size.height / 20,
-//                           fontWeight: FontWeight.bold),
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ),
-//             onTap: () {
-//               setState(() {});
-//               if (_optionValue == _rightAnswer) {
-//                 print('Excellent!');
-//               } else
-//                 print('Try again.');
-//             }));
-//   }
-// }
-
-/*class BackgroundVideo extends StatefulWidget {
-  @override
-  _BackgroundVideoState createState() => _BackgroundVideoState();
-}
-
-class _BackgroundVideoState extends State<BackgroundVideo> {
-  VideoPlayerController _controller;
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.asset("assets/videos/Excellent.mp4");
-      ..initialize().then((_){
-          _controller.play();
-          setState((){});
-    });
-  }
-}
-class _BackgroundVideoState extends State<BackgroundVideo> {
-  // TODO 4: Create a VideoPlayerController object.
-  VideoPlayerController _controller =
-      VideoPlayerController.asset("assets/videos/Excellent.mp4");
-
-  // TODO 5: Override the initState() method and setup your VideoPlayerController
-  @override
-  void initState() {
-    super.initState();
-    // Pointing the video controller to our local asset.
-    _controller = VideoPlayerController.asset("assets/videos/Excellent.mp4")
-      ..initialize().then((_) {
-        // Once the video has been loaded we play the video and set looping to true.
-        _controller.play();
-
-        // Ensure the first frame is shown after the video is initialized.
-        setState(() {});
-      });
-  }
-}*/
