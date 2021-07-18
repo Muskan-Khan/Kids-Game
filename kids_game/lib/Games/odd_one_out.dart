@@ -97,43 +97,160 @@ class InstanceOfGame extends StatelessWidget {
     return Container(
         child: Center(
       child: Column(children: [
-        Row(
-            //mainAxisSize: MainAxisSize.,
-            // verticalDirection: VerticalDirection.down,
-            textDirection: TextDirection.ltr,
-            mainAxisAlignment: MainAxisAlignment.center,
-            //crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              imgs[oddImageIndex][3],
-              //if()
-              Container(
-                height: 120.0,
-                width: 20,
-              ),
-              imgs[oddImageIndex][2],
-            ]),
-        Container(
-          height: 20.0,
-          width: 400,
-        ),
-        Row(
-            //mainAxisSize: MainAxisSize.,
-            // verticalDirection: VerticalDirection.down,
-            textDirection: TextDirection.ltr,
-            mainAxisAlignment: MainAxisAlignment.center,
-            //crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              imgs[oddImageIndex][oddImageIndex],
-              //if()
-              Container(
-                height: 120.0,
-                width: 20,
-              ),
+        if (oddImageIndex == 0) ...[
+          Row(
+              //mainAxisSize: MainAxisSize.,
+              // verticalDirection: VerticalDirection.down,
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.start,
 
-              imgs[oddImageIndex - 1 < 0
-                  ? oddImageIndex + 1
-                  : oddImageIndex - 1][oddImageIndex],
-            ])
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                        onTap: () {
+                          print('Tapped');
+                        },
+                        child: ClipRect(
+                          child: imgs[oddImageIndex][oddImageIndex],
+                        ))),
+
+                //if()
+                Container(
+                  height: 120.0,
+                  width: 20,
+                ),
+                imgs[oddImageIndex + 1][oddImageIndex + 1],
+              ]),
+          Container(
+            height: 20.0,
+            width: 400,
+          ),
+          Row(
+              //mainAxisSize: MainAxisSize.,
+              // verticalDirection: VerticalDirection.down,
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                imgs[oddImageIndex + 1][oddImageIndex + 2],
+                //if()
+                Container(
+                  height: 120.0,
+                  width: 20,
+                ),
+
+                imgs[oddImageIndex + 1][oddImageIndex + 3],
+              ])
+        ] else if (oddImageIndex == 1) ...[
+          Row(
+              //mainAxisSize: MainAxisSize.,
+              // verticalDirection: VerticalDirection.down,
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                imgs[oddImageIndex - 1][oddImageIndex - 1],
+                //if()
+                Container(
+                  height: 120.0,
+                  width: 20,
+                ),
+                imgs[oddImageIndex][oddImageIndex],
+              ]),
+          Container(
+            height: 20.0,
+            width: 400,
+          ),
+          Row(
+              //mainAxisSize: MainAxisSize.,
+              // verticalDirection: VerticalDirection.down,
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                imgs[oddImageIndex - 1][oddImageIndex + 1],
+                //if()
+                Container(
+                  height: 120.0,
+                  width: 20,
+                ),
+
+                imgs[oddImageIndex - 1][oddImageIndex + 2],
+              ])
+        ] else if (oddImageIndex == 2) ...[
+          Row(
+              //mainAxisSize: MainAxisSize.,
+              // verticalDirection: VerticalDirection.down,
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                imgs[oddImageIndex - 2][oddImageIndex - 2],
+                //if()
+                Container(
+                  height: 120.0,
+                  width: 20,
+                ),
+                imgs[oddImageIndex][oddImageIndex],
+              ]),
+          Container(
+            height: 20.0,
+            width: 400,
+          ),
+          Row(
+              //mainAxisSize: MainAxisSize.,
+              // verticalDirection: VerticalDirection.down,
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                imgs[oddImageIndex - 2][oddImageIndex - 1],
+                //if()
+                Container(
+                  height: 120.0,
+                  width: 20,
+                ),
+
+                imgs[oddImageIndex - 2][oddImageIndex + 1],
+              ])
+        ] else if (oddImageIndex == 3) ...[
+          Row(
+              //mainAxisSize: MainAxisSize.,
+              // verticalDirection: VerticalDirection.down,
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                imgs[oddImageIndex - 3][oddImageIndex - 3],
+                //if()
+                Container(
+                  height: 120.0,
+                  width: 20,
+                ),
+                imgs[oddImageIndex - 3][oddImageIndex - 2],
+              ]),
+          Container(
+            height: 20.0,
+            width: 400,
+          ),
+          Row(
+              //mainAxisSize: MainAxisSize.,
+              // verticalDirection: VerticalDirection.down,
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                imgs[oddImageIndex - 3][oddImageIndex - 1],
+                //if()
+                Container(
+                  height: 120.0,
+                  width: 20,
+                ),
+
+                imgs[oddImageIndex][oddImageIndex],
+              ])
+        ]
       ]),
     ));
   }
