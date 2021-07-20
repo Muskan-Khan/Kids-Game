@@ -38,7 +38,7 @@ class _OddOneOutState extends State<OddOneOut> {
               width: MediaQuery.of(context).size.width,
               child: Center(
                 child: InstanceOfGame(
-                  oddImageIndex: random.nextInt(4),
+                  oddImageIndex: random.nextInt(6),
                 ),
               )),
         )
