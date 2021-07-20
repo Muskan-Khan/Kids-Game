@@ -15,10 +15,7 @@ class _CountingScreenState extends State<CountingScreen> {
   final min = 1;
   final max = 15;
   void refreshScreen() {
-    setState(() {
-      // widget.changeInstance();
-      print('help me in re-creating screen');
-    });
+    setState(() {});
   }
 
   @override
@@ -96,7 +93,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
   void refreshCountingScreen() {
     setState(() {
       widget.changeScreen();
-      print('help me in creating Instance');
+      // print('help me in creating Instance');
     });
   }
 
@@ -248,7 +245,6 @@ class _OptionsState extends State<Options> {
   void refreshOptions() {
     setState(() {
       widget.changeInstance();
-      print('help me in creating option');
     });
   }
 
@@ -387,11 +383,11 @@ class _DisplayOptionCardState extends State<DisplayOptionCard> {
               ),
             ),
             onTap: () {
-              widget.changeOptions();
               if (widget.optionValue == widget.rightAnswer) {
-                print('Excellent!');
-              } else
-                print('Try again.');
+                widget.changeOptions();
+              } else {
+                widget.changeOptions();
+              }
             },
           )),
     );
