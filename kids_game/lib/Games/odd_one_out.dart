@@ -374,7 +374,7 @@ class InstanceOfGame extends StatelessWidget {
                         child: Container(
                       width: MediaQuery.of(context).size.width * 0.38,
                       height: MediaQuery.of(context).size.width * 0.35,
-                      child: imgs[oddImageIndex][oddImageIndex],
+                      child: imgs[oddImageIndex][oddImageIndex - 2],
                     )),
                     onTap: () {
                       print("Correct option tapped.");
