@@ -32,12 +32,13 @@ class _OddOneOutState extends State<OddOneOut> {
         ),
         Center(
           child: Container(
-            margin:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.13),
-            height: MediaQuery.of(context).size.height * 0.55,
+            margin: EdgeInsets.all(8),
+            height: MediaQuery.of(context).size.height / 2,
             width: MediaQuery.of(context).size.width,
+            alignment: Alignment.center,
             child: InstanceOfGame(
-              oddImageIndex: random.nextInt(6),
+              //oddImageIndex: random.nextInt(6),
+              oddImageIndex: random.nextInt(1),
             ),
           ),
         )
@@ -50,23 +51,23 @@ class InstanceOfGame extends StatelessWidget {
   final List<List<Image>> imgs = [
     [
       Image.asset('assets/images/fruits/apple.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          /*width: 50.0, height: 80.0,*/ fit: BoxFit.contain),
       Image.asset('assets/images/fruits/pomegranate.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          width: 50.0, height: 80.0, fit: BoxFit.contain),
       Image.asset('assets/images/fruits/pear.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          width: 50.0, height: 80.0, fit: BoxFit.contain),
       Image.asset('assets/images/fruits/banana.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          width: 50.0, height: 80.0, fit: BoxFit.contain),
     ],
     [
       Image.asset('assets/images/birds/bird1.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          width: 50.0, height: 80.0, fit: BoxFit.contain),
       Image.asset('assets/images/birds/bird2.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          /*width: 50.0, height: 80.0,*/ fit: BoxFit.contain),
       Image.asset('assets/images/birds/bird3.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          /*width: 50.0, height: 80.0,*/ fit: BoxFit.contain),
       Image.asset('assets/images/birds/bird4.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          /*width: 50.0, height: 80.0,*/ fit: BoxFit.contain),
     ],
     [
       Image.asset('assets/images/herbivores/deer.png',
@@ -138,58 +139,91 @@ class InstanceOfGame extends StatelessWidget {
               //crossAxisAlignment: CrossAxisAlignment.start,
 
               children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    print("Correct Option tapped.");
-                  },
-                  child: ClipRect(
-                    child: imgs[oddImageIndex][oddImageIndex],
+                Container(
+                  alignment: Alignment.center,
+                  //height: MediaQuery.of(context).size.height / (4),
+                  height: 300,
+                  width: MediaQuery.of(context).size.width / (2 * 1.5),
+                  margin: EdgeInsets.all(
+                    1,
                   ),
-                )),
+                  child: Material(
+                      child: InkWell(
+                    onTap: () {
+                      print("Correct Option tapped.");
+                    },
+                    child: ClipRect(
+                      child: imgs[oddImageIndex][oddImageIndex],
+                    ),
+                  )),
+                ),
 
                 //if()
                 Container(
                   height: 120.0,
                   width: 20,
                 ),
-                Material(
-                    child: InkWell(
-                        child: ClipRect(
-                          child: imgs[oddImageIndex + 1][1],
-                        ),
-                        onTap: () {
-                          print("Wrong option tapped.");
-                        }))
+                Container(
+                    alignment: Alignment.center,
+                    //height: MediaQuery.of(context).size.height / (4),
+                    height: 300,
+                    width: MediaQuery.of(context).size.width / (2 * 1.5),
+                    margin: EdgeInsets.all(
+                      2,
+                    ),
+                    child: Material(
+                        child: InkWell(
+                            child: ClipRect(
+                              child: imgs[oddImageIndex + 1][1],
+                            ),
+                            onTap: () {
+                              print("Wrong option tapped.");
+                            })))
               ]),
           Container(
-            height: 20.0,
-            width: 400,
-          ),
-          Row(children: <Widget>[
-            Material(
-                child: InkWell(
-              onTap: () {
-                print("Wrong Option tapped.");
-              },
-              child: ClipRect(
-                child: imgs[oddImageIndex + 1][2],
+              // height: 5.0,
+              //width: 200,
               ),
-            )),
+          Row(children: <Widget>[
+            Container(
+                alignment: Alignment.center,
+                // height: MediaQuery.of(context).size.height / (4),
+                height: 30,
+                width: MediaQuery.of(context).size.width / (2 * 1.5),
+                margin: EdgeInsets.all(
+                  2,
+                ),
+                child: Material(
+                    child: InkWell(
+                  onTap: () {
+                    print("Wrong Option tapped.");
+                  },
+                  child: ClipRect(
+                    child: imgs[oddImageIndex + 1][2],
+                  ),
+                ))),
 
             //if()
             Container(
               height: 120.0,
               width: 20,
             ),
-            Material(
-                child: InkWell(
-                    child: ClipRect(
-                      child: imgs[oddImageIndex + 1][3],
-                    ),
-                    onTap: () {
-                      print("Wrong option tapped.");
-                    }))
+            Container(
+                alignment: Alignment.center,
+                //height: MediaQuery.of(context).size.height / (4),
+                height: 30,
+                width: MediaQuery.of(context).size.width / (2 * 1.5),
+                margin: EdgeInsets.all(
+                  2,
+                ),
+                child: Material(
+                    child: InkWell(
+                        child: ClipRect(
+                          child: imgs[oddImageIndex + 1][3],
+                        ),
+                        onTap: () {
+                          print("Wrong option tapped.");
+                        })))
           ])
         ] else if (oddImageIndex == 2 || oddImageIndex == 3) ...[
           Row(
@@ -309,7 +343,7 @@ class InstanceOfGame extends StatelessWidget {
             Material(
                 child: InkWell(
                     child: ClipRect(
-                      child: imgs[oddImageIndex][oddImageIndex],
+                      child: imgs[oddImageIndex][0],
                     ),
                     onTap: () {
                       print("Correct option tapped.");
