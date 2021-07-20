@@ -32,14 +32,15 @@ class _OddOneOutState extends State<OddOneOut> {
         ),
         Center(
           child: Container(
-            margin:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.13),
-            height: MediaQuery.of(context).size.height * 0.55,
-            width: MediaQuery.of(context).size.width,
-            child: InstanceOfGame(
-              oddImageIndex: random.nextInt(6),
-            ),
-          ),
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.33),
+              height: MediaQuery.of(context).size.height * 0.55,
+              width: MediaQuery.of(context).size.width,
+              child: Center(
+                child: InstanceOfGame(
+                  oddImageIndex: random.nextInt(4),
+                ),
+              )),
         )
       ]),
     );
@@ -50,73 +51,101 @@ class InstanceOfGame extends StatelessWidget {
   final List<List<Image>> imgs = [
     [
       Image.asset('assets/images/fruits/apple.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/fruits/pomegranate.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/fruits/pear.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/fruits/banana.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
     ],
     [
       Image.asset('assets/images/birds/bird1.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/birds/bird2.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/birds/bird3.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/birds/bird4.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
     ],
     [
       Image.asset('assets/images/herbivores/deer.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/herbivores/elephant.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/herbivores/giraffe.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/herbivores/horse.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain)
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain)
     ],
     [
       Image.asset('assets/images/drone1.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/drone2.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/drone3.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/helicopter.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain)
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain)
     ],
     [
       Image.asset('assets/images/pets/bunny.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/pets/cat.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/pets/dog.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/pets/hamster.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain)
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain)
     ],
     [
       Image.asset('assets/images/trucks/truck1.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/trucks/truck2.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/trucks/truck3.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/trucks/truck4.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain)
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain)
     ],
     [
       Image.asset('assets/images/wilds/bear.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/wilds/lion.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/wilds/tiger.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain),
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain),
       Image.asset('assets/images/wilds/wolf.png',
-          width: 100.0, height: 120.0, fit: BoxFit.contain)
+          // width: 100.0, height: 120.0,
+          fit: BoxFit.contain)
     ]
   ];
   final int numberOfCards = 4;
@@ -144,20 +173,26 @@ class InstanceOfGame extends StatelessWidget {
                     print("Correct Option tapped.");
                   },
                   child: ClipRect(
+                      child: Container(
+                    width: MediaQuery.of(context).size.width * 0.38,
+                    height: MediaQuery.of(context).size.width * 0.35,
                     child: imgs[oddImageIndex][oddImageIndex],
-                  ),
+                  )),
                 )),
 
                 //if()
                 Container(
                   height: 120.0,
-                  width: 20,
+                  width: MediaQuery.of(context).size.width * 0.1,
                 ),
                 Material(
                     child: InkWell(
                         child: ClipRect(
+                            child: Container(
+                          width: MediaQuery.of(context).size.width * 0.38,
+                          height: MediaQuery.of(context).size.width * 0.35,
                           child: imgs[oddImageIndex + 1][1],
-                        ),
+                        )),
                         onTap: () {
                           print("Wrong option tapped.");
                         }))
@@ -173,20 +208,26 @@ class InstanceOfGame extends StatelessWidget {
                 print("Wrong Option tapped.");
               },
               child: ClipRect(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * 0.38,
+                height: MediaQuery.of(context).size.width * 0.3,
                 child: imgs[oddImageIndex + 1][2],
-              ),
+              )),
             )),
 
             //if()
             Container(
               height: 120.0,
-              width: 20,
+              width: MediaQuery.of(context).size.width * 0.1,
             ),
             Material(
                 child: InkWell(
                     child: ClipRect(
+                        child: Container(
+                      width: MediaQuery.of(context).size.width * 0.38,
+                      height: MediaQuery.of(context).size.width * 0.35,
                       child: imgs[oddImageIndex + 1][3],
-                    ),
+                    )),
                     onTap: () {
                       print("Wrong option tapped.");
                     }))
@@ -206,20 +247,26 @@ class InstanceOfGame extends StatelessWidget {
                     print("Wrong Option tapped.");
                   },
                   child: ClipRect(
+                      child: Container(
+                    width: MediaQuery.of(context).size.width * 0.38,
+                    height: MediaQuery.of(context).size.width * 0.35,
                     child: imgs[oddImageIndex + 1][1],
-                  ),
+                  )),
                 )),
 
                 //if()
                 Container(
                   height: 120.0,
-                  width: 20,
+                  width: MediaQuery.of(context).size.width * 0.1,
                 ),
                 Material(
                     child: InkWell(
                         child: ClipRect(
+                            child: Container(
+                          width: MediaQuery.of(context).size.width * 0.38,
+                          height: MediaQuery.of(context).size.width * 0.35,
                           child: imgs[oddImageIndex][oddImageIndex],
-                        ),
+                        )),
                         onTap: () {
                           print("Correct option tapped.");
                         }))
@@ -235,20 +282,26 @@ class InstanceOfGame extends StatelessWidget {
                 print("Wrong Option tapped.");
               },
               child: ClipRect(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * 0.38,
+                height: MediaQuery.of(context).size.width * 0.3,
                 child: imgs[oddImageIndex + 1][2],
-              ),
+              )),
             )),
 
             //if()
             Container(
               height: 120.0,
-              width: 20,
+              width: MediaQuery.of(context).size.width * 0.1,
             ),
             Material(
                 child: InkWell(
                     child: ClipRect(
+                        child: Container(
+                      width: MediaQuery.of(context).size.width * 0.38,
+                      height: MediaQuery.of(context).size.width * 0.35,
                       child: imgs[oddImageIndex + 1][3],
-                    ),
+                    )),
                     onTap: () {
                       print("Wrong option tapped.");
                     }))
@@ -268,20 +321,26 @@ class InstanceOfGame extends StatelessWidget {
                     print("Wrong Option tapped.");
                   },
                   child: ClipRect(
+                      child: Container(
+                    width: MediaQuery.of(context).size.width * 0.38,
+                    height: MediaQuery.of(context).size.width * 0.35,
                     child: imgs[oddImageIndex + 1][1],
-                  ),
+                  )),
                 )),
 
                 //if()
                 Container(
                   height: 120.0,
-                  width: 20,
+                  width: MediaQuery.of(context).size.width * 0.1,
                 ),
                 Material(
                     child: InkWell(
                         child: ClipRect(
+                            child: Container(
+                          width: MediaQuery.of(context).size.width * 0.38,
+                          height: MediaQuery.of(context).size.width * 0.35,
                           child: imgs[oddImageIndex + 1][2],
-                        ),
+                        )),
                         onTap: () {
                           print("Wrong option tapped.");
                         }))
@@ -297,20 +356,26 @@ class InstanceOfGame extends StatelessWidget {
                 print("Wrong Option tapped.");
               },
               child: ClipRect(
+                  child: Container(
+                width: MediaQuery.of(context).size.width * 0.38,
+                height: MediaQuery.of(context).size.width * 0.3,
                 child: imgs[oddImageIndex + 1][3],
-              ),
+              )),
             )),
 
             //if()
             Container(
               height: 120.0,
-              width: 20,
+              width: MediaQuery.of(context).size.width * 0.1,
             ),
             Material(
                 child: InkWell(
                     child: ClipRect(
+                        child: Container(
+                      width: MediaQuery.of(context).size.width * 0.38,
+                      height: MediaQuery.of(context).size.width * 0.35,
                       child: imgs[oddImageIndex][oddImageIndex],
-                    ),
+                    )),
                     onTap: () {
                       print("Correct option tapped.");
                     }))
