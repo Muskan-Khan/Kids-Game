@@ -190,7 +190,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                     child: InkWell(
                   onTap: () {
                     refreshCountingScreen();
-                    print("Correct Option tapped.");
+                    // print("Correct Option tapped.");
                   },
                   child: ClipRect(
                       child: Container(
@@ -215,7 +215,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         )),
                         onTap: () {
                           refreshCountingScreen();
-                          print("Wrong option tapped.");
+                          // print("Wrong option tapped.");
                         }))
               ]),
           Container(
@@ -227,7 +227,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                 child: InkWell(
               onTap: () {
                 refreshCountingScreen();
-                print("Wrong Option tapped.");
+                // print("Wrong Option tapped.");
               },
               child: ClipRect(
                   child: Container(
@@ -252,7 +252,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                     )),
                     onTap: () {
                       refreshCountingScreen();
-                      print("Wrong option tapped.");
+                      // print("Wrong option tapped.");
                     }))
           ])
         ] else if (widget.oddImageIndex == 2 || widget.oddImageIndex == 3) ...[
@@ -268,7 +268,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                     child: InkWell(
                   onTap: () {
                     refreshCountingScreen();
-                    print("Wrong Option tapped.");
+                    // print("Wrong Option tapped.");
                   },
                   child: ClipRect(
                       child: Container(
@@ -294,7 +294,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         )),
                         onTap: () {
                           refreshCountingScreen();
-                          print("Correct option tapped.");
+                          // print("Correct option tapped.");
                         }))
               ]),
           Container(
@@ -309,7 +309,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                     child: InkWell(
                   onTap: () {
                     refreshCountingScreen();
-                    print("Wrong Option tapped.");
+                    // print("Wrong Option tapped.");
                   },
                   child: ClipRect(
                       child: Container(
@@ -334,7 +334,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         )),
                         onTap: () {
                           refreshCountingScreen();
-                          print("Wrong option tapped.");
+                          // print("Wrong option tapped.");
                         }))
               ])
         ] else if (widget.oddImageIndex == 4 || widget.oddImageIndex == 5) ...[
@@ -350,7 +350,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                     child: InkWell(
                   onTap: () {
                     refreshCountingScreen();
-                    print("Wrong Option tapped.");
+                    // print("Wrong Option tapped.");
                   },
                   child: ClipRect(
                       child: Container(
@@ -375,7 +375,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         )),
                         onTap: () {
                           refreshCountingScreen();
-                          print("Wrong option tapped.");
+                          // print("Wrong option tapped.");
                         }))
               ]),
           Container(
@@ -390,7 +390,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                     child: InkWell(
                   onTap: () {
                     refreshCountingScreen();
-                    print("Wrong Option tapped.");
+                    // print("Wrong Option tapped.");
                   },
                   child: ClipRect(
                       child: Container(
@@ -416,7 +416,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         )),
                         onTap: () {
                           refreshCountingScreen();
-                          print("Correct option tapped.");
+                          // print("Correct option tapped.");
                         }))
               ])
         ]
