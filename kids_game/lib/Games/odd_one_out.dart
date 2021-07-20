@@ -33,7 +33,7 @@ class _OddOneOutState extends State<OddOneOut> {
         Center(
           child: Container(
               margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.33),
+                  top: MediaQuery.of(context).size.height * 0.16),
               height: MediaQuery.of(context).size.height * 0.55,
               width: MediaQuery.of(context).size.width,
               child: Center(
@@ -175,7 +175,7 @@ class InstanceOfGame extends StatelessWidget {
                   child: ClipRect(
                       child: Container(
                     width: MediaQuery.of(context).size.width * 0.38,
-                    height: MediaQuery.of(context).size.width * 0.35,
+                    height: MediaQuery.of(context).size.width * 0.45,
                     child: imgs[oddImageIndex][oddImageIndex],
                   )),
                 )),
@@ -190,7 +190,7 @@ class InstanceOfGame extends StatelessWidget {
                         child: ClipRect(
                             child: Container(
                           width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.35,
+                          height: MediaQuery.of(context).size.width * 0.45,
                           child: imgs[oddImageIndex + 1][1],
                         )),
                         onTap: () {
@@ -225,7 +225,7 @@ class InstanceOfGame extends StatelessWidget {
                     child: ClipRect(
                         child: Container(
                       width: MediaQuery.of(context).size.width * 0.38,
-                      height: MediaQuery.of(context).size.width * 0.35,
+                      height: MediaQuery.of(context).size.width * 0.45,
                       child: imgs[oddImageIndex + 1][3],
                     )),
                     onTap: () {
@@ -249,7 +249,7 @@ class InstanceOfGame extends StatelessWidget {
                   child: ClipRect(
                       child: Container(
                     width: MediaQuery.of(context).size.width * 0.38,
-                    height: MediaQuery.of(context).size.width * 0.35,
+                    height: MediaQuery.of(context).size.width * 0.45,
                     child: imgs[oddImageIndex + 1][1],
                   )),
                 )),
@@ -264,7 +264,7 @@ class InstanceOfGame extends StatelessWidget {
                         child: ClipRect(
                             child: Container(
                           width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.35,
+                          height: MediaQuery.of(context).size.width * 0.45,
                           child: imgs[oddImageIndex][oddImageIndex],
                         )),
                         onTap: () {
@@ -287,7 +287,7 @@ class InstanceOfGame extends StatelessWidget {
                   child: ClipRect(
                       child: Container(
                     width: MediaQuery.of(context).size.width * 0.38,
-                    height: MediaQuery.of(context).size.width * 0.35,
+                    height: MediaQuery.of(context).size.width * 0.45,
                     child: imgs[oddImageIndex + 1][2],
                   )),
                 )),
@@ -302,7 +302,7 @@ class InstanceOfGame extends StatelessWidget {
                         child: ClipRect(
                             child: Container(
                           width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.35,
+                          height: MediaQuery.of(context).size.width * 0.45,
                           child: imgs[oddImageIndex + 1][3],
                         )),
                         onTap: () {
@@ -326,7 +326,7 @@ class InstanceOfGame extends StatelessWidget {
                   child: ClipRect(
                       child: Container(
                     width: MediaQuery.of(context).size.width * 0.38,
-                    height: MediaQuery.of(context).size.width * 0.35,
+                    height: MediaQuery.of(context).size.width * 0.45,
                     child: imgs[oddImageIndex + 1][1],
                   )),
                 )),
@@ -341,7 +341,7 @@ class InstanceOfGame extends StatelessWidget {
                         child: ClipRect(
                             child: Container(
                           width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.35,
+                          height: MediaQuery.of(context).size.width * 0.45,
                           child: imgs[oddImageIndex + 1][2],
                         )),
                         onTap: () {
@@ -364,7 +364,7 @@ class InstanceOfGame extends StatelessWidget {
                   child: ClipRect(
                       child: Container(
                     width: MediaQuery.of(context).size.width * 0.38,
-                    height: MediaQuery.of(context).size.width * 0.35,
+                    height: MediaQuery.of(context).size.width * 0.45,
                     child: imgs[oddImageIndex + 1][3],
                   )),
                 )),
@@ -379,7 +379,7 @@ class InstanceOfGame extends StatelessWidget {
                         child: ClipRect(
                             child: Container(
                           width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.35,
+                          height: MediaQuery.of(context).size.width * 0.45,
                           child: imgs[oddImageIndex][oddImageIndex - 2],
                         )),
                         onTap: () {
