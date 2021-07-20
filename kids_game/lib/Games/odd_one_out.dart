@@ -210,7 +210,7 @@ class InstanceOfGame extends StatelessWidget {
               child: ClipRect(
                   child: Container(
                 width: MediaQuery.of(context).size.width * 0.38,
-                height: MediaQuery.of(context).size.width * 0.3,
+                height: MediaQuery.of(context).size.width * 0.35,
                 child: imgs[oddImageIndex + 1][2],
               )),
             )),
@@ -275,37 +275,40 @@ class InstanceOfGame extends StatelessWidget {
             height: 20.0,
             width: 400,
           ),
-          Row(children: <Widget>[
-            Material(
-                child: InkWell(
-              onTap: () {
-                print("Wrong Option tapped.");
-              },
-              child: ClipRect(
-                  child: Container(
-                width: MediaQuery.of(context).size.width * 0.38,
-                height: MediaQuery.of(context).size.width * 0.3,
-                child: imgs[oddImageIndex + 1][2],
-              )),
-            )),
+          Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                  onTap: () {
+                    print("Wrong Option tapped.");
+                  },
+                  child: ClipRect(
+                      child: Container(
+                    width: MediaQuery.of(context).size.width * 0.38,
+                    height: MediaQuery.of(context).size.width * 0.35,
+                    child: imgs[oddImageIndex + 1][2],
+                  )),
+                )),
 
-            //if()
-            Container(
-              height: 120.0,
-              width: MediaQuery.of(context).size.width * 0.1,
-            ),
-            Material(
-                child: InkWell(
-                    child: ClipRect(
-                        child: Container(
-                      width: MediaQuery.of(context).size.width * 0.38,
-                      height: MediaQuery.of(context).size.width * 0.35,
-                      child: imgs[oddImageIndex + 1][3],
-                    )),
-                    onTap: () {
-                      print("Wrong option tapped.");
-                    }))
-          ])
+                //if()
+                Container(
+                  height: 120.0,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Material(
+                    child: InkWell(
+                        child: ClipRect(
+                            child: Container(
+                          width: MediaQuery.of(context).size.width * 0.38,
+                          height: MediaQuery.of(context).size.width * 0.35,
+                          child: imgs[oddImageIndex + 1][3],
+                        )),
+                        onTap: () {
+                          print("Wrong option tapped.");
+                        }))
+              ])
         ] else if (oddImageIndex == 4 || oddImageIndex == 5) ...[
           Row(
               //mainAxisSize: MainAxisSize.,
@@ -349,37 +352,40 @@ class InstanceOfGame extends StatelessWidget {
             height: 20.0,
             width: 400,
           ),
-          Row(children: <Widget>[
-            Material(
-                child: InkWell(
-              onTap: () {
-                print("Wrong Option tapped.");
-              },
-              child: ClipRect(
-                  child: Container(
-                width: MediaQuery.of(context).size.width * 0.38,
-                height: MediaQuery.of(context).size.width * 0.3,
-                child: imgs[oddImageIndex + 1][3],
-              )),
-            )),
+          Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                  onTap: () {
+                    print("Wrong Option tapped.");
+                  },
+                  child: ClipRect(
+                      child: Container(
+                    width: MediaQuery.of(context).size.width * 0.38,
+                    height: MediaQuery.of(context).size.width * 0.35,
+                    child: imgs[oddImageIndex + 1][3],
+                  )),
+                )),
 
-            //if()
-            Container(
-              height: 120.0,
-              width: MediaQuery.of(context).size.width * 0.1,
-            ),
-            Material(
-                child: InkWell(
-                    child: ClipRect(
-                        child: Container(
-                      width: MediaQuery.of(context).size.width * 0.38,
-                      height: MediaQuery.of(context).size.width * 0.35,
-                      child: imgs[oddImageIndex][oddImageIndex - 2],
-                    )),
-                    onTap: () {
-                      print("Correct option tapped.");
-                    }))
-          ])
+                //if()
+                Container(
+                  height: 120.0,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Material(
+                    child: InkWell(
+                        child: ClipRect(
+                            child: Container(
+                          width: MediaQuery.of(context).size.width * 0.38,
+                          height: MediaQuery.of(context).size.width * 0.35,
+                          child: imgs[oddImageIndex][oddImageIndex - 2],
+                        )),
+                        onTap: () {
+                          print("Correct option tapped.");
+                        }))
+              ])
         ]
       ])),
     );
