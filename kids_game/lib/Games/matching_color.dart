@@ -97,12 +97,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.oddImageIndex);
     return Center(
-        child: Column(children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
       if (widget.oddImageIndex == 0 || widget.oddImageIndex == 1) ...[
         Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             textDirection: TextDirection.ltr,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Material(
                   child: InkWell(
@@ -116,10 +118,6 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   ),
                 ),
               )),
-              Container(
-                height: 120.0,
-                width: MediaQuery.of(context).size.width * 0.1,
-              ),
               Material(
                   child: InkWell(
                       child: ClipRect(
@@ -132,43 +130,58 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         refreshCountingScreen();
                       }))
             ]),
-        Container(
-          height: 20.0,
-          width: 400,
-        ),
-        Row(children: <Widget>[
-          Material(
-              child: InkWell(
-            onTap: () {
-              refreshCountingScreen();
-            },
-            child: ClipRect(
-              child: ColoredCards(
-                boxColor: colorOfCards[0],
-                textOnBox: colorName[0],
-              ),
-            ),
-          )),
-          Container(
-            height: 120.0,
-            width: MediaQuery.of(context).size.width * 0.1,
-          ),
-          Material(
-              child: InkWell(
-                  child: ClipRect(
-                    child: ColoredCards(
-                      boxColor: colorOfCards[0],
-                      textOnBox: colorName[0],
-                    ),
+        Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  refreshCountingScreen();
+                },
+                child: ClipRect(
+                  child: ColoredCards(
+                    boxColor: colorOfCards[0],
+                    textOnBox: colorName[0],
                   ),
-                  onTap: () {
-                    refreshCountingScreen();
-                  }))
-        ])
+                ),
+              )),
+            ]),
+        Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  refreshCountingScreen();
+                },
+                child: ClipRect(
+                  child: ColoredCards(
+                    boxColor: colorOfCards[0],
+                    textOnBox: colorName[0],
+                  ),
+                ),
+              )),
+              Material(
+                  child: InkWell(
+                      child: ClipRect(
+                        child: ColoredCards(
+                          boxColor: colorOfCards[0],
+                          textOnBox: colorName[0],
+                        ),
+                      ),
+                      onTap: () {
+                        refreshCountingScreen();
+                      }))
+            ])
       ] else if (widget.oddImageIndex == 2 || widget.oddImageIndex == 3) ...[
         Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             textDirection: TextDirection.ltr,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Material(
                   child: InkWell(
@@ -182,12 +195,6 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   ),
                 ),
               )),
-
-              //if()
-              Container(
-                height: 120.0,
-                width: MediaQuery.of(context).size.width * 0.1,
-              ),
               Material(
                   child: InkWell(
                       child: ClipRect(
@@ -200,13 +207,10 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         refreshCountingScreen();
                       }))
             ]),
-        Container(
-          height: 20.0,
-          width: 400,
-        ),
         Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             textDirection: TextDirection.ltr,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Material(
                   child: InkWell(
@@ -220,12 +224,24 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   ),
                 ),
               )),
-
-              //if()
-              Container(
-                height: 120.0,
-                width: MediaQuery.of(context).size.width * 0.1,
-              ),
+            ]),
+        Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  refreshCountingScreen();
+                },
+                child: ClipRect(
+                  child: ColoredCards(
+                    boxColor: colorOfCards[0],
+                    textOnBox: colorName[0],
+                  ),
+                ),
+              )),
               Material(
                   child: InkWell(
                       child: ClipRect(
@@ -240,8 +256,9 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
             ])
       ] else if (widget.oddImageIndex == 4 || widget.oddImageIndex == 5) ...[
         Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             textDirection: TextDirection.ltr,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Material(
                   child: InkWell(
@@ -255,12 +272,6 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   ),
                 ),
               )),
-
-              //if()
-              Container(
-                height: 120.0,
-                width: MediaQuery.of(context).size.width * 0.1,
-              ),
               Material(
                   child: InkWell(
                       child: ClipRect(
@@ -273,13 +284,10 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         refreshCountingScreen();
                       }))
             ]),
-        Container(
-          height: 20.0,
-          width: 400,
-        ),
         Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             textDirection: TextDirection.ltr,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Material(
                   child: InkWell(
@@ -293,12 +301,24 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   ),
                 ),
               )),
-
-              //if()
-              Container(
-                height: 120.0,
-                width: MediaQuery.of(context).size.width * 0.1,
-              ),
+            ]),
+        Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  refreshCountingScreen();
+                },
+                child: ClipRect(
+                  child: ColoredCards(
+                    boxColor: colorOfCards[0],
+                    textOnBox: colorName[0],
+                  ),
+                ),
+              )),
               Material(
                   child: InkWell(
                       child: ClipRect(
@@ -336,9 +356,12 @@ class _ColoredCardsState extends State<ColoredCards> {
       color: Colors.transparent,
       child: InkWell(
         child: Card(
+          color: widget.boxColor,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
           child: SizedBox(
-              width: screenWidth / 2.8,
-              height: screenHeight / 5.9,
+              width: screenWidth / 3.2,
+              height: screenHeight / 6.2,
               child: Center(
                   child: Container(
                 padding: const EdgeInsets.all(10.0),
@@ -347,8 +370,7 @@ class _ColoredCardsState extends State<ColoredCards> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'OtomanopeeOne-Regular',
-                    fontSize: screenWidth / 20,
-                    color: widget.boxColor,
+                    fontSize: screenWidth / 10,
                   ),
                 ),
               ))),
