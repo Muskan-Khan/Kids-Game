@@ -3,17 +3,26 @@ import 'package:flutter/material.dart';
 // import 'HomeScreen/background.dart';
 // import 'Games/counting_screen.dart';
 // import 'Games/games_background.dart';
-import 'Games/odd_one_out.dart';
+import 'Games/matching_color.dart';
 
 // void main() {
 //   runApp(MaterialApp(home: Background()));
 // }
+// void main() {
+//   runApp(MaterialApp(
+//     home: OddOneOut(),
+//     debugShowCheckedModeBanner: false,
+//   ));
+// }
+
 void main() {
   runApp(MaterialApp(
-    home: OddOneOut(),
+    home: MatchingColors(),
     debugShowCheckedModeBanner: false,
   ));
 }
+
+
 
 // void main() {
 //   runApp(MaterialApp(home: Foreground()));
