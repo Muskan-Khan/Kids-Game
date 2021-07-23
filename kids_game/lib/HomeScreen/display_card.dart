@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class DisplayCard extends StatelessWidget {
   final String _cardText;
   final Color _color;
+
   DisplayCard(this._cardText, this._color);
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
