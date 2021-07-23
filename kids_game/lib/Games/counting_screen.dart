@@ -407,7 +407,7 @@ class _DisplayOptionCardState extends State<DisplayOptionCard> {
             ),
             onTap: () {
               if (widget.optionValue == widget.rightAnswer) {
-                body:
+                //body:
                 VideoPlayerWidget(controller: controller);
                 widget.changeOptions();
               } else {
