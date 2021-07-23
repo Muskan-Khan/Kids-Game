@@ -26,7 +26,7 @@ class _MatchingColorsState extends State<MatchingColors> {
           child: const Material(
             type: MaterialType.transparency,
             child: Text(
-              "Odd One Out",
+              "Colours",
               style: TextStyle(
                 fontFamily: 'OtomanopeeOne-Regular',
                 fontSize: 50,
@@ -37,12 +37,12 @@ class _MatchingColorsState extends State<MatchingColors> {
         Center(
           child: Container(
               margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.16),
+                  top: MediaQuery.of(context).size.height * 0.12),
               height: MediaQuery.of(context).size.height * 0.55,
               width: MediaQuery.of(context).size.width,
               child: Center(
                 child: InstanceOfGame(
-                  oddImageIndex: random.nextInt(6),
+                  oddImageIndex: random.nextInt(10),
                   changeScreen: refreshScreen,
                 ),
               )),
@@ -78,12 +78,9 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
     "Yellow",
     "Purple",
     "Pink",
-    "Maroon",
     "Gray",
     "Orange",
-    "Maroon",
-    "Gray",
-    "Orange"
+    "Brown"
   ];
   final List<Color> colorOfCards = [
     Colors.red,
@@ -93,259 +90,104 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
     Colors.yellow,
     Colors.purple,
     Colors.pink,
-    Colors.redAccent,
     Colors.blueGrey,
     Colors.orange,
-    Colors.redAccent,
-    Colors.blueGrey,
-    Colors.orange
+    Colors.brown,
   ];
 
   @override
   Widget build(BuildContext context) {
-    // print(widget.oddImageIndex);
+    print(widget.oddImageIndex);
     int x = 0;
-    int i = 1;
     return Center(
         child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        // for (int i = 0; i < 5; i++) ...[
-        if (widget.oddImageIndex <= 3) ...[
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                    child: ColoredCards(
-                      boxColor: colorOfCards[i + 4],
-                      textOnBox: colorName[i + 5 + x],
-                    ),
-                  ),
-                )),
-                Material(
-                    child: InkWell(
-                        child: ClipRect(
-                          child: ColoredCards(
-                            boxColor: colorOfCards[i],
-                            textOnBox: colorName[i + x++],
-                          ),
-                        ),
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+          for (int i = 0; i < 3; i++) ...[
+            Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                textDirection: TextDirection.ltr,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  if (i == 1) ...[
+                    Material(
+                        child: InkWell(
+                            child: ClipRect(
+                              child: ColoredCards(
+                                boxColor:
+                                    colorOfCards[widget.oddImageIndex % 10],
+                                textOnBox: colorName[
+                                    (widget.oddImageIndex + x++) % 10],
+                              ),
+                            ),
+                            onTap: () {
+                              refreshCountingScreen();
+                            }))
+                  ] else ...[
+                    if (widget.oddImageIndex % 3 == 0) ...[
+                      Material(
+                          child: InkWell(
                         onTap: () {
                           refreshCountingScreen();
-                        }))
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                    child: ColoredCards(
-                      boxColor: colorOfCards[i + 1],
-                      textOnBox: colorName[i + 1 + x],
-                    ),
-                  ),
-                )),
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                    child: ColoredCards(
-                      boxColor: colorOfCards[i + 2],
-                      textOnBox: colorName[i + 2 + x],
-                    ),
-                  ),
-                )),
-                Material(
-                    child: InkWell(
+                        },
                         child: ClipRect(
                           child: ColoredCards(
-                            boxColor: colorOfCards[i + 3],
-                            textOnBox: colorName[i + 3 + x],
+                            boxColor: colorOfCards[
+                                (widget.oddImageIndex + i + 1) % 10],
+                            textOnBox: colorName[
+                                (widget.oddImageIndex + i + 1 + x++) % 10],
                           ),
                         ),
+                      )),
+                      Material(
+                          child: InkWell(
+                              child: ClipRect(
+                                child: ColoredCards(
+                                  boxColor: colorOfCards[
+                                      (widget.oddImageIndex + i + 2) % 10],
+                                  textOnBox: colorName[
+                                      (widget.oddImageIndex + i + 2 + x++) %
+                                          10],
+                                ),
+                              ),
+                              onTap: () {
+                                refreshCountingScreen();
+                              }))
+                    ] else ...[
+                      Material(
+                          child: InkWell(
+                              child: ClipRect(
+                                child: ColoredCards(
+                                  boxColor: colorOfCards[
+                                      (widget.oddImageIndex + i + 2) % 10],
+                                  textOnBox: colorName[
+                                      (widget.oddImageIndex + i + 2 + x++) %
+                                          10],
+                                ),
+                              ),
+                              onTap: () {
+                                refreshCountingScreen();
+                              })),
+                      Material(
+                          child: InkWell(
                         onTap: () {
                           refreshCountingScreen();
-                        }))
-              ])
-        ] else if (widget.oddImageIndex > 3 && (widget.oddImageIndex <= 7)) ...[
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                    child: ColoredCards(
-                      boxColor: colorOfCards[i],
-                      textOnBox: colorName[i + x + 1],
-                    ),
-                  ),
-                )),
-                Material(
-                    child: InkWell(
+                        },
                         child: ClipRect(
                           child: ColoredCards(
-                            boxColor: colorOfCards[i + 1],
-                            textOnBox: colorName[i + x++],
+                            boxColor: colorOfCards[
+                                (widget.oddImageIndex + i + 1) % 10],
+                            textOnBox: colorName[
+                                (widget.oddImageIndex + i + 1 + x++) % 10],
                           ),
                         ),
-                        onTap: () {
-                          refreshCountingScreen();
-                        }))
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                    child: ColoredCards(
-                      boxColor: colorOfCards[i + 2],
-                      textOnBox: colorName[i + 2 + x],
-                    ),
-                  ),
-                )),
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                    child: ColoredCards(
-                      boxColor: colorOfCards[i + 3],
-                      textOnBox: colorName[i + 3 + x],
-                    ),
-                  ),
-                )),
-                Material(
-                    child: InkWell(
-                        child: ClipRect(
-                          child: ColoredCards(
-                            boxColor: colorOfCards[i + 4],
-                            textOnBox: colorName[i + 4 + x],
-                          ),
-                        ),
-                        onTap: () {
-                          refreshCountingScreen();
-                        }))
-              ])
-        ] else if (widget.oddImageIndex > 7) ...[
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                    child: ColoredCards(
-                      boxColor: colorOfCards[i + 2],
-                      textOnBox: colorName[i + 2 + x + 1],
-                    ),
-                  ),
-                )),
-                Material(
-                    child: InkWell(
-                        child: ClipRect(
-                          child: ColoredCards(
-                            boxColor: colorOfCards[i + 3],
-                            textOnBox: colorName[i + 3 + x],
-                          ),
-                        ),
-                        onTap: () {
-                          refreshCountingScreen();
-                        }))
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                    child: ColoredCards(
-                      boxColor: colorOfCards[i + 1],
-                      textOnBox: colorName[i + 1 + x++],
-                    ),
-                  ),
-                )),
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                    child: ColoredCards(
-                      boxColor: colorOfCards[i],
-                      textOnBox: colorName[i + x],
-                    ),
-                  ),
-                )),
-                Material(
-                    child: InkWell(
-                        child: ClipRect(
-                          child: ColoredCards(
-                            boxColor: colorOfCards[i + 4],
-                            textOnBox: colorName[i + 4 + x],
-                          ),
-                        ),
-                        onTap: () {
-                          refreshCountingScreen();
-                        }))
-              ])
-        ]
-      ],
-      // ]
-    ));
+                      )),
+                    ]
+                  ]
+                ]),
+          ],
+        ]));
   }
 }
 
@@ -370,11 +212,11 @@ class _ColoredCardsState extends State<ColoredCards> {
       child: InkWell(
         child: Card(
           color: widget.boxColor,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+          // shape:
+          //     RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
           child: SizedBox(
               width: screenWidth / 3.2,
-              height: screenHeight / 6.2,
+              height: screenHeight / 6.4,
               child: Center(
                   child: Container(
                 padding: const EdgeInsets.all(10.0),
@@ -383,7 +225,8 @@ class _ColoredCardsState extends State<ColoredCards> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'OtomanopeeOne-Regular',
-                    fontSize: screenWidth / 10,
+                    fontSize: screenWidth / 13,
+                    color: Colors.white,
                   ),
                 ),
               ))),
