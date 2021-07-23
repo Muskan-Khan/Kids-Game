@@ -1,7 +1,10 @@
+//import 'dart:html';
+import 'video_player_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:kids_game/Games/games_background.dart';
+import 'package:video_player/video_player.dart';
 
 class CountingScreen extends StatefulWidget {
   const CountingScreen({Key? key}) : super(key: key);
@@ -352,6 +355,26 @@ class DisplayOptionCard extends StatefulWidget {
 }
 
 class _DisplayOptionCardState extends State<DisplayOptionCard> {
+  VideoPlayerController controller =
+      VideoPlayerController.asset("assets/videos/Excellent.mp4");
+  // controller =
+  //late Future<void> _initializeVideoPlayerFuture;
+  @override
+  void initState() {
+    super.initState();
+
+    controller.addListener(() => setState(() {}));
+    controller.setLooping(false);
+    controller.setVolume(1.0);
+    controller.initialize().then((_) => controller.play());
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     int x = 2;
@@ -384,6 +407,8 @@ class _DisplayOptionCardState extends State<DisplayOptionCard> {
             ),
             onTap: () {
               if (widget.optionValue == widget.rightAnswer) {
+                body:
+                VideoPlayerWidget(controller: controller);
                 widget.changeOptions();
               } else {
                 widget.changeOptions();
