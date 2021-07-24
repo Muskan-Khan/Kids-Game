@@ -357,15 +357,13 @@ class DisplayOptionCard extends StatefulWidget {
 class _DisplayOptionCardState extends State<DisplayOptionCard> {
   VideoPlayerController controller =
       VideoPlayerController.asset("assets/videos/Excellent.mp4");
-  // controller =
-  //late Future<void> _initializeVideoPlayerFuture;
   @override
   void initState() {
     super.initState();
 
     controller.addListener(() => setState(() {}));
     controller.setLooping(false);
-    controller.setVolume(1.0);
+    controller.setVolume(3.0);
     controller.initialize().then((_) => controller.play());
   }
 
@@ -377,44 +375,41 @@ class _DisplayOptionCardState extends State<DisplayOptionCard> {
 
   @override
   Widget build(BuildContext context) {
-    int x = 2;
-    return Container(
-      child: Material(
-          type: MaterialType.transparency,
-          child: InkWell(
-            child: Card(
+    return Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        child: Card(
+          child: Center(
+            child: Container(
+              height: 80,
+              width: 80,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black, width: 2),
+              ),
+              padding: EdgeInsets.all(2.0),
               child: Center(
-                child: Container(
-                  height: 80,
-                  width: 80,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 2),
-                  ),
-                  padding: EdgeInsets.all(2.0),
-                  child: Center(
-                    child: Text(
-                      (widget.optionValue).toString(),
-                      textDirection: TextDirection.ltr,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: MediaQuery.of(context).size.height / 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
+                child: Text(
+                  (widget.optionValue).toString(),
+                  textDirection: TextDirection.ltr,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: MediaQuery.of(context).size.height / 20,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
-            onTap: () {
-              if (widget.optionValue == widget.rightAnswer) {
-                body:
-                VideoPlayerWidget(controller: controller);
-                widget.changeOptions();
-              } else {
-                widget.changeOptions();
-              }
-            },
-          )),
+          ),
+        ),
+        onTap: () {
+          if (widget.optionValue == widget.rightAnswer) {
+            // VideoPlayerWidget(controller: controller);
+            widget.changeOptions();
+          } else {
+            widget.changeOptions();
+          }
+        },
+      ),
     );
   }
 }

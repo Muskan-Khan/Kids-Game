@@ -97,7 +97,6 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.oddImageIndex);
     int x = 0;
     return Center(
         child: Column(
