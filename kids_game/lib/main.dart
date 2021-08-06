@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 // import 'package:kids_game/Games/counting_screen.dart';
 // import 'HomeScreen/background.dart';
-import 'Games/counting_screen.dart';
+//import 'Games/counting_screen.dart';
 // import 'Games/games_background.dart';
-import 'Games/matching_color.dart';
+//import 'Games/matching_color.dart';
+import 'Games/odd_one_out.dart';
 
 // void main() {
 //   runApp(MaterialApp(home: Background()));
 // }
-// void main() {
-//   runApp(MaterialApp(
-//     home: OddOneOut(),
-//     debugShowCheckedModeBanner: false,
-//   ));
-// }
+void main() {
+  runApp(MaterialApp(
+    home: OddOneOut(),
+    debugShowCheckedModeBanner: false,
+  ));
+}
 
 // void main() {
 //   runApp(MaterialApp(
@@ -26,10 +27,10 @@ import 'Games/matching_color.dart';
 //   runApp(MaterialApp(home: Foreground()));
 // }
 
-void main() => runApp(MaterialApp(
-      home: CountingScreen(),
-      debugShowCheckedModeBanner: false,
-    ));
+// void main() => runApp(MaterialApp(
+//       home: CountingScreen(),
+//       debugShowCheckedModeBanner: false,
+//     ));
 
 
 // // // // // // class CountingScreen extends StatefulWidget {
