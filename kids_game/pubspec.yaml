@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  assets_audio_player: ^3.0.3+1
   video_player : 
 
   # The following adds the Cupertino Icons font to your application.
@@ -62,113 +63,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/audios/
-    - assets/images/vippng.com-grass-background-png-92811.png
-    - assets/images/bird.png
-    - assets/images/owls.png
-    - assets/images/monkey.png
-    - assets/images/carAndCart.png
-    - assets/images/apple.png
-    - assets/images/boyOnly.png
-    - assets/images/kinnows.png
-    - assets/images/durian.png
-    - assets/images/car.png
-    - assets/images/helicopter.png
-    - assets/images/grapes.png
-    - assets/images/drone3.png
-    - assets/images/drone2.png
-    - assets/images/drone1.png
-    - assets/images/catonchair.png
-    - assets/images/cat.png
-    - assets/images/cane.png
-    - assets/images/blackGrapes.png
-    - assets/images/applewithleaves.png
-    - assets/images/hotAirBaloon.png
-    - assets/images/lemon.png
-    - assets/images/lion.png
-    - assets/images/rasberry.png
-    - assets/images/pomegranate.png
-    - assets/images/pear.png
-    - assets/audios/excellent.mp3
-    - assets/audios/tryagain.mp3
-    - assets/audios/great.mp3
-    - assets/carrace.mp4
-
-    - assets/images/birds/bird1.png
-    - assets/images/birds/bird2.png
-    - assets/images/birds/bird3.png
-    - assets/images/birds/bird4.png
-    # - assets/images/birds/bird
-    # - assets/images/birds/bird
-    # - assets/images/birds/bird
-    # - assets/images/birds/bird
-    # - assets/images/birds/bird
-    # - assets/images/birds/bird
-    # - assets/images/birds/bird
+    - assets/images/
     
-    - assets/images/fruits/apple.png
-    - assets/images/fruits/banana.png
-    - assets/images/fruits/pear.png
-    - assets/images/fruits/pomegranate.png
-
-    # - assets/images/fruits/applewithleaves.png
-    # - assets/images/fruits/hotAirBaloon.png
-    # - assets/images/fruits/lemon.png
-    # - assets/images/fruits/lion.png
-    # - assets/images/fruits/rasberry.png
-    # - assets/images/fruits/pomegranate.png
-    # - assets/images/fruits/pear.png
-
-
-    - assets/images/pets/bunny.png
-    - assets/images/pets/cat.png
-    - assets/images/pets/dog.png
-    - assets/images/pets/hamster.png
-    # - assets/images/pets/applewithleaves.png
-    # - assets/images/pets/hotAirBaloon.png
-    # - assets/images/pets/lemon.png
-    # - assets/images/pets/lion.png
-    # - assets/images/pets/rasberry.png
-    # - assets/images/pets/pomegranate.png
-    # - assets/images/pets/pear.png
-
-
-    - assets/images/herbivores/deer.png
-    - assets/images/herbivores/elephant.png
-    - assets/images/herbivores/giraffe.png
-    - assets/images/herbivores/horse.png
-
-    # - assets/images/herbivores/applewithleaves.png
-    # - assets/images/herbivores/hotAirBaloon.png
-    # - assets/images/herbivores/lemon.png
-    # - assets/images/herbivores/lion.png
-    # - assets/images/herbivores/rasberry.png
-    # - assets/images/herbivores/pomegranate.png
-    # - assets/images/herbivores/pear.png
-
-    - assets/images/trucks/truck1.png
-    - assets/images/trucks/truck2.png
-    - assets/images/trucks/truck3.png
-    - assets/images/trucks/truck4.png
-    # - assets/images/trucks/applewithleaves.png
-    # - assets/images/trucks/hotAirBaloon.png
-    # - assets/images/trucks/lemon.png
-    # - assets/images/trucks/lion.png
-    # - assets/images/trucks/rasberry.png
-    # - assets/images/trucks/pomegranate.png
-    # - assets/images/trucks/pear.png
-
-    - assets/images/wilds/bear.png
-    - assets/images/wilds/lion.png
-    - assets/images/wilds/tiger.png
-    - assets/images/wilds/wolf.png
-    # - assets/images/wilds/applewithleaves.png
-    # - assets/images/wilds/hotAirBaloon.png
-    # - assets/images/wilds/lemon.png
-    # - assets/images/wilds/lion.png
-    # - assets/images/wilds/rasberry.png
-    # - assets/images/wilds/pomegranate.png
-    # - assets/images/wilds/pear.png
-
     - assets/videos/Excellent.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see

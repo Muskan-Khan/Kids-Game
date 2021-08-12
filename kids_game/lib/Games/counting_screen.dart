@@ -1,5 +1,5 @@
-//import 'dart:html';
-import 'video_player_widget.dart';
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
@@ -23,12 +23,11 @@ class _CountingScreenState extends State<CountingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    int count = 1;
     return Center(
       child: Stack(children: [
         GameBackground(),
         Container(
-          margin: EdgeInsets.only(top: 30.0),
+          margin: const EdgeInsets.only(top: 30.0),
           child: const Material(
             type: MaterialType.transparency,
             child: Text(
@@ -62,7 +61,6 @@ class InstanceOfGame extends StatefulWidget {
   const InstanceOfGame(
       {Key? key, required this.numberOfCards, required this.changeScreen})
       : super(key: key);
-
   @override
   _InstanceOfGameState createState() => _InstanceOfGameState();
 }
@@ -96,14 +94,13 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
   void refreshCountingScreen() {
     setState(() {
       widget.changeScreen();
-      // print('help me in creating Instance');
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(children: [
+    return Column(
+      children: [
         // Row(),
         Expanded(
           flex: 1,
@@ -220,7 +217,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
           rightAnswer: widget.numberOfCards,
           changeInstance: refreshCountingScreen,
         ),
-      ]),
+      ],
     );
   }
 }
@@ -253,9 +250,8 @@ class _OptionsState extends State<Options> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-          child: Row(
+    return Center(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -333,13 +329,12 @@ class _OptionsState extends State<Options> {
                 changeOptions: refreshOptions),
           ]
         ],
-      )),
+      ),
     );
   }
 }
 
 class DisplayOptionCard extends StatefulWidget {
-  // var random = Random();
   final Function() changeOptions;
   final int optionValue;
   final int rightAnswer;
@@ -367,6 +362,9 @@ class _DisplayOptionCardState extends State<DisplayOptionCard> {
     controller.setLooping(false);
     controller.setVolume(1.0);
     controller.initialize().then((_) => controller.play());
+    Timer(const Duration(seconds: 10), () {
+      Navigator.pop(context);
+    });
   }
 
   @override
@@ -377,44 +375,162 @@ class _DisplayOptionCardState extends State<DisplayOptionCard> {
 
   @override
   Widget build(BuildContext context) {
-    int x = 2;
-    return Container(
-      child: Material(
-          type: MaterialType.transparency,
-          child: InkWell(
-            child: Card(
+    return Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          child: Card(
               child: Center(
-                child: Container(
-                  height: 80,
-                  width: 80,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 2),
-                  ),
-                  padding: EdgeInsets.all(2.0),
-                  child: Center(
-                    child: Text(
-                      (widget.optionValue).toString(),
-                      textDirection: TextDirection.ltr,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: MediaQuery.of(context).size.height / 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
+            child: Container(
+              height: 80,
+              width: 80,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black, width: 2),
+              ),
+              padding: const EdgeInsets.all(2.0),
+              child: Center(
+                child: Text(
+                  (widget.optionValue).toString(),
+                  textDirection: TextDirection.ltr,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: MediaQuery.of(context).size.height / 20,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
-            onTap: () {
-              if (widget.optionValue == widget.rightAnswer) {
-                //body:
-                VideoPlayerWidget(controller: controller);
-                widget.changeOptions();
-              } else {
-                widget.changeOptions();
-              }
-            },
           )),
+          onTap: () {
+            if (widget.optionValue == widget.rightAnswer) {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => VideoPlayerWidget(
+                            controller: controller,
+                          )));
+              widget.changeOptions();
+            } else {
+              widget.changeOptions();
+            }
+          },
+        ));
+  }
+}
+
+class VideoPlayerWidget extends StatelessWidget {
+  final VideoPlayerController controller;
+
+  const VideoPlayerWidget({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+  // Widget buildVideoPlayer() => VideoPlayer(controller);
+  Widget buildVideo() => VideoPlayer(controller);
+  // buildVideoPlayer();
+
+  @override
+  Widget build(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => buildVideo()));
+    return Scaffold(
+      body: controller.value.isInitialized
+          ? Center(
+              child: buildVideo(),
+            )
+          : const Center(
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 }
+
+// class VideoPlayerApp extends StatelessWidget {
+//   const VideoPlayerApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       title: 'Video Player Demo',
+//       home: VideoPlayerScreen(),
+//     );
+//   }
+// }
+
+
+
+// class VideoPlayerScreen extends StatefulWidget {
+//   const VideoPlayerScreen({Key? key}) : super(key: key);
+
+//   @override
+//   _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
+// }
+
+// class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
+//   late VideoPlayerController _controller;
+//   late Future<void> _initializeVideoPlayerFuture;
+
+//   @override
+//   void initState() {
+//     // Create and store the VideoPlayerController. The VideoPlayerController
+//     // offers several different constructors to play videos from assets, files,
+//     // or the internet.
+//     _controller = VideoPlayerController.network(
+//       'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
+//     );
+
+//     // Initialize the controller and store the Future for later use.
+//     _initializeVideoPlayerFuture = _controller.initialize();
+
+//     // Use the controller to loop the video.
+//     _controller.setLooping(true);
+
+//     super.initState();
+//   }
+
+//   @override
+//   void dispose() {
+//     // Ensure disposing of the VideoPlayerController to free up resources.
+//     _controller.dispose();
+
+//     super.dispose();
+//   }
+
+// _AnimatedFlutterLogoState() {
+//      Timer(const Duration(milliseconds: 800), () {
+//        setState(() {
+        
+//       });
+//     Navigator.pop(context);
+// });}
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return
+//         Scaffold(
+//         // Use a FutureBuilder to display a loading spinner while waiting for the
+//         // VideoPlayerController to finish initializing.
+//         body:
+//         Center(
+//       child: FutureBuilder(
+//         future: _initializeVideoPlayerFuture,
+//         builder: (context, snapshot) {
+//           if (snapshot.connectionState == ConnectionState.done) {
+//             // If the VideoPlayerController has finished initialization, use
+//             // the data it provides to limit the aspect ratio of the video.
+//             return AspectRatio(
+//               aspectRatio: _controller.value.aspectRatio,
+//               // Use the VideoPlayer widget to display the video.
+//               child: VideoPlayer(_controller),
+//             );
+//           } else {
+//             // If the VideoPlayerController is still initializing, show a
+//             // loading spinner.
+//             return const Center(
+//               child: CircularProgressIndicator(),
+//             );
+//           }
+//         },
+//       ),
+//         ));
+//   }
+// }
