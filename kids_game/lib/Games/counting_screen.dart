@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:kids_game/Games/games_background.dart';
-import 'package:video_player/video_player.dart';
 
 class CountingScreen extends StatefulWidget {
   const CountingScreen({Key? key}) : super(key: key);
@@ -350,29 +349,6 @@ class DisplayOptionCard extends StatefulWidget {
 }
 
 class _DisplayOptionCardState extends State<DisplayOptionCard> {
-  VideoPlayerController controller =
-      VideoPlayerController.asset("assets/videos/Excellent.mp4");
-  // controller =
-  //late Future<void> _initializeVideoPlayerFuture;
-  @override
-  void initState() {
-    super.initState();
-
-    controller.addListener(() => setState(() {}));
-    controller.setLooping(false);
-    controller.setVolume(1.0);
-    controller.initialize().then((_) => controller.play());
-    Timer(const Duration(seconds: 10), () {
-      Navigator.pop(context);
-    });
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -402,12 +378,6 @@ class _DisplayOptionCardState extends State<DisplayOptionCard> {
           )),
           onTap: () {
             if (widget.optionValue == widget.rightAnswer) {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => VideoPlayerWidget(
-                            controller: controller,
-                          )));
               widget.changeOptions();
             } else {
               widget.changeOptions();
@@ -417,32 +387,6 @@ class _DisplayOptionCardState extends State<DisplayOptionCard> {
   }
 }
 
-class VideoPlayerWidget extends StatelessWidget {
-  final VideoPlayerController controller;
-
-  const VideoPlayerWidget({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
-  // Widget buildVideoPlayer() => VideoPlayer(controller);
-  Widget buildVideo() => VideoPlayer(controller);
-  // buildVideoPlayer();
-
-  @override
-  Widget build(BuildContext context) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => buildVideo()));
-    return Scaffold(
-      body: controller.value.isInitialized
-          ? Center(
-              child: buildVideo(),
-            )
-          : const Center(
-              child: CircularProgressIndicator(),
-            ),
-    );
-  }
-}
 
 // class VideoPlayerApp extends StatelessWidget {
 //   const VideoPlayerApp({Key? key}) : super(key: key);
