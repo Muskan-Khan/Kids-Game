@@ -45,9 +45,11 @@ class _OddOneOutState extends State<OddOneOut> {
                   oddImageIndex: random.nextInt(6),
                   changeScreen: refreshScreen,
                 ),
-              )),
-        )
-      ]),
+              )
+            ),
+          )
+        ] 
+      ),
     );
   }
 }
