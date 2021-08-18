@@ -21,7 +21,7 @@ class _PhonicsState extends State<Phonics> {
           child: const Material(
             type: MaterialType.transparency,
             child: Text(
-              "Odd One Out",
+              "Phonics",
               style: TextStyle(
                 fontFamily: 'OtomanopeeOne-Regular',
                 fontSize: 50,
@@ -73,7 +73,18 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
     return Container(
         child: Center(
             child: Column(children: [
-      if (widget.alphabetIndex >= 1 && widget.alphabetIndex <= 6) ...[
+      if (widget.alphabetIndex >= 0 && widget.alphabetIndex <= 6) ...[
+        Center(
+          child: Container(
+            child: Text(
+              alphabets[widget.alphabetIndex],
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 80,
+                  decoration: TextDecoration.none),
+            ),
+          ),
+        ),
         Row(
             textDirection: TextDirection.ltr,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -83,8 +94,8 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                 onTap: () {},
                 child: ClipRect(
                     child: Container(
-                  width: MediaQuery.of(context).size.width * 0.38,
-                  height: MediaQuery.of(context).size.width * 0.45,
+                  width: MediaQuery.of(context).size.width * 0.20,
+                  height: MediaQuery.of(context).size.width * 0.35,
                   child: imgs[widget.alphabetIndex],
                 )),
               )),
@@ -96,8 +107,8 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: InkWell(
                       child: ClipRect(
                           child: Container(
-                        width: MediaQuery.of(context).size.width * 0.38,
-                        height: MediaQuery.of(context).size.width * 0.45,
+                        width: MediaQuery.of(context).size.width * 0.20,
+                        height: MediaQuery.of(context).size.width * 0.35,
                         child: imgs[widget.alphabetIndex + 1],
                       )),
                       onTap: () {}))
@@ -112,9 +123,9 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
             onTap: () {},
             child: ClipRect(
                 child: Container(
-              width: MediaQuery.of(context).size.width * 0.38,
+              width: MediaQuery.of(context).size.width * 0.20,
               height: MediaQuery.of(context).size.width * 0.35,
-              child: imgs[widget.alphabetIndex + 2],
+              child: imgs[widget.alphabetIndex + 3],
             )),
           )),
 
@@ -127,9 +138,9 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               child: InkWell(
             child: ClipRect(
                 child: Container(
-              width: MediaQuery.of(context).size.width * 0.38,
-              height: MediaQuery.of(context).size.width * 0.45,
-              child: imgs[widget.alphabetIndex],
+              width: MediaQuery.of(context).size.width * 0.20,
+              height: MediaQuery.of(context).size.width * 0.35,
+              child: imgs[widget.alphabetIndex + 4],
             )),
             onTap: () {},
           ))
