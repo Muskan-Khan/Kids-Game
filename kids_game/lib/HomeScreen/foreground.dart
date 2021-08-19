@@ -13,7 +13,7 @@ class Foreground extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.only(top: 10.0, left: 10.0),
             child: Text(
-              "Enigma",
+              "Brainiacs",
               style: TextStyle(
                 fontFamily: 'OtomanopeeOne-Regular',
                 fontSize: 50,

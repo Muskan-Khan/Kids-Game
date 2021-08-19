@@ -29,7 +29,7 @@ class _CountingScreenState extends State<CountingScreen> {
           child: const Material(
             type: MaterialType.transparency,
             child: Text(
-              "Game Name",
+              "Counting",
               style: TextStyle(
                 fontFamily: 'OtomanopeeOne-Regular',
                 fontSize: 50,
@@ -400,10 +400,10 @@ class _DisplayOptionCardState extends State<DisplayOptionCard> {
           onTap: () {
             if (widget.optionValue == widget.rightAnswer) {
               celebrate();
+
               widget.changeOptions();
             } else {
               retry();
-              // widget.changeOptions();
             }
           },
         ));
