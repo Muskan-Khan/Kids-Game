@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'dart:math';
 import 'package:kids_game/Games/games_background.dart';
 
@@ -11,7 +12,7 @@ class ProperOrientation extends StatefulWidget {
 }
 
 class _ProperOrientationState extends State<ProperOrientation> {
-  void refreshScreen() {
+  void refreshOptions() {
     setState(() {});
   }
 
@@ -22,11 +23,11 @@ class _ProperOrientationState extends State<ProperOrientation> {
       child: Stack(children: [
         GameBackground(),
         Container(
-          margin: const EdgeInsets.only(top: 30.0),
+          margin: const EdgeInsets.only(top: 30.0, left: 30.0),
           child: const Material(
             type: MaterialType.transparency,
             child: Text(
-              "Flawless",
+              "Erect",
               style: TextStyle(
                 fontFamily: 'OtomanopeeOne-Regular',
                 fontSize: 50,
@@ -42,8 +43,8 @@ class _ProperOrientationState extends State<ProperOrientation> {
               width: MediaQuery.of(context).size.width,
               child: Center(
                 child: InstanceOfGame(
-                  correctIndex: random.nextInt(10),
-                  changeScreen: refreshScreen,
+                  correctIndex: random.nextInt(12),
+                  changeOptions: refreshOptions,
                 ),
               )),
         )
@@ -54,9 +55,9 @@ class _ProperOrientationState extends State<ProperOrientation> {
 
 class InstanceOfGame extends StatefulWidget {
   final int correctIndex;
-  final Function() changeScreen;
+  final Function() changeOptions;
   const InstanceOfGame(
-      {Key? key, required this.correctIndex, required this.changeScreen})
+      {Key? key, required this.correctIndex, required this.changeOptions})
       : super(key: key);
 
   @override
@@ -64,9 +65,32 @@ class InstanceOfGame extends StatefulWidget {
 }
 
 class _InstanceOfGameState extends State<InstanceOfGame> {
+  late AudioPlayer player;
+  @override
+  void initState() {
+    super.initState();
+    player = AudioPlayer();
+  }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
+
+  void celebrate() {
+    player.setAsset('assets/audios/excellent.mp3');
+    player.play();
+  }
+
+  void retry() {
+    player.setAsset('assets/audios/tryagain.mp3');
+    player.play();
+  }
+
   void refreshCountingScreen() {
     setState(() {
-      widget.changeScreen();
+      widget.changeOptions();
     });
   }
 
@@ -75,9 +99,6 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
     Image.asset('assets/images/herbivores/elephant.png', fit: BoxFit.contain),
     Image.asset('assets/images/herbivores/giraffe.png', fit: BoxFit.contain),
     Image.asset('assets/images/herbivores/horse.png', fit: BoxFit.contain),
-    Image.asset('assets/images/drone1.png', fit: BoxFit.contain),
-    Image.asset('assets/images/drone2.png', fit: BoxFit.contain),
-    Image.asset('assets/images/drone3.png', fit: BoxFit.contain),
     Image.asset('assets/images/helicopter.png', fit: BoxFit.contain),
     Image.asset('assets/images/pets/bunny.png', fit: BoxFit.contain),
     Image.asset('assets/images/pets/cat.png', fit: BoxFit.contain),
@@ -91,76 +112,314 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-          mainAxisSize: MainAxisSize.max,
-          verticalDirection: VerticalDirection.down,
-          textDirection: TextDirection.ltr,
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                verticalDirection: VerticalDirection.down,
-                textDirection: TextDirection.ltr,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (var i = 0; i < 4; i += 3)
-                    Expanded(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              height: MediaQuery.of(context).size.height /
-                                  (4 * 1.9),
-                              width: MediaQuery.of(context).size.height / (4),
-                              margin: EdgeInsets.only(top: i.toDouble()),
-                              child: imgs[4],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                verticalDirection: VerticalDirection.down,
-                textDirection: TextDirection.ltr,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (var i = 0; i < 4; i += 3)
-                    if ((widget.correctIndex + i) % 4 == 0) ...[
-                      Expanded(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Expanded(
-                                child: Transform.rotate(
-                              angle: 3.147 / 2,
+        child: Column(
+            mainAxisSize: MainAxisSize.max,
+            verticalDirection: VerticalDirection.down,
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+          if (widget.correctIndex % 2 == 0) ...[
+            if (widget.correctIndex % 4 == 0) ...[
+              Expanded(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Transform.rotate(
+                        angle: 0.0,
+                        child: Material(
+                          child: InkWell(
                               child: Container(
                                 height: MediaQuery.of(context).size.height /
-                                    (4 * 1.9),
-                                width: MediaQuery.of(context).size.height / (4),
-                                margin: EdgeInsets.only(top: i.toDouble()),
+                                    (5 * 1.9),
+                                width: MediaQuery.of(context).size.height / (5),
+                                margin: const EdgeInsets.only(top: 1.0),
                                 child: imgs[widget.correctIndex],
                               ),
-                            ))
-                          ],
-                        ),
-                      ),
-                    ],
-                ],
-              ),
-            )
-          ]),
-    );
+                              onTap: () {
+                                celebrate();
+                                refreshCountingScreen();
+                              }),
+                        )),
+                    Transform.rotate(
+                        angle: 3.147 / 2,
+                        child: Material(
+                          child: InkWell(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height /
+                                    (5 * 1.9),
+                                width: MediaQuery.of(context).size.height / (5),
+                                margin: const EdgeInsets.only(top: 1.0),
+                                child: imgs[widget.correctIndex],
+                              ),
+                              onTap: () {
+                                retry();
+                              }),
+                        ))
+                  ])),
+              Expanded(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Transform.rotate(
+                        angle: 3.147,
+                        child: Material(
+                          child: InkWell(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height /
+                                    (5 * 1.9),
+                                width: MediaQuery.of(context).size.height / (5),
+                                margin: const EdgeInsets.only(top: 1.0),
+                                child: imgs[widget.correctIndex],
+                              ),
+                              onTap: () {
+                                retry();
+                              }),
+                        )),
+                    Transform.rotate(
+                        angle: 3 * 3.147 / 2,
+                        child: Material(
+                          child: InkWell(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height /
+                                    (5 * 1.9),
+                                width: MediaQuery.of(context).size.height / (5),
+                                margin: const EdgeInsets.only(top: 1.0),
+                                child: imgs[widget.correctIndex],
+                              ),
+                              onTap: () {
+                                retry();
+                              }),
+                        ))
+                  ]))
+            ] else ...[
+              Expanded(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Transform.rotate(
+                        angle: 3.147 / 2,
+                        child: Material(
+                          child: InkWell(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height /
+                                    (5 * 1.9),
+                                width: MediaQuery.of(context).size.height / (5),
+                                margin: const EdgeInsets.only(top: 1.0),
+                                child: imgs[widget.correctIndex],
+                              ),
+                              onTap: () {
+                                retry();
+                              }),
+                        )),
+                    Transform.rotate(
+                        angle: 0.0,
+                        child: Material(
+                          child: InkWell(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height /
+                                    (5 * 1.9),
+                                width: MediaQuery.of(context).size.height / (5),
+                                margin: const EdgeInsets.only(top: 1.0),
+                                child: imgs[widget.correctIndex],
+                              ),
+                              onTap: () {
+                                celebrate();
+                                refreshCountingScreen();
+                              }),
+                        ))
+                  ])),
+              Expanded(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Transform.rotate(
+                        angle: 3 * 3.147 / 2,
+                        child: Material(
+                          child: InkWell(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height /
+                                    (5 * 1.9),
+                                width: MediaQuery.of(context).size.height / (5),
+                                margin: const EdgeInsets.only(top: 1.0),
+                                child: imgs[widget.correctIndex],
+                              ),
+                              onTap: () {
+                                retry();
+                              }),
+                        )),
+                    Transform.rotate(
+                        angle: 3.147,
+                        child: Material(
+                          child: InkWell(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height /
+                                    (5 * 1.9),
+                                width: MediaQuery.of(context).size.height / (5),
+                                margin: const EdgeInsets.only(top: 1.0),
+                                child: imgs[widget.correctIndex],
+                              ),
+                              onTap: () {
+                                retry();
+                              }),
+                        ))
+                  ]))
+            ]
+          ] else ...[
+            if (widget.correctIndex % 3 == 0) ...[
+              Expanded(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Transform.rotate(
+                        angle: 0.0,
+                        child: Material(
+                          child: InkWell(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height /
+                                    (5 * 1.9),
+                                width: MediaQuery.of(context).size.height / (5),
+                                margin: const EdgeInsets.only(top: 1.0),
+                                child: imgs[widget.correctIndex],
+                              ),
+                              onTap: () {
+                                celebrate();
+                                refreshCountingScreen();
+                              }),
+                        )),
+                    Transform.rotate(
+                        angle: 3.147 / 2,
+                        child: Material(
+                          child: InkWell(
+                              child: Container(
+                                height: MediaQuery.of(context).size.height /
+                                    (5 * 1.9),
+                                width: MediaQuery.of(context).size.height / (5),
+                                margin: const EdgeInsets.only(top: 1.0),
+                                child: imgs[widget.correctIndex],
+                              ),
+                              onTap: () {
+                                retry();
+                              }),
+                        ))
+                  ])),
+              Expanded(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Transform.rotate(
+                        angle: 3.147,
+                        child: Material(
+                            child: InkWell(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height /
+                                      (5 * 1.9),
+                                  width:
+                                      MediaQuery.of(context).size.height / (5),
+                                  margin: const EdgeInsets.only(top: 1.0),
+                                  child: imgs[widget.correctIndex],
+                                ),
+                                onTap: () {
+                                  retry();
+                                }))),
+                    Transform.rotate(
+                        angle: 3 * 3.147 / 2,
+                        child: Material(
+                            child: InkWell(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height /
+                                      (5 * 1.9),
+                                  width:
+                                      MediaQuery.of(context).size.height / (5),
+                                  margin: const EdgeInsets.only(top: 1.0),
+                                  child: imgs[widget.correctIndex],
+                                ),
+                                onTap: () {
+                                  retry();
+                                })))
+                  ]))
+            ] else ...[
+              Expanded(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Transform.rotate(
+                        angle: 3.147 / 2,
+                        child: Material(
+                            child: InkWell(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height /
+                                      (5 * 1.9),
+                                  width:
+                                      MediaQuery.of(context).size.height / (5),
+                                  margin: const EdgeInsets.only(top: 1.0),
+                                  child: imgs[widget.correctIndex],
+                                ),
+                                onTap: () {
+                                  retry();
+                                }))),
+                    Transform.rotate(
+                        angle: 0.0,
+                        child: Material(
+                            child: InkWell(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height /
+                                      (5 * 1.9),
+                                  width:
+                                      MediaQuery.of(context).size.height / (5),
+                                  margin: const EdgeInsets.only(top: 1.0),
+                                  child: imgs[widget.correctIndex],
+                                ),
+                                onTap: () {
+                                  celebrate();
+                                  refreshCountingScreen();
+                                })))
+                  ])),
+              Expanded(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Transform.rotate(
+                        angle: 3 * 3.147 / 2,
+                        child: Material(
+                            child: InkWell(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height /
+                                      (5 * 1.9),
+                                  width:
+                                      MediaQuery.of(context).size.height / (5),
+                                  margin: const EdgeInsets.only(top: 1.0),
+                                  child: imgs[widget.correctIndex],
+                                ),
+                                onTap: () {
+                                  retry();
+                                }))),
+                    Transform.rotate(
+                        angle: 3.147,
+                        child: Material(
+                            child: InkWell(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height /
+                                      (5 * 1.9),
+                                  width:
+                                      MediaQuery.of(context).size.height / (5),
+                                  margin: const EdgeInsets.only(top: 1.0),
+                                  child: imgs[widget.correctIndex],
+                                ),
+                                onTap: () {
+                                  retry();
+                                })))
+                  ])),
+            ]
+          ]
+        ]));
   }
 }

@@ -22,7 +22,7 @@ class _OddOneOutState extends State<OddOneOut> {
       child: Stack(children: [
         GameBackground(),
         Container(
-          margin: EdgeInsets.only(top: 30.0),
+          margin: const EdgeInsets.only(top: 30.0),
           child: const Material(
             type: MaterialType.transparency,
             child: Text(
@@ -45,11 +45,9 @@ class _OddOneOutState extends State<OddOneOut> {
                   oddImageIndex: random.nextInt(6),
                   changeScreen: refreshScreen,
                 ),
-              )
-            ),
-          )
-        ] 
-      ),
+              )),
+        )
+      ]),
     );
   }
 }
@@ -119,229 +117,226 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-          child: Column(children: [
-        if (widget.oddImageIndex == 0 || widget.oddImageIndex == 1) ...[
-          Row(
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                      child: Container(
-                    width: MediaQuery.of(context).size.width * 0.38,
-                    height: MediaQuery.of(context).size.width * 0.45,
-                    child: imgs[widget.oddImageIndex][widget.oddImageIndex],
-                  )),
+    return Center(
+        child: Column(children: [
+      if (widget.oddImageIndex == 0 || widget.oddImageIndex == 1) ...[
+        Row(
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  refreshCountingScreen();
+                },
+                child: ClipRect(
+                    child: Container(
+                  width: MediaQuery.of(context).size.width * 0.38,
+                  height: MediaQuery.of(context).size.width * 0.45,
+                  child: imgs[widget.oddImageIndex][widget.oddImageIndex],
                 )),
-
-                //if()
-                Container(
-                  height: 120.0,
-                  width: MediaQuery.of(context).size.width * 0.1,
-                ),
-                Material(
-                    child: InkWell(
-                        child: ClipRect(
-                            child: Container(
-                          width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.45,
-                          child: imgs[widget.oddImageIndex + 1][1],
-                        )),
-                        onTap: () {
-                          refreshCountingScreen();
-                        }))
-              ]),
-          Container(
-            height: 20.0,
-            width: 400,
-          ),
-          Row(children: <Widget>[
-            Material(
-                child: InkWell(
-              onTap: () {
-                refreshCountingScreen();
-              },
-              child: ClipRect(
-                  child: Container(
-                width: MediaQuery.of(context).size.width * 0.38,
-                height: MediaQuery.of(context).size.width * 0.35,
-                child: imgs[widget.oddImageIndex + 1][2],
               )),
+
+              //if()
+              Container(
+                height: 120.0,
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+              Material(
+                  child: InkWell(
+                      child: ClipRect(
+                          child: Container(
+                        width: MediaQuery.of(context).size.width * 0.38,
+                        height: MediaQuery.of(context).size.width * 0.45,
+                        child: imgs[widget.oddImageIndex + 1][1],
+                      )),
+                      onTap: () {
+                        refreshCountingScreen();
+                      }))
+            ]),
+        Container(
+          height: 20.0,
+          width: 400,
+        ),
+        Row(children: <Widget>[
+          Material(
+              child: InkWell(
+            onTap: () {
+              refreshCountingScreen();
+            },
+            child: ClipRect(
+                child: Container(
+              width: MediaQuery.of(context).size.width * 0.38,
+              height: MediaQuery.of(context).size.width * 0.35,
+              child: imgs[widget.oddImageIndex + 1][2],
             )),
+          )),
 
-            //if()
-            Container(
-              height: 120.0,
-              width: MediaQuery.of(context).size.width * 0.1,
-            ),
-            Material(
-                child: InkWell(
-                    child: ClipRect(
-                        child: Container(
-                      width: MediaQuery.of(context).size.width * 0.38,
-                      height: MediaQuery.of(context).size.width * 0.45,
-                      child: imgs[widget.oddImageIndex + 1][3],
-                    )),
-                    onTap: () {
-                      refreshCountingScreen();
-                    }))
-          ])
-        ] else if (widget.oddImageIndex == 2 || widget.oddImageIndex == 3) ...[
-          Row(
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                      child: Container(
-                    width: MediaQuery.of(context).size.width * 0.38,
-                    height: MediaQuery.of(context).size.width * 0.45,
-                    child: imgs[widget.oddImageIndex + 1][1],
-                  )),
-                )),
-
-                //if()
-                Container(
-                  height: 120.0,
-                  width: MediaQuery.of(context).size.width * 0.1,
-                ),
-                Material(
-                    child: InkWell(
-                        child: ClipRect(
-                            child: Container(
-                          width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.45,
-                          child: imgs[widget.oddImageIndex]
-                              [widget.oddImageIndex],
-                        )),
-                        onTap: () {
-                          refreshCountingScreen();
-                        }))
-              ]),
+          //if()
           Container(
-            height: 20.0,
-            width: 400,
+            height: 120.0,
+            width: MediaQuery.of(context).size.width * 0.1,
           ),
-          Row(
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                      child: Container(
-                    width: MediaQuery.of(context).size.width * 0.38,
-                    height: MediaQuery.of(context).size.width * 0.45,
-                    child: imgs[widget.oddImageIndex + 1][2],
-                  )),
-                )),
-
-                //if()
-                Container(
-                  height: 120.0,
-                  width: MediaQuery.of(context).size.width * 0.1,
-                ),
-                Material(
-                    child: InkWell(
-                        child: ClipRect(
-                            child: Container(
-                          width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.45,
-                          child: imgs[widget.oddImageIndex + 1][3],
-                        )),
-                        onTap: () {
-                          refreshCountingScreen();
-                        }))
-              ])
-        ] else if (widget.oddImageIndex == 4 || widget.oddImageIndex == 5) ...[
-          Row(
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
-                  child: ClipRect(
-                      child: Container(
-                    width: MediaQuery.of(context).size.width * 0.38,
-                    height: MediaQuery.of(context).size.width * 0.45,
-                    child: imgs[widget.oddImageIndex + 1][1],
-                  )),
-                )),
-
-                //if()
-                Container(
-                  height: 120.0,
-                  width: MediaQuery.of(context).size.width * 0.1,
-                ),
-                Material(
-                    child: InkWell(
-                        child: ClipRect(
-                            child: Container(
-                          width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.45,
-                          child: imgs[widget.oddImageIndex + 1][2],
-                        )),
-                        onTap: () {
-                          refreshCountingScreen();
-                        }))
-              ]),
-          Container(
-            height: 20.0,
-            width: 400,
-          ),
-          Row(
-              textDirection: TextDirection.ltr,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Material(
-                    child: InkWell(
-                  onTap: () {
-                    refreshCountingScreen();
-                  },
+          Material(
+              child: InkWell(
                   child: ClipRect(
                       child: Container(
                     width: MediaQuery.of(context).size.width * 0.38,
                     height: MediaQuery.of(context).size.width * 0.45,
                     child: imgs[widget.oddImageIndex + 1][3],
                   )),
+                  onTap: () {
+                    refreshCountingScreen();
+                  }))
+        ])
+      ] else if (widget.oddImageIndex == 2 || widget.oddImageIndex == 3) ...[
+        Row(
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  refreshCountingScreen();
+                },
+                child: ClipRect(
+                    child: Container(
+                  width: MediaQuery.of(context).size.width * 0.38,
+                  height: MediaQuery.of(context).size.width * 0.45,
+                  child: imgs[widget.oddImageIndex + 1][1],
                 )),
+              )),
 
-                //if()
-                Container(
-                  height: 120.0,
-                  width: MediaQuery.of(context).size.width * 0.1,
-                ),
-                Material(
-                    child: InkWell(
-                        child: ClipRect(
-                            child: Container(
-                          width: MediaQuery.of(context).size.width * 0.38,
-                          height: MediaQuery.of(context).size.width * 0.45,
-                          child: imgs[widget.oddImageIndex]
-                              [widget.oddImageIndex - 2],
-                        )),
-                        onTap: () {
-                          refreshCountingScreen();
-                        }))
-              ])
-        ]
-      ])),
-    );
+              //if()
+              Container(
+                height: 120.0,
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+              Material(
+                  child: InkWell(
+                      child: ClipRect(
+                          child: Container(
+                        width: MediaQuery.of(context).size.width * 0.38,
+                        height: MediaQuery.of(context).size.width * 0.45,
+                        child: imgs[widget.oddImageIndex][widget.oddImageIndex],
+                      )),
+                      onTap: () {
+                        refreshCountingScreen();
+                      }))
+            ]),
+        Container(
+          height: 20.0,
+          width: 400,
+        ),
+        Row(
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  refreshCountingScreen();
+                },
+                child: ClipRect(
+                    child: Container(
+                  width: MediaQuery.of(context).size.width * 0.38,
+                  height: MediaQuery.of(context).size.width * 0.45,
+                  child: imgs[widget.oddImageIndex + 1][2],
+                )),
+              )),
+
+              //if()
+              Container(
+                height: 120.0,
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+              Material(
+                  child: InkWell(
+                      child: ClipRect(
+                          child: Container(
+                        width: MediaQuery.of(context).size.width * 0.38,
+                        height: MediaQuery.of(context).size.width * 0.45,
+                        child: imgs[widget.oddImageIndex + 1][3],
+                      )),
+                      onTap: () {
+                        refreshCountingScreen();
+                      }))
+            ])
+      ] else if (widget.oddImageIndex == 4 || widget.oddImageIndex == 5) ...[
+        Row(
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  refreshCountingScreen();
+                },
+                child: ClipRect(
+                    child: Container(
+                  width: MediaQuery.of(context).size.width * 0.38,
+                  height: MediaQuery.of(context).size.width * 0.45,
+                  child: imgs[widget.oddImageIndex + 1][1],
+                )),
+              )),
+
+              //if()
+              Container(
+                height: 120.0,
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+              Material(
+                  child: InkWell(
+                      child: ClipRect(
+                          child: Container(
+                        width: MediaQuery.of(context).size.width * 0.38,
+                        height: MediaQuery.of(context).size.width * 0.45,
+                        child: imgs[widget.oddImageIndex + 1][2],
+                      )),
+                      onTap: () {
+                        refreshCountingScreen();
+                      }))
+            ]),
+        Container(
+          height: 20.0,
+          width: 400,
+        ),
+        Row(
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  refreshCountingScreen();
+                },
+                child: ClipRect(
+                    child: Container(
+                  width: MediaQuery.of(context).size.width * 0.38,
+                  height: MediaQuery.of(context).size.width * 0.45,
+                  child: imgs[widget.oddImageIndex + 1][3],
+                )),
+              )),
+
+              //if()
+              Container(
+                height: 120.0,
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+              Material(
+                  child: InkWell(
+                      child: ClipRect(
+                          child: Container(
+                        width: MediaQuery.of(context).size.width * 0.38,
+                        height: MediaQuery.of(context).size.width * 0.45,
+                        child: imgs[widget.oddImageIndex]
+                            [widget.oddImageIndex - 2],
+                      )),
+                      onTap: () {
+                        refreshCountingScreen();
+                      }))
+            ])
+      ]
+    ]));
   }
 }
