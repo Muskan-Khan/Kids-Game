@@ -282,7 +282,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                     Transform.rotate(
-                        angle: 0.0,
+                        angle: 3 * 3.147 / 2,
                         child: Material(
                           child: InkWell(
                               child: Container(
@@ -293,10 +293,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                                 child: imgs[widget.correctIndex],
                               ),
                               onTap: () {
-                                celebrate();
-                                Timer(const Duration(seconds: 3), () {
-                                  refreshCountingScreen();
-                                });
+                                retry();
                               }),
                         )),
                     Transform.rotate(
@@ -336,7 +333,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                                   retry();
                                 }))),
                     Transform.rotate(
-                        angle: 3 * 3.147 / 2,
+                        angle: 0.0,
                         child: Material(
                             child: InkWell(
                                 child: Container(
@@ -348,7 +345,10 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                                   child: imgs[widget.correctIndex],
                                 ),
                                 onTap: () {
-                                  retry();
+                                  celebrate();
+                                  Timer(const Duration(seconds: 3), () {
+                                    refreshCountingScreen();
+                                  });
                                 })))
                   ]))
             ] else ...[
@@ -373,6 +373,30 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                                   retry();
                                 }))),
                     Transform.rotate(
+                        angle: 3 * 3.147 / 2,
+                        child: Material(
+                            child: InkWell(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height /
+                                      (5 * 1.9),
+                                  width:
+                                      MediaQuery.of(context).size.height / (5),
+                                  margin: const EdgeInsets.only(top: 1.0),
+                                  child: imgs[widget.correctIndex],
+                                ),
+                                onTap: () {
+                                  retry();
+                                  Timer(const Duration(seconds: 3), () {
+                                    refreshCountingScreen();
+                                  });
+                                })))
+                  ])),
+              Expanded(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                    Transform.rotate(
                         angle: 0.0,
                         child: Material(
                             child: InkWell(
@@ -389,27 +413,6 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                                   Timer(const Duration(seconds: 3), () {
                                     refreshCountingScreen();
                                   });
-                                })))
-                  ])),
-              Expanded(
-                  child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                    Transform.rotate(
-                        angle: 3 * 3.147 / 2,
-                        child: Material(
-                            child: InkWell(
-                                child: Container(
-                                  height: MediaQuery.of(context).size.height /
-                                      (5 * 1.9),
-                                  width:
-                                      MediaQuery.of(context).size.height / (5),
-                                  margin: const EdgeInsets.only(top: 1.0),
-                                  child: imgs[widget.correctIndex],
-                                ),
-                                onTap: () {
-                                  retry();
                                 }))),
                     Transform.rotate(
                         angle: 3.147,
