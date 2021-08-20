@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'dart:math';
+import 'dart:async';
 import 'package:kids_game/Games/games_background.dart';
 
 class ProperOrientation extends StatefulWidget {
@@ -139,7 +140,9 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                               ),
                               onTap: () {
                                 celebrate();
-                                refreshCountingScreen();
+                                Timer(const Duration(seconds: 3), () {
+                                  refreshCountingScreen();
+                                });
                               }),
                         )),
                     Transform.rotate(
@@ -228,7 +231,9 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                               ),
                               onTap: () {
                                 celebrate();
-                                refreshCountingScreen();
+                                Timer(const Duration(seconds: 3), () {
+                                  refreshCountingScreen();
+                                });
                               }),
                         ))
                   ])),
@@ -289,7 +294,9 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                               ),
                               onTap: () {
                                 celebrate();
-                                refreshCountingScreen();
+                                Timer(const Duration(seconds: 3), () {
+                                  refreshCountingScreen();
+                                });
                               }),
                         )),
                     Transform.rotate(
@@ -379,7 +386,9 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                                 ),
                                 onTap: () {
                                   celebrate();
-                                  refreshCountingScreen();
+                                  Timer(const Duration(seconds: 3), () {
+                                    refreshCountingScreen();
+                                  });
                                 })))
                   ])),
               Expanded(
