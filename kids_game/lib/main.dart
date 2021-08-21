@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      home: HomeScreen(),
       debugShowCheckedModeBanner: false,
       // Initially display FirstPage
       initialRoute: '/',
@@ -32,17 +33,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class LandingScreen extends StatelessWidget {
-  const LandingScreen({Key? key}) : super(key: key);
+// class LandingScreen extends StatelessWidget {
+//   const LandingScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeScreen(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       home: HomeScreen(),
+//       debugShowCheckedModeBanner: false,
+//     );
+//   }
+// }
 // void main() => runApp(const MaterialApp(
 //       home: ProperOrientation(),
 //       debugShowCheckedModeBanner: false,

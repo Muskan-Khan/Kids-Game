@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class DisplayCard extends StatelessWidget {
   final String _cardText;
+  final String _cardRoute;
   final Color _color;
 
-  DisplayCard(this._cardText, this._color);
+  DisplayCard(this._cardText, this._cardRoute, this._color);
+  @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
@@ -13,7 +15,8 @@ class DisplayCard extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: () {
-            print('hello');
+            // print('hello');
+            Navigator.of(context).pushNamed('/' + _cardRoute);
           },
           child: Card(
             elevation: 50,
@@ -29,7 +32,7 @@ class DisplayCard extends StatelessWidget {
                 height: screenHeight / 5.9,
                 child: Center(
                     child: Container(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Text(
                     _cardText,
                     textAlign: TextAlign.center,

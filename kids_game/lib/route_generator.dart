@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:kids_game/main.dart';
+// import 'package:kids_game/main.dart';
+import 'HomeScreen/home_screen.dart';
+import 'Games/counting_screen.dart';
+import 'Games/Orientation.dart';
+import 'Games/matching_color.dart';
+import 'Games/odd_one_out.dart';
+import 'Games/phonics.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    // Getting arguments passed in while calling Navigator.pushNamed
-    final args = settings.arguments;
-
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => const LandingScreen());
-      case '/second':
-        // Validation of correct data type
-        if (args is String) {
-          return MaterialPageRoute(
-            builder: (_) => const LandingScreen(
-                // data: args,
-                ),
-          );
-        }
-        // If args is not of the correct type, return an error page.
-        // You can also throw an exception while in development.
-        return _errorRoute();
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case '/odds':
+        return MaterialPageRoute(builder: (_) => const OddOneOut());
+      case '/choose':
+        //We need to add for this one case
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case '/erect':
+        return MaterialPageRoute(builder: (_) => const ProperOrientation());
+      case '/counting':
+        return MaterialPageRoute(builder: (_) => const CountingScreen());
+      case '/colors':
+        return MaterialPageRoute(builder: (_) => const MatchingColors());
+      case '/a4apple':
+        return MaterialPageRoute(builder: (_) => const Phonics());
       default:
         // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
@@ -29,14 +33,7 @@ class RouteGenerator {
 
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute(builder: (_) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('Error'),
-        ),
-        body: const Center(
-          child: Text('ERROR'),
-        ),
-      );
+      return const HomeScreen();
     });
   }
 }
