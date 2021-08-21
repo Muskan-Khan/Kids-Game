@@ -140,7 +140,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                               ),
                               onTap: () {
                                 celebrate();
-                                Timer(const Duration(seconds: 3), () {
+                                Timer(const Duration(seconds: 2), () {
                                   refreshCountingScreen();
                                 });
                               }),
@@ -231,7 +231,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                               ),
                               onTap: () {
                                 celebrate();
-                                Timer(const Duration(seconds: 3), () {
+                                Timer(const Duration(seconds: 2), () {
                                   refreshCountingScreen();
                                 });
                               }),
@@ -346,7 +346,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                                 ),
                                 onTap: () {
                                   celebrate();
-                                  Timer(const Duration(seconds: 3), () {
+                                  Timer(const Duration(seconds: 2), () {
                                     refreshCountingScreen();
                                   });
                                 })))
@@ -386,7 +386,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                                 ),
                                 onTap: () {
                                   retry();
-                                  Timer(const Duration(seconds: 3), () {
+                                  Timer(const Duration(seconds: 2), () {
                                     refreshCountingScreen();
                                   });
                                 })))
@@ -410,7 +410,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                                 ),
                                 onTap: () {
                                   celebrate();
-                                  Timer(const Duration(seconds: 3), () {
+                                  Timer(const Duration(seconds: 2), () {
                                     refreshCountingScreen();
                                   });
                                 }))),
