@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:kids_game/main.dart';
 import 'HomeScreen/home_screen.dart';
 import 'Games/counting_screen.dart';
 import 'Games/Orientation.dart';

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'dart:math';
+import 'dart:async';
 import 'package:kids_game/Games/games_background.dart';
 
 class OddOneOut extends StatefulWidget {
@@ -115,6 +117,30 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
       Image.asset('assets/images/wilds/wolf.png', fit: BoxFit.contain)
     ]
   ];
+
+  late AudioPlayer player;
+  @override
+  void initState() {
+    super.initState();
+    player = AudioPlayer();
+  }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
+
+  void celebrate() {
+    player.setAsset('assets/audios/excellent.mp3');
+    player.play();
+  }
+
+  void retry() {
+    player.setAsset('assets/audios/tryagain.mp3');
+    player.play();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -127,7 +153,10 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               Material(
                   child: InkWell(
                 onTap: () {
-                  refreshCountingScreen();
+                  celebrate();
+                  Timer(const Duration(seconds: 2), () {
+                    refreshCountingScreen();
+                  });
                 },
                 child: ClipRect(
                     child: Container(
@@ -151,7 +180,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         child: imgs[widget.oddImageIndex + 1][1],
                       )),
                       onTap: () {
-                        refreshCountingScreen();
+                        retry();
                       }))
             ]),
         Container(
@@ -162,7 +191,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
           Material(
               child: InkWell(
             onTap: () {
-              refreshCountingScreen();
+              retry();
             },
             child: ClipRect(
                 child: Container(
@@ -186,7 +215,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                     child: imgs[widget.oddImageIndex + 1][3],
                   )),
                   onTap: () {
-                    refreshCountingScreen();
+                    retry();
                   }))
         ])
       ] else if (widget.oddImageIndex == 2 || widget.oddImageIndex == 3) ...[
@@ -197,7 +226,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               Material(
                   child: InkWell(
                 onTap: () {
-                  refreshCountingScreen();
+                  retry();
                 },
                 child: ClipRect(
                     child: Container(
@@ -221,7 +250,10 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         child: imgs[widget.oddImageIndex][widget.oddImageIndex],
                       )),
                       onTap: () {
-                        refreshCountingScreen();
+                        celebrate();
+                        Timer(const Duration(seconds: 2), () {
+                          refreshCountingScreen();
+                        });
                       }))
             ]),
         Container(
@@ -235,7 +267,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               Material(
                   child: InkWell(
                 onTap: () {
-                  refreshCountingScreen();
+                  retry();
                 },
                 child: ClipRect(
                     child: Container(
@@ -259,10 +291,10 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         child: imgs[widget.oddImageIndex + 1][3],
                       )),
                       onTap: () {
-                        refreshCountingScreen();
+                        retry();
                       }))
             ])
-      ] else if (widget.oddImageIndex == 4 || widget.oddImageIndex == 5) ...[
+      ] else if (widget.oddImageIndex == 4) ...[
         Row(
             textDirection: TextDirection.ltr,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -270,7 +302,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               Material(
                   child: InkWell(
                 onTap: () {
-                  refreshCountingScreen();
+                  retry();
                 },
                 child: ClipRect(
                     child: Container(
@@ -294,7 +326,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         child: imgs[widget.oddImageIndex + 1][2],
                       )),
                       onTap: () {
-                        refreshCountingScreen();
+                        retry();
                       }))
             ]),
         Container(
@@ -308,7 +340,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               Material(
                   child: InkWell(
                 onTap: () {
-                  refreshCountingScreen();
+                  retry();
                 },
                 child: ClipRect(
                     child: Container(
@@ -333,8 +365,89 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                             [widget.oddImageIndex - 2],
                       )),
                       onTap: () {
-                        refreshCountingScreen();
+                        celebrate();
+                        Timer(const Duration(seconds: 2), () {
+                          refreshCountingScreen();
+                        });
                       }))
+            ])
+      ] else ...[
+        Row(
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  retry();
+                },
+                child: ClipRect(
+                    child: Container(
+                  width: MediaQuery.of(context).size.width * 0.38,
+                  height: MediaQuery.of(context).size.width * 0.45,
+                  child: imgs[widget.oddImageIndex + 1][1],
+                )),
+              )),
+
+              //if()
+              Container(
+                height: 120.0,
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+              Material(
+                  child: InkWell(
+                      child: ClipRect(
+                          child: Container(
+                        width: MediaQuery.of(context).size.width * 0.38,
+                        height: MediaQuery.of(context).size.width * 0.45,
+                        child: imgs[widget.oddImageIndex + 1][2],
+                      )),
+                      onTap: () {
+                        retry();
+                      }))
+            ]),
+        Container(
+          height: 20.0,
+          width: 400,
+        ),
+        Row(
+            textDirection: TextDirection.ltr,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Material(
+                  child: InkWell(
+                      child: ClipRect(
+                          child: Container(
+                        width: MediaQuery.of(context).size.width * 0.38,
+                        height: MediaQuery.of(context).size.width * 0.45,
+                        child: imgs[widget.oddImageIndex]
+                            [widget.oddImageIndex - 2],
+                      )),
+                      onTap: () {
+                        celebrate();
+                        Timer(const Duration(seconds: 2), () {
+                          refreshCountingScreen();
+                        });
+                      })),
+              Container(
+                height: 120.0,
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+
+              Material(
+                  child: InkWell(
+                onTap: () {
+                  retry();
+                },
+                child: ClipRect(
+                    child: Container(
+                  width: MediaQuery.of(context).size.width * 0.38,
+                  height: MediaQuery.of(context).size.width * 0.45,
+                  child: imgs[widget.oddImageIndex + 1][3],
+                )),
+              )),
+
+              //if()
             ])
       ]
     ]));

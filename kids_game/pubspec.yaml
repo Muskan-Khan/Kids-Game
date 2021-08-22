@@ -93,7 +93,7 @@ flutter:
     - assets/audios/excellent.mp3
     - assets/audios/tryagain.mp3
     - assets/audios/great.mp3
-    - assets/carrace.mp4
+    # - assets/carrace.mp4
 
     - assets/images/birds/bird1.png
     - assets/images/birds/bird2.png
