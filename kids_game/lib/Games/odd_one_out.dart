@@ -24,7 +24,7 @@ class _OddOneOutState extends State<OddOneOut> {
       child: Stack(children: [
         GameBackground(),
         Container(
-          margin: const EdgeInsets.only(top: 30.0),
+          margin: const EdgeInsets.only(top: 30.0, left: 20.0),
           child: const Material(
             type: MaterialType.transparency,
             child: Text(
