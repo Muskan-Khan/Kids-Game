@@ -112,88 +112,338 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
   Widget build(BuildContext context) {
     return Center(
         child: Column(children: [
-      if (widget.alphabetIndex >= 0 && widget.alphabetIndex <= 6) ...[
-        Center(
-          child: Text(
-            alphabets[widget.alphabetIndex],
-            style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 80,
-                decoration: TextDecoration.none),
+      if (widget.alphabetIndex % 2 == 0) ...[
+        if (widget.alphabetIndex % 4 == 0) ...[
+          Center(
+            child: Text(
+              alphabets[widget.alphabetIndex],
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 80,
+                  decoration: TextDecoration.none),
+            ),
           ),
-        ),
-        Row(
-            textDirection: TextDirection.ltr,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Material(
-                  child: InkWell(
-                onTap: () {
-                  celebrate();
-                  Timer(const Duration(seconds: 2), () {
-                    refreshCountingScreen();
-                  });
-                },
-                child: ClipRect(
-                    child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.24,
-                  height: MediaQuery.of(context).size.width * 0.4,
-                  child: imgs[widget.alphabetIndex],
+          Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                  onTap: () {
+                    celebrate();
+                    Timer(const Duration(seconds: 2), () {
+                      refreshCountingScreen();
+                    });
+                  },
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[widget.alphabetIndex],
+                  )),
                 )),
-              )),
-              SizedBox(
-                height: 120.0,
-                width: MediaQuery.of(context).size.width * 0.1,
-              ),
-              Material(
-                  child: InkWell(
-                      child: ClipRect(
-                          child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.24,
-                        height: MediaQuery.of(context).size.width * 0.4,
-                        child: imgs[(widget.alphabetIndex + 1) % 5],
-                      )),
-                      onTap: () {
-                        retry();
-                      }))
-            ]),
-        const SizedBox(
-          height: 20.0,
-          width: 400,
-        ),
-        Row(
-            textDirection: TextDirection.ltr,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Material(
-                  child: InkWell(
-                onTap: () {
-                  retry();
-                },
-                child: ClipRect(
-                    child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.24,
-                  height: MediaQuery.of(context).size.width * 0.4,
-                  child: imgs[(widget.alphabetIndex + 3) % 5],
+                SizedBox(
+                  height: 120.0,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Material(
+                    child: InkWell(
+                        child: ClipRect(
+                            child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.24,
+                          height: MediaQuery.of(context).size.width * 0.4,
+                          child: imgs[(widget.alphabetIndex + 1) % 5],
+                        )),
+                        onTap: () {
+                          retry();
+                        }))
+              ]),
+          const SizedBox(
+            height: 20.0,
+            width: 400,
+          ),
+          Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                  onTap: () {
+                    retry();
+                  },
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[(widget.alphabetIndex + 3) % 5],
+                  )),
                 )),
-              )),
-              SizedBox(
-                height: 120.0,
-                width: MediaQuery.of(context).size.width * 0.1,
-              ),
-              Material(
-                  child: InkWell(
-                child: ClipRect(
-                    child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.24,
-                  height: MediaQuery.of(context).size.width * 0.4,
-                  child: imgs[(widget.alphabetIndex + 4) % 5],
+                SizedBox(
+                  height: 120.0,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Material(
+                    child: InkWell(
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[(widget.alphabetIndex + 4) % 5],
+                  )),
+                  onTap: () {
+                    retry();
+                  },
+                ))
+              ])
+        ] else ...[
+          Center(
+            child: Text(
+              alphabets[widget.alphabetIndex],
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 80,
+                  decoration: TextDecoration.none),
+            ),
+          ),
+          Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                        child: ClipRect(
+                            child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.24,
+                          height: MediaQuery.of(context).size.width * 0.4,
+                          child: imgs[(widget.alphabetIndex + 1) % 5],
+                        )),
+                        onTap: () {
+                          retry();
+                        })),
+                SizedBox(
+                  height: 120.0,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Material(
+                    child: InkWell(
+                  onTap: () {
+                    celebrate();
+                    Timer(const Duration(seconds: 2), () {
+                      refreshCountingScreen();
+                    });
+                  },
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[widget.alphabetIndex],
+                  )),
                 )),
-                onTap: () {
-                  retry();
-                },
-              ))
-            ])
+              ]),
+          const SizedBox(
+            height: 20.0,
+            width: 400,
+          ),
+          Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                  onTap: () {
+                    retry();
+                  },
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[(widget.alphabetIndex + 3) % 5],
+                  )),
+                )),
+                SizedBox(
+                  height: 120.0,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Material(
+                    child: InkWell(
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[(widget.alphabetIndex + 4) % 5],
+                  )),
+                  onTap: () {
+                    retry();
+                  },
+                ))
+              ])
+        ]
+      ] else ...[
+        if (widget.alphabetIndex % 3 == 0) ...[
+          Center(
+            child: Text(
+              alphabets[widget.alphabetIndex],
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 80,
+                  decoration: TextDecoration.none),
+            ),
+          ),
+          Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                        child: ClipRect(
+                            child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.24,
+                          height: MediaQuery.of(context).size.width * 0.4,
+                          child: imgs[(widget.alphabetIndex + 1) % 5],
+                        )),
+                        onTap: () {
+                          retry();
+                        })),
+                SizedBox(
+                  height: 120.0,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Material(
+                    child: InkWell(
+                  onTap: () {
+                    retry();
+                  },
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[(widget.alphabetIndex + 3) % 5],
+                  )),
+                )),
+              ]),
+          const SizedBox(
+            height: 20.0,
+            width: 400,
+          ),
+          Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                  onTap: () {
+                    celebrate();
+                    Timer(const Duration(seconds: 2), () {
+                      refreshCountingScreen();
+                    });
+                  },
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[widget.alphabetIndex],
+                  )),
+                )),
+                SizedBox(
+                  height: 120.0,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Material(
+                    child: InkWell(
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[(widget.alphabetIndex + 4) % 5],
+                  )),
+                  onTap: () {
+                    retry();
+                  },
+                ))
+              ])
+        ] else ...[
+          Center(
+            child: Text(
+              alphabets[widget.alphabetIndex],
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 80,
+                  decoration: TextDecoration.none),
+            ),
+          ),
+          Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                        child: ClipRect(
+                            child: SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.24,
+                          height: MediaQuery.of(context).size.width * 0.4,
+                          child: imgs[(widget.alphabetIndex + 1) % 5],
+                        )),
+                        onTap: () {
+                          retry();
+                        })),
+                SizedBox(
+                  height: 120.0,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Material(
+                    child: InkWell(
+                  onTap: () {
+                    retry();
+                  },
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[(widget.alphabetIndex + 3) % 5],
+                  )),
+                )),
+              ]),
+          const SizedBox(
+            height: 20.0,
+            width: 400,
+          ),
+          Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Material(
+                    child: InkWell(
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[(widget.alphabetIndex + 4) % 5],
+                  )),
+                  onTap: () {
+                    retry();
+                  },
+                )),
+                SizedBox(
+                  height: 120.0,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Material(
+                    child: InkWell(
+                  onTap: () {
+                    celebrate();
+                    Timer(const Duration(seconds: 2), () {
+                      refreshCountingScreen();
+                    });
+                  },
+                  child: ClipRect(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.24,
+                    height: MediaQuery.of(context).size.width * 0.4,
+                    child: imgs[widget.alphabetIndex],
+                  )),
+                )),
+              ])
+        ]
       ]
     ]));
   }
