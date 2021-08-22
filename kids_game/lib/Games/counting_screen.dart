@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'dart:async';
 import 'package:kids_game/Games/games_background.dart';
 
 class CountingScreen extends StatefulWidget {
@@ -25,7 +26,7 @@ class _CountingScreenState extends State<CountingScreen> {
       child: Stack(children: [
         GameBackground(),
         Container(
-          margin: const EdgeInsets.only(top: 30.0),
+          margin: const EdgeInsets.only(top: 30.0, left: 30.0),
           child: const Material(
             type: MaterialType.transparency,
             child: Text(
@@ -400,8 +401,9 @@ class _DisplayOptionCardState extends State<DisplayOptionCard> {
           onTap: () {
             if (widget.optionValue == widget.rightAnswer) {
               celebrate();
-
-              widget.changeOptions();
+              Timer(const Duration(seconds: 2), () {
+                widget.changeOptions();
+              });
             } else {
               retry();
             }
