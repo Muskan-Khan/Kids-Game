@@ -138,12 +138,12 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[widget.alphabetIndex],
                   )),
                 )),
                 SizedBox(
-                  height: 120.0,
+                  height: 110.0,
                   width: MediaQuery.of(context).size.width * 0.1,
                 ),
                 Material(
@@ -151,7 +151,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         child: ClipRect(
                             child: SizedBox(
                           width: MediaQuery.of(context).size.width * 0.24,
-                          height: MediaQuery.of(context).size.width * 0.4,
+                          height: MediaQuery.of(context).size.width * 0.38,
                           child: imgs[(widget.alphabetIndex + 1) % 5],
                         )),
                         onTap: () {
@@ -159,7 +159,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         }))
               ]),
           const SizedBox(
-            height: 20.0,
+            height: 15.0,
             width: 400,
           ),
           Row(
@@ -174,7 +174,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[(widget.alphabetIndex + 3) % 5],
                   )),
                 )),
@@ -187,7 +187,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[(widget.alphabetIndex + 4) % 5],
                   )),
                   onTap: () {
@@ -214,14 +214,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         child: ClipRect(
                             child: SizedBox(
                           width: MediaQuery.of(context).size.width * 0.24,
-                          height: MediaQuery.of(context).size.width * 0.4,
+                          height: MediaQuery.of(context).size.width * 0.38,
                           child: imgs[(widget.alphabetIndex + 1) % 5],
                         )),
                         onTap: () {
                           retry();
                         })),
                 SizedBox(
-                  height: 120.0,
+                  height: 110.0,
                   width: MediaQuery.of(context).size.width * 0.1,
                 ),
                 Material(
@@ -235,13 +235,13 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[widget.alphabetIndex],
                   )),
                 )),
               ]),
           const SizedBox(
-            height: 20.0,
+            height: 15.0,
             width: 400,
           ),
           Row(
@@ -256,12 +256,12 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[(widget.alphabetIndex + 3) % 5],
                   )),
                 )),
                 SizedBox(
-                  height: 120.0,
+                  height: 110.0,
                   width: MediaQuery.of(context).size.width * 0.1,
                 ),
                 Material(
@@ -269,7 +269,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[(widget.alphabetIndex + 4) % 5],
                   )),
                   onTap: () {
@@ -298,14 +298,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         child: ClipRect(
                             child: SizedBox(
                           width: MediaQuery.of(context).size.width * 0.24,
-                          height: MediaQuery.of(context).size.width * 0.4,
+                          height: MediaQuery.of(context).size.width * 0.38,
                           child: imgs[(widget.alphabetIndex + 1) % 5],
                         )),
                         onTap: () {
                           retry();
                         })),
                 SizedBox(
-                  height: 120.0,
+                  height: 110.0,
                   width: MediaQuery.of(context).size.width * 0.1,
                 ),
                 Material(
@@ -316,13 +316,13 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[(widget.alphabetIndex + 3) % 5],
                   )),
                 )),
               ]),
           const SizedBox(
-            height: 20.0,
+            height: 15.0,
             width: 400,
           ),
           Row(
@@ -340,12 +340,12 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[widget.alphabetIndex],
                   )),
                 )),
                 SizedBox(
-                  height: 120.0,
+                  height: 110.0,
                   width: MediaQuery.of(context).size.width * 0.1,
                 ),
                 Material(
@@ -353,7 +353,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[(widget.alphabetIndex + 4) % 5],
                   )),
                   onTap: () {
@@ -380,14 +380,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         child: ClipRect(
                             child: SizedBox(
                           width: MediaQuery.of(context).size.width * 0.24,
-                          height: MediaQuery.of(context).size.width * 0.4,
+                          height: MediaQuery.of(context).size.width * 0.38,
                           child: imgs[(widget.alphabetIndex + 1) % 5],
                         )),
                         onTap: () {
                           retry();
                         })),
                 SizedBox(
-                  height: 120.0,
+                  height: 110.0,
                   width: MediaQuery.of(context).size.width * 0.1,
                 ),
                 Material(
@@ -398,13 +398,13 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[(widget.alphabetIndex + 3) % 5],
                   )),
                 )),
               ]),
           const SizedBox(
-            height: 20.0,
+            height: 15.0,
             width: 400,
           ),
           Row(
@@ -416,7 +416,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[(widget.alphabetIndex + 4) % 5],
                   )),
                   onTap: () {
@@ -424,7 +424,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   },
                 )),
                 SizedBox(
-                  height: 120.0,
+                  height: 110.0,
                   width: MediaQuery.of(context).size.width * 0.1,
                 ),
                 Material(
@@ -438,7 +438,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   child: ClipRect(
                       child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.24,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                    height: MediaQuery.of(context).size.width * 0.38,
                     child: imgs[widget.alphabetIndex],
                   )),
                 )),
