@@ -22,7 +22,7 @@ class _OddOneOutState extends State<OddOneOut> {
   Widget build(BuildContext context) {
     return Center(
       child: Stack(children: [
-        GameBackground(),
+        const GameBackground(),
         Container(
           margin: const EdgeInsets.only(top: 30.0, left: 20.0),
           child: const Material(
@@ -159,7 +159,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   });
                 },
                 child: ClipRect(
-                    child: Container(
+                    child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.38,
                   height: MediaQuery.of(context).size.width * 0.45,
                   child: imgs[widget.oddImageIndex][widget.oddImageIndex],
@@ -167,14 +167,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               )),
 
               //if()
-              Container(
+              SizedBox(
                 height: 120.0,
                 width: MediaQuery.of(context).size.width * 0.1,
               ),
               Material(
                   child: InkWell(
                       child: ClipRect(
-                          child: Container(
+                          child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.38,
                         height: MediaQuery.of(context).size.width * 0.45,
                         child: imgs[widget.oddImageIndex + 1][1],
@@ -183,7 +183,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         retry();
                       }))
             ]),
-        Container(
+        const SizedBox(
           height: 20.0,
           width: 400,
         ),
@@ -194,7 +194,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               retry();
             },
             child: ClipRect(
-                child: Container(
+                child: SizedBox(
               width: MediaQuery.of(context).size.width * 0.38,
               height: MediaQuery.of(context).size.width * 0.35,
               child: imgs[widget.oddImageIndex + 1][2],
@@ -202,14 +202,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
           )),
 
           //if()
-          Container(
+          SizedBox(
             height: 120.0,
             width: MediaQuery.of(context).size.width * 0.1,
           ),
           Material(
               child: InkWell(
                   child: ClipRect(
-                      child: Container(
+                      child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.38,
                     height: MediaQuery.of(context).size.width * 0.45,
                     child: imgs[widget.oddImageIndex + 1][3],
@@ -229,7 +229,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   retry();
                 },
                 child: ClipRect(
-                    child: Container(
+                    child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.38,
                   height: MediaQuery.of(context).size.width * 0.45,
                   child: imgs[widget.oddImageIndex + 1][1],
@@ -237,14 +237,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               )),
 
               //if()
-              Container(
+              SizedBox(
                 height: 120.0,
                 width: MediaQuery.of(context).size.width * 0.1,
               ),
               Material(
                   child: InkWell(
                       child: ClipRect(
-                          child: Container(
+                          child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.38,
                         height: MediaQuery.of(context).size.width * 0.45,
                         child: imgs[widget.oddImageIndex][widget.oddImageIndex],
@@ -256,7 +256,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         });
                       }))
             ]),
-        Container(
+        const SizedBox(
           height: 20.0,
           width: 400,
         ),
@@ -270,7 +270,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   retry();
                 },
                 child: ClipRect(
-                    child: Container(
+                    child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.38,
                   height: MediaQuery.of(context).size.width * 0.45,
                   child: imgs[widget.oddImageIndex + 1][2],
@@ -278,14 +278,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               )),
 
               //if()
-              Container(
+              SizedBox(
                 height: 120.0,
                 width: MediaQuery.of(context).size.width * 0.1,
               ),
               Material(
                   child: InkWell(
                       child: ClipRect(
-                          child: Container(
+                          child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.38,
                         height: MediaQuery.of(context).size.width * 0.45,
                         child: imgs[widget.oddImageIndex + 1][3],
@@ -305,7 +305,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   retry();
                 },
                 child: ClipRect(
-                    child: Container(
+                    child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.38,
                   height: MediaQuery.of(context).size.width * 0.45,
                   child: imgs[widget.oddImageIndex + 1][1],
@@ -313,14 +313,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               )),
 
               //if()
-              Container(
+              SizedBox(
                 height: 120.0,
                 width: MediaQuery.of(context).size.width * 0.1,
               ),
               Material(
                   child: InkWell(
                       child: ClipRect(
-                          child: Container(
+                          child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.38,
                         height: MediaQuery.of(context).size.width * 0.45,
                         child: imgs[widget.oddImageIndex + 1][2],
@@ -329,7 +329,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         retry();
                       }))
             ]),
-        Container(
+        const SizedBox(
           height: 20.0,
           width: 400,
         ),
@@ -343,7 +343,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   retry();
                 },
                 child: ClipRect(
-                    child: Container(
+                    child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.38,
                   height: MediaQuery.of(context).size.width * 0.45,
                   child: imgs[widget.oddImageIndex + 1][3],
@@ -351,14 +351,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               )),
 
               //if()
-              Container(
+              SizedBox(
                 height: 120.0,
                 width: MediaQuery.of(context).size.width * 0.1,
               ),
               Material(
                   child: InkWell(
                       child: ClipRect(
-                          child: Container(
+                          child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.38,
                         height: MediaQuery.of(context).size.width * 0.45,
                         child: imgs[widget.oddImageIndex]
@@ -382,7 +382,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   retry();
                 },
                 child: ClipRect(
-                    child: Container(
+                    child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.38,
                   height: MediaQuery.of(context).size.width * 0.45,
                   child: imgs[widget.oddImageIndex + 1][1],
@@ -390,14 +390,14 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               )),
 
               //if()
-              Container(
+              SizedBox(
                 height: 120.0,
                 width: MediaQuery.of(context).size.width * 0.1,
               ),
               Material(
                   child: InkWell(
                       child: ClipRect(
-                          child: Container(
+                          child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.38,
                         height: MediaQuery.of(context).size.width * 0.45,
                         child: imgs[widget.oddImageIndex + 1][2],
@@ -406,7 +406,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         retry();
                       }))
             ]),
-        Container(
+        const SizedBox(
           height: 20.0,
           width: 400,
         ),
@@ -417,7 +417,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
               Material(
                   child: InkWell(
                       child: ClipRect(
-                          child: Container(
+                          child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.38,
                         height: MediaQuery.of(context).size.width * 0.45,
                         child: imgs[widget.oddImageIndex]
@@ -429,7 +429,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                           refreshCountingScreen();
                         });
                       })),
-              Container(
+              SizedBox(
                 height: 120.0,
                 width: MediaQuery.of(context).size.width * 0.1,
               ),
@@ -440,7 +440,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   retry();
                 },
                 child: ClipRect(
-                    child: Container(
+                    child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.38,
                   height: MediaQuery.of(context).size.width * 0.45,
                   child: imgs[widget.oddImageIndex + 1][3],

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:kids_game/HomeScreen/background.dart';
 
 class GameBackground extends StatelessWidget {
+  const GameBackground({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Background(),
+        const Background(),
         Container(
           padding: EdgeInsets.only(
             top: MediaQuery.of(context).size.height * 0.835,

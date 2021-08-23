@@ -1,17 +1,12 @@
-// import 'package:flutter/material.dart';
-// // import 'HomeScreen/home_screen.dart';
-
-// void main() {
-//   runApp(MyApp());
-// }
-
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Background());
+  runApp(const Background());
 }
 
 class Background extends StatelessWidget {
+  const Background({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +17,7 @@ class Background extends StatelessWidget {
       body: ClipPath(
         clipper: ShadeOfCloud(),
         child: Container(
-          color: Color(0xff14C7DF),
+          color: const Color(0xff14C7DF),
           // height: 118.0,
         ),
       ),
@@ -33,7 +28,7 @@ class Background extends StatelessWidget {
 class ShadeOfCloud extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    Path path = new Path();
+    Path path = Path();
     path.moveTo(0, size.height / 4);
     path.quadraticBezierTo(
         size.width / 5.5, size.height / 3.5, size.width / 4, size.height / 5);

@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Background(),
+        const Background(),
         SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             )),
-        Foreground()
+        const Foreground()
       ],
     );
   }

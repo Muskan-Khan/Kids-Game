@@ -22,9 +22,9 @@ class _MatchingColorsState extends State<MatchingColors> {
   Widget build(BuildContext context) {
     return Center(
       child: Stack(children: [
-        GameBackground(),
+        const GameBackground(),
         Container(
-          margin: EdgeInsets.only(top: 30.0, left: 20.0),
+          margin: const EdgeInsets.only(top: 30.0, left: 20.0),
           child: const Material(
             type: MaterialType.transparency,
             child: Text(

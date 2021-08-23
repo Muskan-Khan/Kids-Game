@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-
+@immutable
 class DisplayCard extends StatelessWidget {
   final String _cardText;
   final String _cardRoute;
   final Color _color;
 
-  DisplayCard(this._cardText, this._cardRoute, this._color);
+  // ignore: prefer_const_constructors_in_immutables
+  DisplayCard(this._cardText, this._cardRoute, this._color, {Key? key})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;

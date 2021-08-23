@@ -22,7 +22,7 @@ class _PhonicsState extends State<Phonics> {
     return Center(
         child: Stack(
       children: [
-        GameBackground(),
+        const GameBackground(),
         Container(
           margin: const EdgeInsets.only(top: 30.0, left: 20.0),
           child: const Material(
@@ -142,6 +142,9 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                     child: imgs[widget.alphabetIndex],
                   )),
                 )),
+
+                //For whitespaces SizedBox is recommended over Container
+
                 SizedBox(
                   height: 110.0,
                   width: MediaQuery.of(context).size.width * 0.1,
@@ -158,6 +161,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                           retry();
                         }))
               ]),
+          //For whitespaces SizedBox is recommended over Container
           const SizedBox(
             height: 15.0,
             width: 400,
@@ -178,6 +182,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                     child: imgs[(widget.alphabetIndex + 3) % 5],
                   )),
                 )),
+                //For whitespaces SizedBox is recommended over Container
                 SizedBox(
                   height: 120.0,
                   width: MediaQuery.of(context).size.width * 0.1,
@@ -220,6 +225,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                         onTap: () {
                           retry();
                         })),
+                //For whitespaces SizedBox is recommended over Container
                 SizedBox(
                   height: 110.0,
                   width: MediaQuery.of(context).size.width * 0.1,
@@ -240,6 +246,7 @@ class _InstanceOfGameState extends State<InstanceOfGame> {
                   )),
                 )),
               ]),
+          //For whitespaces SizedBox is recommended over Container
           const SizedBox(
             height: 15.0,
             width: 400,
